@@ -1,0 +1,410 @@
+<!-- Hero Section Begin -->
+<section class="hero ">
+    <div class="hero__slider owl-carousel">
+        <div class="hero__items set-bg" data-setbg="/images/userHome/hero_tree.webp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8 ms-lg-5">
+                        <div class="hero__text">
+                            <h6>Tree Collection</h6>
+                            <h2>Attractive Christmas Tree Collection</h2>
+                            <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
+                                commitment to exceptional quality.</p>
+                            <a href="/Christmas%20tree" class="primary-btn">Shop now </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__items set-bg" data-setbg="/images/userHome/hero_ornaments.webp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8 ms-lg-5">
+                        <div class="hero__text">
+                            <h6>Ornaments Collection</h6>
+                            <h2>Beautiful Christmas Ornaments Collection</h2>
+                            <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
+                                commitment to exceptional quality.</p>
+                            <a href="/Christmas%20Ornaments" class="primary-btn">Shop now </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__items set-bg" data-setbg="/images/userHome/hero_lights.webp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8 ms-lg-5">
+                        <div class="hero__text">
+                            <h6>Light Collection</h6>
+                            <h2>Holiday Lights Collection</h2>
+                            <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
+                                commitment to exceptional quality.</p>
+                            <a href="/Holiday%20lights" class="primary-btn">Shop now </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Banner Section Begin -->
+<section class="banner spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 offset-lg-4">
+                <div class="banner__item">
+                    <div class="banner__item__pic">
+                        <img src="/images/products/lights.webp" alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2>Lights Collections</h2>
+                        <a href="/Holiday%20lights">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 ps-5">
+                <div class="banner__item banner__item--middle">
+                    <div class="banner__item__pic">
+                        <img src="/images/products/tree.webp" alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2>Tree Collection</h2>
+                        <a href="/Christmas%20tree">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="banner__item banner__item--last">
+                    <div class="banner__item__pic">
+                        <img src="/images/products/orna.webp" alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2>Ornaments Collections</h2>
+                        <a href="/Christmas%20Ornaments">Shop now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Section End -->
+
+<!-- Product Section Begin -->
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="filter__controls">
+                    <li class="active" data-filter="*">Featured Products</li>
+                    <li data-filter=".new-arrivals">New Arrivals</li>
+                    <li data-filter=".hot-sales">Hot Sales</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row product__filter">
+            {{#each newProducts}}
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{{images.image1}}">
+                        <span class="label">New</span>
+
+                    </div>
+                    <div class="product__item__text">
+                        <h6>{{Pname}}</h6>
+                        <a class="add-cart">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#{{_id}}">
+                                Quick View
+                            </button>
+                        </a>
+                        <!-- Button trigger modal -->
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Product Quick View</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- Shop Details Section Begin -->
+                                                <section class="shop-details row">
+                                                    <div class="product__details__pic col-6 mb-1">
+                                                        
+                                                            
+                                                            <div class="detail-gallery">
+                                                                
+                                                                <!-- MAIN SLIDES -->
+                                                                <div class="d-flex justify-content-center">
+                                                                    <div class="product-image-slider w-50">
+                                                                    <figure class="border-radius-10 m-0 p-0">
+                                                                        <img class=" border rounded object-fit-cover" src="{{images.image1}}" alt="product image">
+                                                                    </figure>
+                                                                    <figure class="border-radius-10 m-0 p-0">
+                                                                        <img src="{{images.image2}}" alt="product image">
+                                                                    </figure>
+                                                                    <figure class="border-radius-10 m-0 p-0">
+                                                                        <img src="{{images.image3}}" alt="product image">
+                                                                    </figure>
+                                                                    <figure class="border-radius-10 m-0 p-0">
+                                                                        <img src="{{images.image4}}" alt="product image">
+                                                                    </figure>
+                                                                    <figure class="border-radius-10 m-0 p-0">
+                                                                        <img src="{{images.image5}}" alt="product image">
+                                                                    </figure>
+                                                                </div>
+                                                                </div>
+                                                                
+                                                                <!-- THUMBNAILS -->
+                                                                <div class="slider-nav-thumbnails pl-15 pr-15">
+                                                                    <div><img src="{{images.image1}}" alt="product image"></div>
+                                                                    <div><img src="{{images.image2}}" alt="product image"></div>
+                                                                    <div><img src="{{images.image3}}" alt="product image"></div>
+                                                                    <div><img src="{{images.image4}}" alt="product image"></div>
+                                                                    <div><img src="{{images.image5}}" alt="product image"></div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <!-- End Gallery -->
+                           
+                                                       
+                                                    </div>
+                                                    <div class="product__details__content mt-2 col-6">
+                                                        <div class="container">
+                                                            <div class="row d-flex justify-content-center">
+                                                                <div class="col-lg-8">
+                                                                    <div class="product__details__text">
+                                                                        <h4>{{Pname}}</h4>
+                                                                        {{!-- <div class="rating">
+                                                                            <i class="fa fa-star"></i>
+                                                                            <i class="fa fa-star"></i>
+                                                                            <i class="fa fa-star"></i>
+                                                                            <i class="fa fa-star"></i>
+                                                                            <i class="fa fa-star-o"></i>
+                                                                            <span> - 5 Reviews</span>
+                                                                        </div> --}}
+                                                                        <h3>{{Price}}&#8377</h3>
+                                                                        <p>{{Description}}</p>
+                                                                        <div
+                                                                            class="product__details__cart__option mt-1">
+                                                                            <div class="quantity">
+                                                                                <div class="pro-qty  ">
+                                                                                    <input type="text" value="1">
+                                                                                    <button
+                                                                                        onclick="addToCart('{{_id}}')"
+                                                                                        class="btn btn-secondary mt-2 w-100 btn-sm p-0 ">
+                                                                                        Add to cart
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {{!-- <div>
+                                                                    <a class="btn btn-secondary ">Add to cart</a>
+                                                                </div> --}}
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <!-- Shop Details Section End -->
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <h5>{{Price}}&#8377</h5>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{#each hotSaleProducts}}
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="/images/prodimg/{{_id}}.jpg">
+                        <span class="label">Hot</span>
+                        <ul class="product__hover">
+                           
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>{{Pname}}</h6>
+                        <a href="#" class="add-cart">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#{{_id}}">
+                                Quick View
+                            </button>
+                        </a>
+                         <div class="modal fade" id="{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Product Quick View</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container mt-4">
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="mt-2 col col-8 col-md-6 d-flex justify-content-center">
+                                                    <div class="col col-8" id="zoomContainer">
+                                                        <img src="/images/prodimg/{{_id}}.jpg"
+                                                            class="object-fit-fill border rounded w-100 prodImage" />
+                                                    </div>
+
+                                                </div>
+                                                <div class="col col-8 col-md-6 mt-2">
+                                                    <h4>
+                                                        {{Pname}}
+                                                    </h4>
+                                                    <h5 class="mt-3">
+                                                        {{Price}}&#8377
+                                                    </h5>
+
+                                                    <div class="col col-2 mt-3">
+                                                        <input name="Pname" type="number" id="form5Example1"
+                                                            class="form-control" />
+                                                        <label class="form-label" for="form5Example1">Quantity</label>
+                                                    </div>
+
+                                                    <h5 class="mt-2">
+                                                        Product Info
+                                                    </h5>
+                                                    <h6>
+                                                        {{Description}}
+                                                    </h6>
+
+                                                    <div class="mt-4">
+                                                        <button onclick="addToCart('{{_id}}')" type="button"
+                                                            class="btn btn-secondary btn-rounded w-100 mb-3">Add to
+                                                            cart</button>
+                                                        <button type="button"
+                                                            class="btn btn-secondary btn-rounded w-100 mb-3">Buy
+                                                            now</button>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <h5>{{Price}}&#8377</h5>
+
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+<!-- Product Section End -->
+
+<!-- Categories Section Begin -->
+<section class="categories spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="categories__text">
+                    <h2>Tree Collection <br /> <span>Ornaments Collection</span> <br /> Lights Collection</h2>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="categories__hot__deal">
+                    <img src="/images/userHome/banner_ornaments.png" alt="">
+                    <div class="hot__deal__sticker">
+                        <span>Extra</span>
+                        <h5>10%</h5>
+                        <span>Off</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 offset-lg-1">
+                <div class="categories__deal__countdown">
+                    <span>Deal Of The Month</span>
+                    <h2>10% Off On All Ornaments Collections</h2>
+                    <div class="categories__deal__countdown__timer" id="countdown">
+                        <div class="cd-item">
+                            <span>3</span>
+                            <p>Days</p>
+                        </div>
+                        <div class="cd-item">
+                            <span>1</span>
+                            <p>Hours</p>
+                        </div>
+                        <div class="cd-item">
+                            <span>50</span>
+                            <p>Minutes</p>
+                        </div>
+                        <div class="cd-item">
+                            <span>18</span>
+                            <p>Seconds</p>
+                        </div>
+                    </div>
+                    <a href="/Christmas%20Ornaments" class="primary-btn">Shop now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Categories Section End -->
+
+
+<script>
+    const quickView = (id) => {
+        console.log(id)
+        $.ajax({
+            url: '/quickView/' + id,
+            type: 'get',
+            success: (response) => {
+                if (response.status) {
+                    location.reload()
+                }
+            }
+
+        })
+    }
+
+</script>
+<!-- Js Plugins -->
+<script src="userJs/jquery-3.3.1.min.js"></script>
+<script src="userJs/bootstrap.min.js"></script>
+<script src="userJs/jquery.nice-select.min.js"></script>
+<script src="userJs/jquery.nicescroll.min.js"></script>
+<script src="userJs/jquery.magnific-popup.min.js"></script>
+<script src="userJs/jquery.countdown.min.js"></script>
+<script src="userJs/jquery.slicknav.js"></script>
+<script src="userJs/mixitup.min.js"></script>
+<script src="userJs/owl.carousel.min.js"></script>
+<script src="userJs/main.js"></script>
+
+{{!-- eva js plugins  --}}
+ <script src="evaraJs/plugins/wow.js"></script>
+    <script src="evaraJs/plugins/select2.min.js"></script>
+    <script src="evaraJs/plugins/counterup.js"></script>
+    <script src="evaraJs/plugins/images-loaded.js"></script>
+    <script src="evaraJs/plugins/scrollup.js"></script>
+    <script src="evaraJs/plugins/slick.js"></script>
+    <script src="evaraJs/plugins/jquery.elevatezoom.js"></script>
+    <!-- Template  JS -->
+    <script src="evaraJs/main.js"></script>
+    <script src="evaraJs/shop.js"></script>

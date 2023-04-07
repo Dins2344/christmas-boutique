@@ -1,0 +1,90 @@
+<div class="text-center position-sticky" style="background-color: rgb(178, 182, 182); display: flex; flex-direction: column; justify-content: center;" >
+  <a class="navbar-brand" href="#">
+    <h4 style="font-family:Times New Roman, Times, serif; font-style: italic;" class="pt-3">
+      CHRISTMAS BOUTIQUE
+    </h4>
+  </a>
+  <h6 style="font-family:Times New Roman, Times, serif; font-style: italic; ">
+      Admin Panel
+    </h6>
+</div>
+
+<nav
+  style="background-color: rgb(178, 182, 182);"
+  {{!-- class="navbar navbar-expand-lg" --}}
+>
+
+  <div class="container-fluid">
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarScroll"
+      aria-controls="navbarScroll"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul
+        class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+        style="--bs-scroll-height: 100px;"
+      >
+      {{#if adminInfo}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/admin">admin Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/viewusers">View Users</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="/admin/viewproducts">View Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/addproduct">Add Product</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            More
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/admin/category">Category Management</a></li>
+            <li><a class="dropdown-item" href="/admin/coupons">Coupons Managements</a></li>
+            <li><a class="dropdown-item" href="/admin/orders">Order Managements</a></li>
+            <li><a class="dropdown-item" href="/admin/offers">Offer Managements</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Link</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">admin Panel</a>
+        </li>
+        {{/if}}
+      </ul>
+      
+       <form class="d-flex" >
+        {{#if adminInfo}}
+        <a class="btn" href="/admin/logout">Logout</a>
+          {{else}}
+        {{!-- <span class="material-symbols-outlined">login</span> --}}
+        <a class="btn" href="/admin/login">Login</a>
+        {{/if}}
+      </form>
+    </div>
+  </div>
+</nav>
+
+{{!-- admin side ajax functions --}}
+<script src="/javascripts/admin.js"></script>

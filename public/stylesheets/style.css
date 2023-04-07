@@ -1,0 +1,155 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+.a-tag { color: #050505; border: none;}
+
+
+#zoomContainer{
+  overflow: hidden;
+}
+
+.footerbody {
+  background: #ff5f6d;
+  background: -webkit-linear-gradient(to right, #00001a, #00004d);
+  background: linear-gradient(to right, #00001a, #00004d);
+  min-height: 100vh;
+  font-family: 'Sanchez', serif;
+  margin-top: 80px;
+}
+
+#button-addon1 {
+  color: #ffc371;
+}
+
+i {
+  color: #0000cc;
+  font-size: 20px;}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.form-control.shadow-0:focus {
+  box-shadow: none;
+}
+
+
+
+p{
+  font-family: 'Tajawal', sans-serif;
+}
+
+.lead{
+  font-family: 'Sanchez 200', serif;
+}
+
+/* user info dtails css */
+
+/* body {
+  background: rgb(99, 39, 120)
+} */
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #BA68C8
+}
+
+.profile-button {
+  background: rgb(99, 39, 120);
+  box-shadow: none;
+  border: none
+}
+
+.profile-button:hover {
+  background: #682773
+}
+
+.profile-button:focus {
+  background: #682773;
+  box-shadow: none
+}
+
+.profile-button:active {
+  background: #682773;
+  box-shadow: none
+}
+
+.back:hover {
+  color: #682773;
+  cursor: pointer
+}
+
+.labels {
+  font-size: 11px
+}
+
+.add-experience:hover {
+  background: #BA68C8;
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px #BA68C8
+}
+
+
+/* usermenu items styling */
+
+#usermenuitems:active{
+  color: rgb(196, 50, 50);
+}
+
+
+/* table searching styles */
+
+.panel .panel-heading{
+  padding: 20px 15px;
+  border-radius: 10px 10px 0 0;
+  margin: 0;
+}
+.panel .panel-heading .title{
+  color: #fff;
+  font-size: 28px;
+  font-weight: 500;
+  text-transform: capitalize;
+  line-height: 40px;
+  margin: 0;
+}
+.panel .panel-heading .btn{
+  color: rgba(255,255,255,0.5);
+  background: transparent;
+  font-size: 16px;
+  text-transform: capitalize;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  transition: all 0.3s ease 0s;
+}
+.panel .panel-heading .btn:hover{
+  color: #fff;
+  text-shadow: 3px 3px rgba(255,255,255,0.2);
+}
+.panel .panel-heading .form-control{
+  color: #fff;
+  background-color: transparent;
+  width: 35%;
+  height: 40px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+.panel .panel-heading .form-control:focus{
+  background-color: rgba(255,255,255,0.2);
+  box-shadow: none;
+  outline: none;
+}
+.panel .panel-heading .form-control::placeholder{
+  color: rgba(255,255,255,0.5);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+
+/* coupon page styling */
+
+

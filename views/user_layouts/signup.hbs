@@ -1,0 +1,129 @@
+<div class="container d-flex justify-content-center mt-5 mb-5">
+  <div style="background-color: rgb(242, 242, 242);" class="col-10 col-sm-6 col-md-5  rounded-4 p-3 shadow ">
+    <div class="text-center mb-3">
+    <h3>Sign Up</h3>
+    </div>
+    <form id="submit-form" method="post" action="/signup" novalidate>
+      {{#if emailerr}}
+        <p style="color: red;">
+          {{emailerr}}
+        </p>
+      {{/if}}
+      {{#if passerr}}
+        <p style="color: red;">
+          {{passerr}}
+        </p>
+      {{/if}}
+      <!-- names input -->
+      <div class="row">
+        <div class="form-outline mb-4 col-6">
+          <input
+            name="Fname"
+            type="text"
+            id="fname"
+            class="form-control"
+            onkeyup="checkUsername()"
+          />
+          <label class="form-label" for="form5Example2">First name</label><br />
+          <span id="fNameErr" class="text-danger"></span>
+        </div>
+
+        <div class="form-outline mb-4 col-6">
+          <input
+            name="Lname"
+            type="text"
+            id="lname"
+            class="form-control"
+            onkeyup="checkLastUsername()"
+          />
+          <label class="form-label" for="form5Example2">Last name</label><br />
+          <span id="lNameErr" class="text-danger"></span>
+        </div>
+      </div>
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input
+          name="email"
+          type="email"
+          id="lemail"
+          class="form-control"
+          onkeyup="checkEmail()"
+        />
+        <label class="form-label" for="form2Example1">Email address</label><br
+        />
+        <span id="emailErr" class="text-danger"></span>
+
+      </div>
+      <!-- phone number input -->
+      <div class="form-outline mb-4">
+        <input
+          name="Pnumber"
+          type="tel"
+          id="PNumber"
+          class="form-control"
+          onkeyup="checkPhoneNumber()"
+        />
+        <label class="form-label" for="form2Example1">Phone number</label><br />
+        <span id="PNumberErr" class="text-danger"></span>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input
+          name="password"
+          type="password"
+          id="firstP"
+          class="form-control"
+          oninput="checkPassword()"
+        />
+        <div>
+          <label class="form-label" for="form2Example2">Password</label>
+          <i
+            style="margin-left:6px ; cursor: pointer; color: black;"
+            onclick="seeP()"
+            id="seeP"
+            class="fa fa-eye"
+            aria-hidden="true"
+          ></i><br />
+          <span id="passwordErr" class="text-danger"></span>
+        </div>
+      </div>
+
+      <div class="form-outline mb-4">
+        <input
+          name="cpassword"
+          type="password"
+          id="secondCP"
+          class="form-control"
+        />
+        <label class="form-label" for="form2Example2">Confirm password</label>
+        <i
+          style="margin-left:6px ; cursor: pointer; color: black;"
+          onclick="seeCP()"
+          id="seeCP"
+          class="fa fa-eye"
+          aria-hidden="true"
+        ></i>
+
+      </div>
+
+      <!-- 2 column grid layout for inline styling -->
+      <div class="row mb-4">
+        <div class="col d-flex justify-content-center">
+
+        </div>
+
+      </div>
+
+      <!-- Submit button -->
+      <button onclick="return signUpSubmitCheck()" type="submit" class="rounded-pill btn btn-outline-secondary btn-block mb-4 w-100">Sign up</button>
+      <span id="submitErr" class="text-danger"></span>
+      <div class="">
+        <p> <a href="/login">Go back</a></p>
+
+      </div>
+
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,35 @@
+<div class="container d-flex justify-content-center mt-5" style="margin-bottom: 300px;">
+  <div style=" background-color: rgb(242, 242, 242);" class="col-10 col-sm-6 col-md-5 col-lg-4 mt-5 rounded-4 p-3 shadow ">
+    <form method="post" action="">
+      {{#if logErr}}
+        <p style="color:red ;">{{logErr}}</p>
+      {{/if}}
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input
+          name="Uname"
+          type="text"
+          id="form2Example1"
+          class="form-control"
+        />
+        <label class="form-label" for="form2Example1">User name</label>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input
+          name="password"
+          type="password"
+          id="form2Example2"
+          class="form-control"
+        />
+        <label class="form-label" for="form2Example2">Password</label>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+    </form>
+  </div>
+
+</div>

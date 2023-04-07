@@ -1,0 +1,212 @@
+<div class="container userinfocontainer">
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5" width="150px"
+                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                    <span class="font-weight-bold">{{userInfo.Fname}} {{userInfo.Lname}}</span>
+                    <span class="text-black-50">{{userInfo.email}}</span>
+                    <span> </span>
+                </div>
+                <div class="col col-md-12 ">
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Account Settings
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/userinfo">
+                                            Profile Information
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/manage-address">
+                                            Manage Address
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/PAN-card-information">
+                                            PAN Card Information
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                    My List
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/my-orders">
+                                            My Orders
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-coupons">
+                                            My Coupons
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-wallet">
+                                            My wallet
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/all-notifications">
+                                            All Notifications
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-wishlist">
+                                            My Wishlist
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                    aria-controls="flush-collapseThree">
+                                    Payments
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/saved-cards">
+                                            Saved Cards
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/saved-UPI">
+                                            Saved UPI
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/gift-cards">
+                                            Gift Cards
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn mt-2" href="/logout">
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {{!-- address form --}}
+
+            <div class="col-md-9 border-end">
+                <div class="card mb-3 ">
+                    <div class="row g-0">
+                        <div class="col">
+                            <div class="card-body">
+                                <h5 class="card-title">My Coupons</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{!-- coupons --}}
+                <div class="row">
+                    {{#each myCoupons}}
+                    {{#if redeemed}}
+                    <div class="col-lg-6  mt-3  ">
+
+                        <div style="background-color:rgba(136, 136, 136, 0.901) ;" class="row m-1 rounded-4 p-1">
+
+                            <div class="col-6 p-0 ps-1">
+                                <h3 class="mt-1 text-dark">
+                                    {{discount}}% OFF
+                                </h3>
+                                <div class="text-center col-12" style="padding-left: 50%;" id=" {{_id}}">
+                                    <h3 class="text-bold " style="width: min-content; z-index: 2;" id="{{couponId}}">
+                                        REDEEMED
+                                    </h3>
+                                </div>
+                                <h6 class="mb-1 text-dark">
+                                    with every product
+                                </h6>
+                            </div>
+                            <div class="col-6 p-0 pe-1 text-end">
+                                <p class="mt-1">
+                                    valid till :{{expiryDate}}
+                                </p>
+                                <p>
+                                    upto:{{maxDis}}&#8377
+                                </p>
+                            </div>
+                            <div class="col">
+                                <p class="text-dark">
+                                    use the code : {{couponCode}}
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    {{else}}
+                    <div class="col-lg-6  mt-3">
+                        <div style="background-color:rgba(233, 186, 93, 0.901) ;" class="row m-1 rounded-4 p-1">
+                            <div class="col-6 p-0 ps-1">
+                                <h3 class="mt-1 text-dark">
+                                    {{discount}}% OFF
+                                </h3>
+                                <h6 class="mb-1 text-dark">
+                                    with every product
+                                </h6>
+                            </div>
+                            <div class="col-6 p-0 pe-1 text-end">
+                                <p class="mt-1">
+                                    valid till :{{expiryDate}}
+                                </p>
+                                <p>
+                                    upto:{{maxDis}}&#8377
+                                </p>
+                            </div>
+                            <div class="col">
+                                <p class="text-dark">
+                                    use the code : {{couponCode}}
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    {{/each}}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const div = document.getElementById('redeemed');
+    const h3 = document.getElementById('redeemedText');
+    h3.style.transform = "rotate(-20deg)";
+    div.appendChild(h3);
+</script>

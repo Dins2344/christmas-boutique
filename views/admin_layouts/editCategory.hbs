@@ -1,0 +1,69 @@
+
+<section>
+  <div class="container d-flex justify-content-center mt-5">
+
+    <div style="background-color: rgb(243, 243, 241);" class="col-7 col-md-4 mb-3 p-3 rounded-4">
+      <div class="d-flex justify-content-center mb-3">
+        <h5>
+          Edit Category
+        </h5>
+      </div>
+      <div class="mb-4">
+        <a style="color: black;" href="/admin/category">
+          <i style="color: black;" class="fa fa-arrow-left" aria-hidden="true"></i> go back
+        </a>
+      </div>
+
+      <form action="/admin/editcategory/{{category._id}}" method="post" >
+        
+        <!-- category name input -->
+        <div class="form-outline mb-4">
+          <input
+            name="Cname"
+            type="text"
+            id="CName"
+            class="form-control"
+            value="{{category.Cname}}"
+            onkeyup="checkCateName()"
+          />
+          <label class="form-label" for="CName">Category name</label>
+          <span id="CNameErr" class="text-danger"></span>
+        </div>
+
+        <!-- subcategory name input -->
+        <div class="form-outline mb-4">
+          <input
+            name="SCname"
+            type="text"
+            id="SCName"
+            class="form-control"
+            value="{{category.SCname}}"
+            onkeyup="checkSubCateName()"
+          />
+          <label class="form-label" for="form5Example2">Subcategory name</label>
+                    <span id="SCNameErr" class="text-danger"></span>
+        </div>
+        <!-- description input -->
+        <div class="form-outline mb-4">
+          <input
+            name="Description"
+            type="text"
+            id="description"
+            class="form-control"
+            value="{{category.Description}}"
+            onkeyup="checkCateDescription()"
+          />
+          <label class="form-label" for="form5Example2">Description</label>
+          <span id="descriptionErr" class="text-danger"></span>
+        </div>
+
+        <!-- Submit button -->
+       <div style="flex-direction: column;" class="d-flex justify-content-center text-center">
+           <span id="cateSubmitErr" class="text-danger"></span>
+          <button onclick="return categorySubmitCheck()" type="submit" class="btn btn-primary d-block mb-4">Save edit</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,227 @@
+<link rel="stylesheet" href="userCss/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="userCss/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="userCss/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="userCss/magnific-popup.css" type="text/css">
+<link rel="stylesheet" href="userCss/nice-select.css" type="text/css">
+<link rel="stylesheet" href="userCss/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="userCss/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="userCss/style.css" type="text/css">
+
+
+
+ 
+
+{{!-- <div class="d-flex justify-content-center" style="background-color: rgb(178, 182, 182);">
+  <a class="navbar-brand" href="#">
+    <h4 style="font-family:Times New Roman, Times, serif; font-style: italic;" class="pt-3">
+      CHRISTMAS BOUTIQUE
+    </h4>
+  </a>
+</div>
+
+<nav style="background-color: rgb(178, 182, 182);" class="navbar navbar-expand-lg">
+
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+      aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/allproduct">Shop All</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categories
+          </a>
+          <ul class="dropdown-menu">
+            {{#each categories}}
+            <li><a class="dropdown-item" href="/{{Cname}}">{{Cname}}</a></li>
+            {{/each}}
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Link</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        {{#if userInfo}}
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img class="rounded-circle" style="width:25px ; height:25px ;" src="/images/userProfile/userPic.jpg" />
+            {{userInfo.Fname}}
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/userinfo">Profile Settings</a></li>
+            <li><a class="dropdown-item" href="/my-orders">My Orders</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </div>
+        <a href="/my-cart" class="btn">
+          Cart
+          {{#if itemsCount}}
+          <span style="text-align: center; margin-top: 12px; padding: 0%; width: 20px;"
+            class="position-absolute badge rounded-pill bg-danger" id="cartCount">
+            {{itemsCount}}
+          </span>
+          {{/if}}
+        </a>
+        <a href="/my-wishlist" class="btn">Wishlist
+          {{#if wishlistCount}}
+          <span style="text-align: center; margin-top: 12px; padding: 0%; width: 20px;"
+            class="position-absolute badge rounded-pill bg-danger">
+            {{wishlistCount}}
+          </span>
+          {{/if}}
+        </a>
+        {{else}}
+        {{! <img style="width:30px ; height:30px ;" src="images/icons/login.png"> }}
+        <a class="btn" href="/login">Login</a>
+        {{/if}}
+      </form>
+    </div>
+  </div>
+</nav> --}}
+
+<!-- Offcanvas Menu Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="offcanvas-menu-wrapper">
+  <div class="offcanvas__option">
+    <div class="offcanvas__links">
+     
+    </div>
+  </div>
+  <div class="offcanvas__nav__option">
+    <a href="#" class="search-switch m-0">
+      <i style="color: black;" class="fa fa-search" aria-hidden="true"></i>
+    </a>
+    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img class="rounded-circle" style="width:25px ; height:25px ;" src="/images/userProfile/userPic.jpg" />
+            {{userDetails.Fname}}
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/userinfo">Profile Settings</a></li>
+            <li><a class="dropdown-item" href="/my-orders">My Orders</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+
+    <a href="/my-wishlist" class="btn m-0">
+      <i class="fa fa-heart-o" style="font-size:20px;color: black;"></i>
+      {{#if wishlistCount}}
+      <span style="text-align: center;color: white; margin-left:20px;  ; padding: 0%; width: 20px;"
+        class="position-absolute badge rounded-pill bg-danger">
+        {{wishlistCount}}
+      </span>
+      {{/if}}
+    </a>
+    <a href="/my-cart" class="btn m-0">
+      <i style="color: black;font-size:20px;" class="fa fa-shopping-cart" aria-hidden="true"></i>
+      {{#if itemsCount}}
+      <span style="text-align: center;color: white; margin-left:20px;  ; padding: 0%; width: 20px;" px
+        class="position-absolute badge rounded-pill bg-danger" id="cartCount">
+        {{itemsCount}}
+      </span>
+      {{/if}}
+    </a>
+
+  </div>
+  <div id="mobile-menu-wrap"></div>
+  <div class="offcanvas__text">
+    
+  </div>
+</div>
+<!-- Offcanvas Menu End -->
+
+<!-- Header Section Begin -->
+<header class="header">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <div class="header__logo p-0">
+          <a class="mt-2" href="/"><img src="/images/userHome/logo_black.png" alt=""></a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <nav class="header__menu mobile-menu">
+          <ul>
+            <li ><a href="/">Home</a></li>
+            <li><a href="/allproduct">Shop All</a></li>
+            {{!-- <div class="dropdown">
+              <li><a class="dropdown-toggle" type="buton" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+              <ul class="dropdown-menu">
+                {{#each categories}}
+                <li><a href="/{{Cname}}">{{Cname}}</a></li>
+                {{/each}}
+              </ul>
+            </li>
+            </div> --}}
+            
+            <li><a href="./contact.html">Contact Us</a></li>
+            
+              <li><a class="dropdown-toggle" type="buton" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+              <ul class="dropdown-menu">
+                {{#each categories}}
+                <li><a href="/{{Cname}}">{{Cname}}</a></li>
+                {{/each}}
+              </ul>
+            </li>
+          
+          </ul>
+           
+        </nav>
+      </div>
+      <div class="col-lg-3 col-md-3 p-0">
+        <div class="header__nav__option">
+          <a href="#" class="search-switch m-0">
+            <i style="color: black;" class="fa fa-search" aria-hidden="true"></i>
+          </a>
+          {{#if userInfo}}
+          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img class="rounded-circle" style="width:25px ; height:25px ;" src="/images/userProfile/userPic.jpg" />
+            {{userDetails.Fname}}
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/userinfo">Profile Settings</a></li>
+            <li><a class="dropdown-item" href="/my-orders">My Orders</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+
+          <a href="/my-wishlist" class="btn m-0">
+            <i class="fa fa-heart-o" style="font-size:20px;color: black;"></i>
+            {{#if wishlistCount}}
+            <span style="text-align: center;color: white; margin-left:20px;  ; padding: 0%; width: 20px;"
+              class="position-absolute badge rounded-pill bg-danger">
+              {{wishlistCount}}
+            </span>
+            {{/if}}
+          </a>
+          <a href="/my-cart" class="btn">
+            <i style="color: black;font-size:20px;" class="fa fa-shopping-cart" aria-hidden="true"></i>
+            {{#if itemsCount}}
+            <span style="text-align: center;color: white; margin-left:20px;  ; padding: 0%; width: 20px;" px
+              class="position-absolute badge rounded-pill bg-danger" id="cartCount">
+              {{itemsCount}}
+            </span>
+            {{/if}}
+          </a>
+          {{else}}
+          <a class="btn" href="/login">Login</a>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="canvas__open"><i class="fa fa-bars"></i></div>
+  </div>
+</header>
+<!-- Header Section End -->
+
+
+
+
+

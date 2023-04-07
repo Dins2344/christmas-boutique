@@ -1,0 +1,196 @@
+<div class="container userinfocontainer">
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5" width="150px"
+                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                    <span class="font-weight-bold">{{userInfo.Fname}} {{userInfo.Lname}}</span>
+                    <span class="text-black-50">{{userInfo.email}}</span>
+                    <span> </span>
+                </div>
+                <div class="col col-md-12 ">
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Account Settings
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/userinfo">
+                                            Profile Information
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/manage-address">
+                                            Manage Address
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/PAN-card-information">
+                                            PAN Card Information
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                    My List
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/my-orders">
+                                            My Orders
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-coupons">
+                                            My Coupons
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-wallet">
+                                            My wallet
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/all-notifications">
+                                            All Notifications
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-wishlist">
+                                            My Wishlist
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                    aria-controls="flush-collapseThree">
+                                    Payments
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/saved-cards">
+                                            Saved Cards
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/saved-UPI">
+                                            Saved UPI
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/gift-cards">
+                                            Gift Cards
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn mt-2" href="/logout">
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 border-right">
+                <div class="p-3 py-5 col-sm-8">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                        <button data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            class="btn btn-sm border border-0 text-danger">Edit</button>
+                    </div>
+                    <div class="row mt-2 mb-5">
+                        <div class="col-md-6">
+                            <label class="labels fs-5">Name</label>
+                            <input type="text" class="form-control"  value="{{userDetails.Fname}}" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels fs-5">Surname</label>
+                            <input type="text" class="form-control" value="{{userDetails.Lname}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12 mb-5">
+                            <label class="labels fs-5">Mobile Number</label>
+                            <input type="text" class="form-control"readonly value="{{userDetails.Pnumber}}">
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="labels fs-5">Email ID</label>
+                            <input type="text" class="form-control" readonly value="{{userDetails.email}}">
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit User Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/userinfo" method="post">
+                    <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label class="labels">Name</label>
+                        <input name="FName" type="text" class="form-control" placeholder="first name" value="">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Surname</label>
+                        <input name="LName" type="text" class="form-control" value="" placeholder="surname">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <label class="labels">Mobile Number</label>
+                        <input name="MNumber" type="text" class="form-control" placeholder="enter phone number" value="">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Email ID</label>
+                        <input name="EmailId" type="text" class="form-control" placeholder="enter email id" value="">
+                    </div>
+                </div>
+                <div class="mt-2 text-center">
+                    <button class="btn btn-dark btn-sm" type="submit" >Save Profile</button>
+                </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,415 @@
+{{!-- <div class="d-flex justify-content-center mt-3">
+    <h3 style="font-family:Times New Roman, Times, serif; font-style: italic;">
+        Shop All
+    </h3>
+</div>
+
+
+<div class="container">
+    <dvi class="row d-flex justify-content-center">
+        {{#each products}}
+        <div class="col col-md-4 col-lg-3 col-sm-6 col-7 mt-4">
+            <div class="card text-center border border-primary shadow-0">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    {{#if wished}}
+                    <a style="position: absolute; z-index:10 ;" class="btn " onclick="delWish('{{_id}}')">
+                        <div class="">
+
+                            <img style="width:25px ;" src="/images/icons/red_heart.png">
+
+                        </div>
+                    </a>
+                    {{else}}
+                    <a style="position: absolute; z-index:10 ;" class="btn " onclick="addWish('{{_id}}')">
+                        <div class="">
+                            <img style="width:25px ;" src="/images/icons/love_heart.png">
+                        </div>
+                    </a>
+                    {{/if}}
+                    <a href="/quickview/{{_id}}" class="hover-overlay ripple"> <img src="/images/prodimg/{{_id}}.jpg"
+                            class="card-img-top img-thumbnail" /></a>
+                    <a href="/">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                    </a>
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title">{{Pname}}</h5>
+                    {{#if discountPrice}}
+                    <p class="card-text text-muted text-decoration-line-through ">
+                        {{Price}}
+                    <p class="card-text">
+                        {{discountPrice}}&#8377
+                    </p>
+                    {{else}}
+                    <p class="card-text">
+                        {{Price}}&#8377
+                    </p>
+                    {{/if}}
+
+
+                    <button onclick="addToCart('{{_id}}')" type="button"
+                        class="btn btn-secondary btn-rounded w-100 mb-3">Add to cart</button>
+                    <button type="button" class="btn btn-secondary btn-rounded w-100 mb-3">Buy now</button>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+    </dvi>
+
+</div> --}}
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>Shop</h4>
+                    <div class="breadcrumb__links">
+                        <a href="./index.html">Home</a>
+                        <span>Shop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Shop Section Begin -->
+<section class="shop spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="shop__sidebar">
+                    <div class="shop__sidebar__search">
+                        <form action="#">
+                            <input type="text" placeholder="Search...">
+                            <button type="submit"><span class="icon_search"></span></button>
+                        </form>
+                    </div>
+                    <div class="shop__sidebar__accordion">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
+                                </div>
+                                <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__categories">
+                                            <ul class="nice-scroll">
+                                                <li><a href="#">Christmas Tree</a></li>
+                                                <li><a href="#">Christmas Ornaments</a></li>
+                                                <li><a href="#">Holiday Lights</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
+                                </div>
+                                <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__price">
+                                            <ul>
+                                                <li><a href="#">$0.00 - $50.00</a></li>
+                                                <li><a href="#">$50.00 - $100.00</a></li>
+                                                <li><a href="#">$100.00 - $150.00</a></li>
+                                                <li><a href="#">$150.00 - $200.00</a></li>
+                                                <li><a href="#">$200.00 - $250.00</a></li>
+                                                <li><a href="#">250.00+</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
+                                </div>
+                                <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__tags">
+                                            <a href="#">Product</a>
+                                            <a href="#">Bags</a>
+                                            <a href="#">Shoes</a>
+                                            <a href="#">Fashio</a>
+                                            <a href="#">Clothing</a>
+                                            <a href="#">Hats</a>
+                                            <a href="#">Accessories</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="shop__product__option">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__left">
+                                <p>Showing 1–12 of 126 results</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__right">
+                                <p>Sort by Price:</p>
+                                <select>
+                                    <option value="">Low To High</option>
+                                    <option value="">$0 - $55</option>
+                                    <option value="">$55 - $100</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {{#each products}}
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{images.image1}}">
+                                <ul class="product__hover ">
+                                    {{#if wished}}
+                                    <li><a onclick="delWish('{{_id}}')" class="btn p-0 border border-0 "><img
+                                                style="width:50px ;" src="/images/icons/red_heart.png"></a></li>
+                                    {{else}}
+                                    <li><a onclick="addWish('{{_id}}')" class="btn p-0 border border-0  "><img
+                                                style="width:50px ;" src="/images/icons/love_heart.png"></a></li>
+                                    {{/if}}
+
+
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <h6>{{Pname}}</h6>
+                                {{#if addedToCart}}
+                                    <a  class="add-cart btn p-0 border border-0">Added To Cart</a>
+                                {{else}}
+                                <a onclick="addToCart('{{_id}}')" class="add-cart btn p-0 border border-0">+ Add To
+                                    Cart</a>
+                                {{/if}}
+
+                                <a href="#" style="margin-left: 65%;" data-bs-toggle="modal" data-bs-target="#{{_id}}"
+                                    class="add-cart btn p-0 border border-0">Quick
+                                    view</a>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class=" modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Product Quick View
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <!-- Shop Details Section Begin -->
+                                                <section class="shop-details row">
+                                                    <div class="product__details__pic col-6 mb-1">
+
+
+                                                        <div class="detail-gallery">
+
+                                                            <!-- MAIN SLIDES -->
+                                                            <div class="d-flex justify-content-center">
+                                                                <div class="product-image-slider w-50">
+                                                                    <figure class="border-radius-10 m-0 p-0">
+                                                                        <img class=" border rounded object-fit-cover"
+                                                                            src="{{images.image1}}" alt="product image">
+                                                                    </figure>
+                                                                    <figure class="border-radius-10 m-0 p-0">
+                                                                        <img src="{{images.image2}}"
+                                                                            alt="product image">
+                                                                    </figure>
+                                                                    <figure class="border-radius-10 m-0 p-0">
+                                                                        <img src="{{images.image3}}"
+                                                                            alt="product image">
+                                                                    </figure>
+                                                                    <figure class="border-radius-10 m-0 p-0">
+                                                                        <img src="{{images.image4}}"
+                                                                            alt="product image">
+                                                                    </figure>
+                                                                    <figure class="border-radius-10 m-0 p-0">
+                                                                        <img src="{{images.image5}}"
+                                                                            alt="product image">
+                                                                    </figure>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- THUMBNAILS -->
+                                                            <div class="slider-nav-thumbnails pl-15 pr-15">
+                                                                <div><img src="{{images.image1}}" alt="product image">
+                                                                </div>
+                                                                <div><img src="{{images.image2}}" alt="product image">
+                                                                </div>
+                                                                <div><img src="{{images.image3}}" alt="product image">
+                                                                </div>
+                                                                <div><img src="{{images.image4}}" alt="product image">
+                                                                </div>
+                                                                <div><img src="{{images.image5}}" alt="product image">
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <!-- End Gallery -->
+
+
+                                                    </div>
+                                                    <div class="product__details__content mt-2 col-6">
+                                                        <div class="container">
+                                                            <div class="row d-flex justify-content-center">
+                                                                <div class="col-lg-8">
+                                                                    <div class="product__details__text">
+                                                                        <h4>{{Pname}}</h4>
+                                                                        {{!-- <div class="rating">
+                                                                            <i class="fa fa-star"></i>
+                                                                            <i class="fa fa-star"></i>
+                                                                            <i class="fa fa-star"></i>
+                                                                            <i class="fa fa-star"></i>
+                                                                            <i class="fa fa-star-o"></i>
+                                                                            <span> - 5 Reviews</span>
+                                                                        </div> --}}
+                                                                        <h3>{{Price}}&#8377</h3>
+                                                                        <p>{{Description}}</p>
+                                                                        <div
+                                                                            class="product__details__cart__option mt-1">
+                                                                            <div class="quantity">
+                                                                                <div class="pro-qty  ">
+                                                                                    <input type="text" value="1">
+                                                                                    <button
+                                                                                        onclick="addToCart('{{_id}}')"
+                                                                                        class="btn btn-secondary mt-2 w-100 btn-sm p-0 ">
+                                                                                        Add to cart
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {{!-- <div>
+                                                                    <a class="btn btn-secondary ">Add to cart</a>
+                                                                </div> --}}
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <!-- Shop Details Section End -->
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{!-- <div class="rating">
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div> --}}
+                                {{#if discountPrice}}
+                                <h6 class="d-inline text-muted text-decoration-line-through ">
+                                    {{Price}}
+                                </h6>
+                                <h5 class="d-inline ms-1">
+                                    {{discountPrice}}&#8377
+                                </h5>
+                                {{else}}
+                                <h5>{{Price}}&#8377</h5>
+                                {{/if}}
+
+
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product__pagination">
+                            <a class="active" href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <span>...</span>
+                            <a href="#">21</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Section End -->
+
+
+<!-- Js Plugins -->
+
+
+<!-- Js Plugins -->
+<script src="userJs/jquery-3.3.1.min.js"></script>
+<script src="userJs/bootstrap.min.js"></script>
+<script src="userJs/jquery.nice-select.min.js"></script>
+<script src="userJs/jquery.nicescroll.min.js"></script>
+<script src="userJs/jquery.magnific-popup.min.js"></script>
+<script src="userJs/jquery.countdown.min.js"></script>
+<script src="userJs/jquery.slicknav.js"></script>
+<script src="userJs/mixitup.min.js"></script>
+<script src="userJs/owl.carousel.min.js"></script>
+<script src="userJs/main.js"></script>
+
+{{!-- eva js plugins --}}
+<script src="evaraJs/plugins/wow.js"></script>
+<script src="evaraJs/plugins/select2.min.js"></script>
+<script src="evaraJs/plugins/counterup.js"></script>
+<script src="evaraJs/plugins/images-loaded.js"></script>
+<script src="evaraJs/plugins/scrollup.js"></script>
+<script src="evaraJs/plugins/slick.js"></script>
+<script src="evaraJs/plugins/jquery.elevatezoom.js"></script>
+<!-- Template  JS -->
+<script src="evaraJs/main.js"></script>
+<script src="evaraJs/shop.js"></script>
+
+
+<script>
+    const addWish = (id) => {
+        console.log(id)
+        $.ajax({
+            url: '/wishlist-add/' + id,
+            type: 'get',
+            success: async (response) => {
+                if (response.status) {
+                    await swal({
+                        title: 'Added to wishlist!',
+                        icon: 'success'
+                    });
+                    location.reload()
+                }
+            }
+
+        })
+    }
+    const delWish = (id) => {
+        console.log(id)
+        $.ajax({
+            url: '/delete-wishlist/' + id,
+            type: 'get',
+            success: (response) => {
+                if (response.status) {
+                    location.reload()
+                }
+            }
+
+        })
+    }
+</script>

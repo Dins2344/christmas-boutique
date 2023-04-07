@@ -1,0 +1,174 @@
+{{!-- <script src="/tableSetter/js/jquery.js"></script>
+<script src="/tableSetter/media/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#walletTable').dataTable()
+    })
+</script> --}}
+
+
+<div class="container userinfocontainer">
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5" width="150px"
+                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                    <span class="font-weight-bold">{{userInfo.Fname}} {{userInfo.Lname}}</span>
+                    <span class="text-black-50">{{userInfo.email}}</span>
+                    <span> </span>
+                </div>
+                <div class="col col-md-12 ">
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Account Settings
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/userinfo">
+                                            Profile Information
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/manage-address">
+                                            Manage Address
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/PAN-card-information">
+                                            PAN Card Information
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                    My List
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/my-orders">
+                                            My Orders
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-coupons">
+                                            My Coupons
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-wallet">
+                                            My wallet
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/all-notifications">
+                                            All Notifications
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-wishlist">
+                                            My Wishlist
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                    aria-controls="flush-collapseThree">
+                                    Payments
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/saved-cards">
+                                            Saved Cards
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/saved-UPI">
+                                            Saved UPI
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/gift-cards">
+                                            Gift Cards
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn mt-2" href="/logout">
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 border-right">
+               <div class="card mb-3 ">
+                    <div class="row g-0">
+                        <div class="col">
+                            <div class="card-body">
+                                <h5 class="card-title">My Wallet</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                  <div style="background-color: rgb(251, 244, 235);" class=" p-4 rounded-4">
+                    <div class="mb-2 text-bold">
+                        Wallet Amount : {{myWallet.total}}&#8377
+                        <br><p>
+                            You can redeem your wallet amount by purchasing products..!
+                        </p>
+                    </div>
+                            <table id="walletTable" class="table table-border">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Transaction ID</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Mode</th>
+                                        <th scope="col">Transaction date</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each myWallet.transactions}}
+                                    <tr>
+
+                                        <td>{{transactionId}}</td>
+                                        <td>{{amount}}&#8377</td>
+                                        <td>{{type}}</td>
+                                        <td>{{date}} </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

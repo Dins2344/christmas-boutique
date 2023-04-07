@@ -1,0 +1,261 @@
+<script src="/tableSetter/js/jquery.js"></script>
+<script src="/tableSetter/media/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#returnTable').dataTable()
+    })
+</script>
+
+{{!-- admin side pages --}}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/adminCss/style.css">
+
+
+
+
+<div class=" d-flex align-items-stretch  ">
+     <nav style="background-color: rgb(255, 255, 255);" id="sidebar" class="sidebar">
+        <div class="custom-menu">
+            <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+            </button>
+        </div>
+        <div class="p-4 pt-5">
+            <div class="col-12 pe-2 ps-2">
+                <div class="row border border-2 rounded-3 mb-2">
+                    <p style="color: black;"  class="m-0 mt-2">
+                        Hello..
+                    </p>
+                    <h5 class="m-0">
+                        admin
+                    </h5>
+                </div>
+            </div>
+            <ul class="list-unstyled components mb-5">
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a style="color: black;"  href="/admin">
+                        <i class="fa fa-clipboard " style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;"  href="/admin/viewusers">
+                        <i class="fa fa-users " style="color: rgb(0, 0, 0); margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        View Users
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;"  href="/admin/viewproducts">
+                        <i class="fa fa-shopping-bag" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        View Products
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;"  href="/admin/category">
+                        <i class="fa fa-list-alt" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Category Management
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;"  href="/admin/orders">
+                        <i class="fas fa-shipping-fast" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Order Management
+                    </a>
+                </li>
+                 <li>
+                    <a style="color: black;" href="/admin/order-return-requests">
+                        <i class="fa fa-undo" style="color: rgb(0, 0, 0);  margin-right: 5px;" aria-hidden="true"></i>
+                        Order Return Requests
+                    </a>
+                </li>
+                 <li  style="background-color: rgb(247, 240, 230);" class="rounded-1 ps-1">
+                    <a style="color: black;" href="/admin/refund-requests">
+                        <i class=" fas fa-hand-holding-usd" style="color: rgb(0, 0, 0);  margin-right: 5px;" aria-hidden="true"></i>
+                        Refund Requests
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;"  href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fa fa-gift" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Offer Management</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a style="color: black;"  href="/admin/coupons">
+                                Coupon Management
+                            </a>
+                        </li>
+                         <li>
+                            <a style="color: black;"  href="/admin/add-product-offer">
+                                Product Offer Management
+                            </a>
+                        </li>
+                        <li  style="background-color: rgb(247, 240, 230);" class="rounded-2 ps-1">
+                            <a style="color: black;"  href="/admin/category-offers">
+                                Category Offer Management
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a style="color: black;" >
+                        <i class="fa fa-gear" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Profile Setting
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;" href="#">
+                        <i class="fa fa-sign-out" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Logout</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5 pt-5">
+        <div class="d-flex justify-content-center mt-3">
+            <h3 style="font-family:Times New Roman, Times, serif; font-style: italic;">
+                Order Return Requests
+            </h3>
+        </div>
+        <div class="mt-4 ">
+            <h3 class="m-0 ps-1">
+                Return Requests 
+            </h3>
+            <p class="m-0 ps-1">don't forget to give refund after approve return request</p>
+            <div class="container m-1 p-3 bg-white rounded-4">
+            <table id="returnTable" class="table  table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Order ID</th>
+                        <th scope="col">User name</th>
+                        <th scope="col">Ordered date</th>
+                        <th scope="col">Total amount</th>
+                        <th scope="col">Payment method</th>
+                        <th scope="col">Delivered date</th>
+                        <th scope="col">Return approval</th>
+                        <th scope="col">Approve/Reject</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each orders}}
+                    <tr>
+                        <td>{{orderId}}</td>
+                        <td>{{userFirstName}} {{userLastName}}</td>
+                        <td>{{orderedDate}}</td>
+                        <td>{{total}}&#8377</td>
+                        <td>{{paymentMethod}}</td>
+                        <td>{{deliveryDate}}</td>
+                        <td>{{returnStatus}}</td>
+                        <td>
+                            <button onclick="approveConfirm('{{orderId}}','{{returnStatus}}')"
+                                class="btn text-success btn-smj border border-0">
+                                Approve
+                            </button>
+                            <button onclick="rejectConfirm('{{orderId}}','{{returnStatus}}')"
+                                class="btn text-danger btn-smj border border-0">
+                                Reject
+                            </button>
+                        </td>
+
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+        
+
+    </div>
+</div>
+
+<script src="/adminJs/popper.js"></script>
+<script src="/adminJs/bootstrap.min.js"></script>
+<script src="/adminJs/main.js"></script>
+
+<script>
+    function approveConfirm(id, status) {
+        if (status == 'pending') {
+            swal("Are you sure you want approve this?", {
+                buttons: ["Cancel", "Yes"],
+            }).then((approval) => {
+                if (approval) {
+                    returnApprove(id)
+                } else {
+                    swal("Request approval has aborted");
+                }
+            })
+        } else if (status == 'approved') {
+            swal("You already approved");
+        }else if (status == 'rejected') {
+            swal("rejected request can not approve");
+        }
+
+    }
+
+    function returnApprove(id) {
+        $.ajax({
+            url: '/admin/order-return-request-approved/' + id,
+            type: 'get',
+            success: (response) => {
+                if (response) {
+                    location.reload()
+                }
+            }
+        })
+    }
+
+    function rejectConfirm(id, status) {
+        if (status == 'pending') {
+            swal("Are you sure you want reject this?", {
+                buttons: ["Cancel", "Yes"],
+            }).then((approval) => {
+                if (approval) {
+                    returnReject(id)
+                } else {
+                    swal("Request rejection has aborted");
+                }
+            })
+        } else if (status == 'rejected') {
+            swal("You already rejected");
+        }else if (status == 'approved') {
+            swal("approved request can not reject");
+        }
+    }
+    function returnReject(id){
+        $.ajax({
+            url:'/admin/reject-return/'+id,
+            type: 'get',
+            success:(response)=>{
+                if(response){
+                    location.reload()
+                }
+            }
+        })
+    }
+</script>

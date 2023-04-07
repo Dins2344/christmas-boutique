@@ -1,0 +1,540 @@
+<div class="container userinfocontainer">
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5" width="150px"
+                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                    <span class="font-weight-bold">{{userInfo.Fname}} {{userInfo.Lname}}</span>
+                    <span class="text-black-50">{{userInfo.email}}</span>
+                    <span> </span>
+                </div>
+                <div class="col col-md-12 ">
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Account Settings
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/userinfo">
+                                            Profile Information
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/manage-address">
+                                            Manage Address
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/PAN-card-information">
+                                            PAN Card Information
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                    My List
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/my-orders">
+                                            My Orders
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-coupons">
+                                            My Coupons
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-wallet">
+                                            My wallet
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/all-notifications">
+                                            All Notifications
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-wishlist">
+                                            My Wishlist
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                    aria-controls="flush-collapseThree">
+                                    Payments
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/saved-cards">
+                                            Saved Cards
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/saved-UPI">
+                                            Saved UPI
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/gift-cards">
+                                            Gift Cards
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn mt-2" href="/logout">
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 ">
+                <div class="container mt-5">
+                    <div class="card mb-3 ">
+                        <div class="row g-0">
+                            <div class="col">
+                                <div class="card-body">
+                                    <h5 class="card-title">My Orders</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{#each orders}}
+                    <div class="card mb-3 border">
+                        <div class="row g-0">
+
+                            <div class="col-6 col-md-6 ">
+                                {{#if delivered }}
+                                    <h6 style="color: green;" class="ms-2 mt-2">
+                                        Order delivered on : {{deliveryDate}}
+                                    </h6>
+                                    {{/if}}
+                                <div class="card-body p-2">
+                                    
+                                    <h5 class="card-title">Order ID :{{orderId}}</h5>
+                                    <p class="card-text">Number of products : {{products.length}}</p>
+                                    <p class="card-text">Total amount : {{total}}&#8377 </p>
+                                    <p class="card-text"><small class="text-muted">Payment method :
+                                            {{paymentMethod}}</small></p>
+
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-6 ">
+                                <p class="card-text"><small class="text-muted">ordered on : {{orderedDate}}</small></p>
+                                <h6 class=" mt-3">Current status : {{deliveryStatus}}</h6>
+                                <p class="card-text"></p>
+                                {{#or delivered orderBlocked}}
+                               
+                                <!--View more details Button trigger modal -->
+                                <button type="button" class="btn btn-outline-secondary rounded-pill btn-sm "
+                                    data-bs-toggle="modal" data-bs-target="#{{orderId}}">
+                                    More Details
+                                </button>
+                                <!-- View more details Modal -->
+                                <div class="modal fade" id="{{orderId}}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class=" modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Order ID :
+                                                    {{orderId}}</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <table class="table" id="d">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" class="border-0 bg-light">
+                                                                <div class="p-2 px-3 text-uppercase">Product</div>
+                                                            </th>
+                                                            <th scope="col" class="border-0 bg-light">
+                                                                <div class="py-2 text-uppercase">Price</div>
+                                                            </th>
+                                                            <th scope="col" class="border-0 bg-light">
+                                                                <div class="py-2 text-uppercase">Quantity</div>
+                                                            </th>
+                                                            <th scope="col" class="border-0 bg-light">
+                                                                <div class="py-2 text-uppercase">Subtotal</div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {{#each products}}
+                                                        <tr>
+
+                                                            <th scope="row" class="border-0">
+                                                                <div class="p-2">
+                                                                    <img src="/images/prodimg/{{cartProduct._id}}.jpg"
+                                                                        alt="" width="70"
+                                                                        class="img-fluid rounded shadow-sm" />
+                                                                    <div class="ml-3 d-inline-block align-middle">
+                                                                        <h5 class="mb-0">
+                                                                            <a href="/quickview/{{cartProduct._id}}"
+                                                                                class="text-dark d-inline-block align-middle">{{cartProduct.Pname}}</a>
+                                                                        </h5><span
+                                                                            class="text-muted font-weight-normal font-italic d-block">Category:
+                                                                            {{cartProduct.Category}}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </th>
+                                                            <td class="border-0 align-middle">
+                                                                <strong>{{cartProduct.Price}}&#8377</strong>
+                                                            </td>
+                                                            <td class="border-0 align-middle">
+                                                                <span>
+                                                                    {{quantity}}
+                                                                </span>
+                                                            </td>
+                                                            <td class="border-0 align-middle">
+                                                                <strong>{{multiply cartProduct.Price
+                                                                    quantity}}&#8377</strong>
+                                                            </td>
+                                                        </tr>
+                                                        {{/each}}
+                                                    </tbody>
+                                                </table>
+                                                <div class="row border-top">
+                                                    <div class="col-4"
+                                                        style="display: flex; flex-direction:column ; justify-content:center;">
+                                                        <h4 onclick="generateSalesReport('{{_id}}','pdf')" class="btn">
+                                                            Download Invoice
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-6"
+                                                        style="display: flex; flex-direction:column ; align-items: flex-end;">
+                                                        <h6>Items price : </h6>
+                                                        <h6>Tax : </h6>
+                                                        <h6>shipping charge : </h6>
+                                                        <h5>Total amount : </h5>
+
+                                                    </div>
+                                                    <div class="col-2"
+                                                        style="display: flex; flex-direction:column ; align-items: flex-start;">
+                                                        <h6>{{itemsTotal}}</h6>
+                                                        <h6>{{tax}}</h6>
+                                                        <h6>40</h6>
+                                                        <h5>{{total}}&#8377</h5>
+
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                {{#if delivered}}
+                                {{#if returnStatus}}
+                                <br> <p class="text-danger">
+                                    Your requested to return this order . amount will be credited to your wallet if you paid the bill already..!
+                                </p>
+                                {{else}}
+                                    <button onclick="confirmReturn('{{orderId}}')" type="button" class="btn btn-outline-danger rounded-pill m-1 btn-sm">
+                                        Return Order
+                                    </button>
+                                {{/if}}
+                                {{/if}}
+                                
+                                {{else}}
+                                <button onclick="confirmCancel('{{orderId}}')" class="btn btn-outline-danger rounded-pill btn-sm mb-2 mt-2" id="btn-confirm">
+                                    Cancel Order
+                                </button>
+                                <!-- order tracking modal Button trigger modal -->
+                                <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill "
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Track Order
+                                </button>
+
+                                <!-- order tracking Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="progress-track">
+                                                    <ul id="progressbar">
+                                                        <li class="step0 active" id="step1">Ordered</li>
+                                                        <li class="step0 active text-center" id="step2">Shipped</li>
+                                                        <li class="step0 active text-right" id="step3">On the way</li>
+                                                        <li class="step0 text-right" id="step4">Delivered</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button onclick="cancelOrder('{{_id}}')" type="button"
+                                                    class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--View more details Button trigger modal -->
+                                <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill "
+                                    data-bs-toggle="modal" data-bs-target="#{{orderId}}">
+                                    More Details
+                                </button>
+                                <!-- View more details Modal -->
+                                <div class="modal fade" id="{{orderId}}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class=" modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Order ID :
+                                                    {{orderId}}</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <table class="table" id="d">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" class="border-0 bg-light">
+                                                                <div class="p-2 px-3 text-uppercase">Product</div>
+                                                            </th>
+                                                            <th scope="col" class="border-0 bg-light">
+                                                                <div class="py-2 text-uppercase">Price</div>
+                                                            </th>
+                                                            <th scope="col" class="border-0 bg-light">
+                                                                <div class="py-2 text-uppercase">Quantity</div>
+                                                            </th>
+                                                            <th scope="col" class="border-0 bg-light">
+                                                                <div class="py-2 text-uppercase">Subtotal</div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {{#each products}}
+                                                        <tr>
+
+                                                            <th scope="row" class="border-0">
+                                                                <div class="p-2">
+                                                                    <img src="/images/prodimg/{{cartProduct._id}}.jpg"
+                                                                        alt="" width="70"
+                                                                        class="img-fluid rounded shadow-sm" />
+                                                                    <div class="ml-3 d-inline-block align-middle">
+                                                                        <h5 class="mb-0">
+                                                                            <a href="/quickview/{{cartProduct._id}}"
+                                                                                class="text-dark d-inline-block align-middle">{{cartProduct.Pname}}</a>
+                                                                        </h5><span
+                                                                            class="text-muted font-weight-normal font-italic d-block">Category:
+                                                                            {{cartProduct.Category}}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </th>
+                                                            <td class="border-0 align-middle">
+                                                                <strong>{{cartProduct.Price}}&#8377</strong>
+                                                            </td>
+                                                            <td class="border-0 align-middle">
+                                                                <span>
+                                                                    {{quantity}}
+                                                                </span>
+                                                            </td>
+                                                            <td class="border-0 align-middle">
+                                                                <strong>{{multiply cartProduct.Price
+                                                                    quantity}}&#8377</strong>
+                                                            </td>
+                                                        </tr>
+                                                        {{/each}}
+                                                    </tbody>
+                                                </table>
+                                                <div class="row border-top">
+                                                    <div class="col-4"
+                                                        style="display: flex; flex-direction:column ; justify-content:center;">
+                                                        <h4 onclick="generateSalesReport('{{_id}}','pdf')" class="btn">
+                                                            Download Invoice
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-6"
+                                                        style="display: flex; flex-direction:column ; align-items: flex-end;">
+                                                        <h6>Items price : </h6>
+                                                        <h6>Tax : </h6>
+                                                        <h6>shipping charge : </h6>
+                                                        <h5>Total amount : </h5>
+
+                                                    </div>
+                                                    <div class="col-2"
+                                                        style="display: flex; flex-direction:column ; align-items: flex-start;">
+                                                        <h6>{{itemsTotal}}</h6>
+                                                        <h6>{{tax}}</h6>
+                                                        <h6>40</h6>
+                                                        <h5>{{total}}&#8377</h5>
+
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                 {{/or}}
+
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                    {{/each}}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    const generateSalesReport = (orderId, format) => {
+        $.ajax({
+            url: '/admin/create-report',
+            data: { orderId, format },
+            method: 'post',
+            xhrFields: {
+                responseType: 'blob' // set the response type to blob
+            },
+            success: function (response, status, xhr) {
+                const contentType = xhr.getResponseHeader('Content-Type')
+                const fileExtension = contentType === 'application/pdf' ? 'pdf' : 'xlsx'
+                const fileName = `sales-report.${fileExtension}`
+                const blob = new Blob([response], { type: contentType })
+
+                if (contentType === 'application/pdf') {
+                    const fileURL = URL.createObjectURL(blob)
+                    const a = document.createElement('a')
+                    a.href = fileURL
+                    a.download = 'file.pdf'
+                    document.body.appendChild(a)
+                    a.click()
+                    document.body.removeChild(a)
+
+                } else {
+                    console.log('kkkkkkkkk')
+                    Swal({
+                        title: 'Download failed please try again later..!',
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonText: 'Try again',
+                        cancelButtonText: 'ok'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.href = '/admin/create-report'
+                        }
+                    })
+                    // Unsupported file type
+                    console.error('Unsupported file type:', contentType)
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log('Error generating report:', error)
+            }
+        })
+    }
+
+const confirmCancel = (id)=>{
+swal({
+  title: "Are you sure?",
+  text: "Once canceled, your order will not be able to reach the destination",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then( async (willDelete) => {
+  if (willDelete) {
+   await swal("Selected order will be canceled", {
+      icon: "success",
+    });
+    orderCancellation(id)
+  } else {
+    swal("Order cancellation has aborted");
+  }
+});
+}
+
+const orderCancellation = (id)=>{
+    
+    $.ajax({
+        url:'/order-cancellation-request/'+id,
+        type:'get',
+        success: (response)=>{
+            if(response){
+                location.reload()
+            }
+        }
+    })
+}
+
+const confirmReturn = (id)=>{
+    swal({
+  title: "Are you sure?",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then( async (willDelete) => {
+  if (willDelete) {
+   await swal("We have received your return request. Thank you for the information!", {
+      icon: "success",
+    });
+    orderReturn(id)
+  } else {
+    swal("Order cancellation has aborted");
+  }
+});
+}
+
+const orderReturn= (id)=>{
+    $.ajax({
+        url:'/order-return-request/'+id,
+        type:'get',
+        success: (response)=>{
+            if(response){
+                location.reload()
+            }
+        }
+    })
+}
+
+</script>
+
+
+    

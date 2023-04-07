@@ -1,0 +1,73 @@
+<div class="container mt-4">
+  <div class="row d-flex justify-content-center">
+    <div class="mt-2 col col-8 col-md-6 d-flex justify-content-center">
+      <div class="col col-8" id="zoomContainer">
+        <img
+          src="/images/prodimg/{{product._id}}.jpg"
+          class="object-fit-fill border rounded w-100 prodImage"
+        />
+      </div>
+
+    </div>
+    <div class="col col-8 col-md-6 mt-2">
+      <h4>
+        {{product.Pname}}
+      </h4>
+      <h5 class="mt-3">
+        {{product.Price}}&#8377
+      </h5>
+
+      <div class="col col-2 mt-3">
+        <input
+          name="Pname"
+          type="number"
+          id="form5Example1"
+          class="form-control"
+        />
+        <label class="form-label" for="form5Example1">Quantity</label>
+      </div>
+
+      <h5 class="mt-2">
+        Product Info
+      </h5>
+      <h6>
+        {{product.Discription}}
+      </h6>
+
+      <div class="mt-4">
+        <button
+          onclick="addToCart('{{product._id}}')" 
+          type="button"
+          class="btn btn-secondary btn-rounded w-100 mb-3"
+        >Add to cart</button>
+        <button
+          type="button"
+          class="btn btn-secondary btn-rounded w-100 mb-3"
+        >Buy now</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+{{!-- JS codes for image zoom in product quick view page --}}
+    {{!-- <script>
+    const container = document.getElementById("zoomContainer")
+    const img = document.querySelector('img.prodImage')
+    container.addEventListener('mousemove',(e)=>{
+    const x= e.clientX - e.target.offsetLeft
+    const y= e.clientY - e.target.offsetTop
+    console.log(x,y)
+    img.style.transformOrigin = `${x}px ${y}px `
+    img.style.transform = 'scale(2)'
+})
+
+container.addEventListener('mouseleave',()=>{
+    img.style.transformOrigin = "center"
+    img.style.transform = 'scale(1)'
+})
+    </script> --}}

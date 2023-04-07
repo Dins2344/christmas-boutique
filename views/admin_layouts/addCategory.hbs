@@ -1,0 +1,53 @@
+<section>
+  <div class="container d-flex justify-content-center " style="margin-bottom: 130px;margin-top: 80px;">
+
+    <div style="background-color: rgb(243, 243, 241);" class="col-7 col-md-4 mb-3 p-3 rounded-4">
+      <div class="d-flex justify-content-center mb-3">
+        <h5>
+          Add A Category
+        </h5>
+      </div>
+      <div class="mb-4">
+        <a style="color: black;" href="/admin/category">
+          <i style="color: black;" class="fa fa-arrow-left" aria-hidden="true"></i> go back
+        </a>
+      </div>
+
+
+      <form action="/admin/addcategory" method="post">
+        {{#if cateErr}}
+        <p style="color:red ;">{{cateErr}}</p>
+        {{/if}}
+        <!--Category name input -->
+        <div class="form-outline mb-4">
+          <input name="Cname" type="text" id="CName" class="form-control" onkeyup="checkCateName()" />
+          <label class="form-label" for="CName">Category Name</label>
+          <span id="CNameErr" class="text-danger"></span>
+        </div>
+
+        <!-- Subcategory name input -->
+        <div class="form-outline mb-4">
+          <input name="SCname" type="text" id="SCName" class="form-control" onkeyup="checkSubCateName()" />
+          <label class="form-label" for="SCName">Sub Category Name</label>
+          <span id="SCNameErr" class="text-danger"></span>
+        </div>
+
+        <!-- Description input -->
+        <div class="form-outline mb-4">
+          <input name="Description" type="text" id="description" class="form-control"
+            onkeyup="checkCateDescription()" />
+          <label class="form-label" for="description">Description</label>
+          <span id="descriptionErr" class="text-danger"></span>
+        </div>
+
+        <!-- Submit button -->
+        <div style="flex-direction: column;" class="d-flex justify-content-center text-center">
+          <span id="cateSubmitErr" class="text-danger"></span>
+          <button onclick="return categorySubmitCheck()" type="submit" class="btn btn-primary d-block mb-4">Add
+            category</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>

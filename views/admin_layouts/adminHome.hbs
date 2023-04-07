@@ -1,0 +1,428 @@
+{{!-- admin side pages --}}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/adminCss/style.css">
+
+
+
+
+
+<div class=" d-flex align-items-stretch  ">
+    <nav style="background-color: rgb(255, 255, 255);" id="sidebar" class="sidebar">
+        <div class="custom-menu">
+            <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+            </button>
+        </div>
+        <div class="p-4 pt-5">
+            <div class="col-12 pe-2 ps-2">
+                <div class="row border border-2 rounded-3 mb-2">
+                    <p style="color: black;" class="m-0 mt-2">
+                        Hello..
+                    </p>
+                    <h5 class="m-0">
+                        admin
+                    </h5>
+                </div>
+            </div>
+            <ul class="list-unstyled components mb-5">
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li style="background-color: rgb(247, 240, 230);" class="rounded-2 ps-1">
+                    <a style="color: black;" href="/admin">
+                        <i class="fa fa-clipboard " style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;" href="/admin/viewusers">
+                        <i class="fa fa-users " style="color: rgb(0, 0, 0); margin-right: 5px;" aria-hidden="true"></i>
+                        View Users
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;" href="/admin/viewproducts">
+                        <i class="fa fa-shopping-bag" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        View Products
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;" href="/admin/category">
+                        <i class="fa fa-list-alt" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Category Management
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;" href="/admin/orders">
+                        <i class="fas fa-shipping-fast" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Order Management
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;" href="/admin/order-return-requests">
+                        <i class="fa fa-undo" style="color: rgb(0, 0, 0);  margin-right: 5px;" aria-hidden="true"></i>
+                        Order Return Requests
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;" href="/admin/refund-requests">
+                        <i class=" fas fa-hand-holding-usd" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Refund Requests
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;" href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">
+                        <i class="fa fa-gift" style="color: rgb(0, 0, 0);  margin-right: 5px;" aria-hidden="true"></i>
+                        Offer Management</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a style="color: black;" href="/admin/coupons">
+                                Coupon Management
+                            </a>
+                        </li>
+                        <li>
+                            <a style="color: black;" href="/admin/add-product-offer">
+                                Product Offer Management
+                            </a>
+                        </li>
+                        <li style="background-color: rgb(247, 240, 230);" class="rounded-2 ps-1">
+                            <a style="color: black;" href="/admin/category-offers">
+                                Category Offer Management
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a style="color: black;">
+                        <i class="fa fa-gear" style="color: rgb(0, 0, 0);  margin-right: 5px;" aria-hidden="true"></i>
+                        Profile Setting
+                    </a>
+                </li>
+                <li>
+                    <a onclick="logoutConfirm()" style="color: black; cursor: pointer;" >
+                        <i class="fa fa-sign-out" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Logout</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5 pt-5">
+
+    <div  class="container mb-3">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <div class="breadcrumb__links">
+                        <a style="color: black;" href="/admin">/Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="preloader">
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-header-position="absolute"
+            data-boxed-layout="full">
+
+            <!-- Page wrapper  -->
+            <!-- ============================================================== -->
+            <div class="">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="page-breadcrumb bg-white mb-2">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 col-sm-4">
+                            <h4 class="page-title">Dashboard</h4>
+                        </div>
+                        <div class="col-lg-9 col-sm-8 col-md-8">
+                            <div class="d-md-flex justify-content-end">
+
+                                <a onclick="reportAlert()"
+                                    class="btn btn-danger d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">
+                                    Download reports</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <form method="post" action="/admin/" id="addCoupon" class="bg-white p-4 mb-3 rounded-4 w-50">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="start_date">Start Date:</label>
+                            <input type="date" class="form-control border" id="start_date" name="startDate" />
+                        </div>
+                        <div class="col-4">
+                            <label for="expiry_date">Expiry Date:</label>
+                            <input type="date" class="form-control border" id="expiry_date" name="expiryDate" />
+                        </div>
+                        <div class="col-4 d-flex align-content-end">
+                            <button type="submit" class="btn btn-sm btn-success " style="margin-top: 25px;">
+                                Generate Order Report
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+                <!-- ============================================================== -->
+                <!-- Container fluid  -->
+                <!-- ============================================================== -->
+                <div class="container-fluid">
+                    <!-- ============================================================== -->
+                    <!-- Three charts -->
+                    <!-- ============================================================== -->
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3 col-md-12">
+                            <div class="white-box analytics-info">
+                                <h3 class="box-title">Total Orders</h3>
+                                <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                    <li>
+                                        <div id="sparklinedash"><canvas width="67" height="30"
+                                                style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                        </div>
+                                    </li>
+                                    <li class="ms-auto"><span class="counter text-success">{{totalOrders}}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-12">
+                            <div class="white-box analytics-info">
+                                <h3 class="box-title">Total Products</h3>
+                                <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                    <li>
+                                        <div id="sparklinedash2">
+                                            <canvas width="67" height="30"
+                                                style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                        </div>
+                                    </li>
+                                    <li class="ms-auto"><span class="counter text-purple">{{totalProducts}}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-12">
+                            <div class="white-box analytics-info">
+                                <h3 class="box-title">Total Products</h3>
+                                <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                    <li>
+                                        <div id="sparklinedash3">
+                                            <canvas width="67" height="30"
+                                                style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                        </div>
+                                    </li>
+                                    <li class="ms-auto"><span class="counter text-purple">{{totalUsers}}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-12">
+                            <div class="white-box analytics-info">
+                                <h3 class="box-title">Total Products</h3>
+                                <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                    <li>
+                                        <div id="sparklinedash3">
+                                            <canvas width="67" height="30"
+                                                style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                        </div>
+                                    </li>
+                                    <li class="ms-auto"><span class="counter text-purple">{{totalUsers}}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- PRODUCTS YEARLY SALES -->
+                    <!-- ============================================================== -->
+                    {{!-- <div class="row">
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title">Products Yearly Sales</h3>
+                                <div class="d-md-flex">
+                                    <ul class="list-inline d-flex ms-auto">
+                                        <li class="ps-3">
+                                            <h5><i class="fa fa-circle me-1 text-info"></i>Mac</h5>
+                                        </li>
+                                        <li class="ps-3">
+                                            <h5><i class="fa fa-circle me-1 text-inverse"></i>Windows</h5>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="ct-visits" style="height: 405px;">
+                                    <div class="chartist-tooltip" style="top: -17px; left: -12px;"><span
+                                            class="chartist-tooltip-value">6</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card mb-4">
+                                <article class="card-body">
+                                    <h5 class="card-title">Sale statistics</h5>
+                                    <canvas id="myChart" height="100px"></canvas>
+                                </article>
+                            </div>
+
+                        </div>
+                        <div class="col-6">
+
+                            <div class="card mb-4">
+                                <article class="card-body">
+                                    <h5 class="card-title">Order statistics</h5>
+                                    <canvas id="orderStatitics" height="100px"></canvas>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="col-6">
+
+                            <div class="card mb-4">
+                                <article class="card-body">
+                                    <h5 class="card-title">Order statistics</h5>
+                                    <canvas id="payment-statitics" height="100px"></canvas>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- RECENT SALES -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="white-box">
+                                <div class="d-md-flex mb-3">
+                                    <h3 class="box-title mb-0">Recent sales</h3>
+
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table no-wrap">
+                                        <thead>
+                                            <tr>
+
+                                                <th class="border-top-0">OrderID</th>
+                                                <th class="border-top-0">Status</th>
+                                                <th class="border-top-0">User name</th>
+                                                <th class="border-top-0">Payment method</th>
+                                                <th class="border-top-0">Total amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each orders}}
+                                            <tr>
+
+                                                <td class="txt-oflo">{{orderId}}</td>
+                                                <td>{{orderStatus}}</td>
+                                                <td class="txt-oflo">{{userFirstName}}
+                                                    {{userLastName}}</td>
+                                                <td>{{paymentMethod}}</td>
+                                                <td><span class="text-success">{{total}}&#8377</span></td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Container fluid  -->
+                <!-- ============================================================== -->
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Page wrapper  -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/javascripts/adminGraph.js"></script>
+<script src="/adminJs/jquery.min.js"></script>
+<script src="/adminJs/popper.js"></script>
+<script src="/adminJs/bootstrap.min.js"></script>
+<script src="/adminJs/main.js"></script>
+
+<script>
+    function reportAlert() {
+        swal("How do you want to download.?",
+            {
+                buttons: {
+                    cancel: "Cancel",
+                    catch: {
+                        text: "Download Excel",
+                        value: "Excel",
+                    },
+                    defeat: {
+                        text: "Download PDF",
+                        value: "PDF",
+                    },
+                },
+            }).then(async (value) => {
+                switch (value) {
+                    case "Excel":
+                        await swal("Done!", "Your download has started", "success");
+                        generateSalesReport(value)
+                        break;
+                    case "PDF":
+                        await swal("Done!", "Your download has started", "success");
+                        generateSalesReport(value)
+                        break;
+                    default: swal("Canceled the request.!");
+                }
+            });
+    }
+</script>
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap tether Core JavaScript -->
+{{!
+<script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script> }}
+<script src="js/app-style-switcher.js"></script>
+<script src="plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+
+<!--Custom JavaScript -->
+<script src="js/custom.js"></script>
+<!--This page JavaScript -->
+<!--chartis chart-->
+{{!--
+<script src="plugins/bower_components/chartist/dist/chartist.min.js"></script>
+<script src="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script> --}}
+{{!--
+<script src="js/pages/dashboards/dashboard1.js"></script> --}}
+
+{{! reportMaker }}
+<script src="/javascripts/reportMaker.js"></script>

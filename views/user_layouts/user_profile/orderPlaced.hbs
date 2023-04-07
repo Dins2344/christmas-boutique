@@ -1,0 +1,88 @@
+{{!-- <script>
+    window.addEventListener('load', function() {
+  // Your logic to show the popup
+  swal("Your order is placed..!");
+});
+</script> --}}
+<div class="container mt-4 p-0">
+    <div class="px-md-4 px-2 pt-4">
+        <div class="d-block">
+            <div class="row ">
+                <h3>
+                    Thank you for your order....!!
+                </h3>
+            </div>
+            <div class="row">
+                <p>
+                    Your order #{{lastOrder.orderId}} is in the works . we sent an email to {{userInfo.email}} with order receipt.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row px-md-4 px-2 pt-4">
+        <div class="col-lg-4 payment-summary">
+            <div class="card px-md-3 px-2 pt-2">
+                <div class="unregistered mb-2">
+                    <span class="py-1"><i class="fa fa-calendar me-1" style="font-size:24px; color: black ;"></i>Estimated Arrival</span>
+                </div>
+                <div class="d-flex flex-column b-bottom">
+                    <div class="d-flex justify-content-between py-3">
+                        <small class="text-muted">March 15 / March 16</small>
+                    </div>
+                    <div class="d-flex justify-content-between pb-3">
+                        <small class="text-muted">To ensure prompt delivery . some items may ship separately </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-4 payment-summary">
+            {{#each address}}
+            <div class="card px-md-3 px-2 pt-2">
+                <div class="unregistered mb-1">
+                    <span class="pt-1"><i class="fa fa-map-marker me-1" style="font-size:24px; color: black;"></i></i>Shipping To</span>
+                </div>
+                <div class="d-flex flex-column b-bottom">
+                    <div class="d-flex justify-content-between py-1">
+                        <small class="text-muted">{{Fname}} {{Lname}}</small>
+                    </div>
+                    <div class="d-flex justify-content-between pb-1">
+                        <small class="text-muted">{{address1}} <br>{{address2}}<br>{{Pcode}}<br>{{Mnumber}}</small>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="col-lg-4">
+            <p class="pt-1 fw-bold pb-1">Have a Question....?</p>
+            <div class="mb-1">
+                <div class="row" > 
+                <i class="fa fa-phone mt-1" style="font-size:24px; width: min-content; color: black;"></i>                    
+                 <p class="m-1 p-0 " style="width:auto ;">1800-2020-5151</p>
+                </div>
+            </div>
+            <div class="mb-1">
+                <div class="row" >  
+                    <i class="fa fa-envelope mt-1" style="font-size:24px; width: min-content; color: black;"></i>        
+                <p class=" fw-bold m-1 p-0" style="width: auto;">Email Us</p>
+                </div>
+            </div>
+            <div class=" mb-1">
+                <div class="row" >  
+                    <i class='fa fa-comment mt-1' style='font-size:24px;width: min-content;color: black;'></i>        
+                 <p class=" fw-bold m-1 p-0" style="width:auto ;">Chat With Us</p>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end px-md-4 px-2 pt-4">
+           <a href="/my-orders">
+            <button  class="btn btn-dark rounded-pill">
+                View orders
+            </button>
+           </a> 
+        </div>
+    </div>
+</div>

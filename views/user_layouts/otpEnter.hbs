@@ -1,0 +1,34 @@
+
+<div class="container d-flex justify-content-center">
+  <div style="margin-top:100px ;" class="col-10 col-sm-6 col-md-5">
+    <form method="post" action="/otpverify">
+    {{#if OTPerr}}
+        <p style="color:red ;">{{OTPerr}}</p>
+      {{/if}}
+
+      <!-- phone number input -->
+      <div class="form-outline mb-4">
+        <input
+          name="otp"
+          type="text"
+          id="form2Example1"
+          class="form-control"
+        />
+        <label class="form-label" for="form2Example1">Enter your OTP</label>
+      </div>
+
+      <!-- Submit button -->
+      <button
+        type="submit"
+        class="btn btn-primary btn-block mb-4"
+      >Submit</button>
+
+      <!-- Resend buttons -->
+      <div class="text-center">
+        <p>did'nt get otp? <a href="/signup">Resend</a></p>
+
+      </div>
+    </form>
+  </div>
+
+</div>

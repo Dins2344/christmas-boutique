@@ -1,0 +1,199 @@
+<div class="container userinfocontainer">
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5" width="150px"
+                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                    <span class="font-weight-bold">{{userInfo.Fname}} {{userInfo.Lname}}</span>
+                    <span class="text-black-50">{{userInfo.email}}</span>
+                    <span> </span>
+                </div>
+                <div class="col col-md-12 ">
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Account Settings
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/userinfo">
+                                            Profile Information
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/manage-address">
+                                            Manage Address
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/PAN-card-information">
+                                            PAN Card Information
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                    My List
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/my-orders">
+                                            My Orders
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-coupons">
+                                            My Coupons
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-wallet">
+                                            My wallet
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/all-notifications">
+                                            All Notifications
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/my-wishlist">
+                                            My Wishlist
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                    aria-controls="flush-collapseThree">
+                                    Payments
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="w-100">
+                                        <a id="usermenuitems" class="btn" href="/saved-cards">
+                                            Saved Cards
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/saved-UPI">
+                                            Saved UPI
+                                        </a>
+                                    </div>
+                                    <div class="w-100 mt-1">
+                                        <a id="usermenuitems" class="btn" href="/gift-cards">
+                                            Gift Cards
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn mt-2" href="/logout">
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 ">
+                <div class="container mt-5">
+                    <div class="card mb-3 ">
+                        <div class="row g-0">            
+                            <div class="col">
+                                <div class="card-body">
+                                    <h5 class="card-title">My Wishlist ({{wishlistCount}})</h5>
+                                </div>
+                            </div>                   
+                        </div>
+                    </div>
+                    {{#each wishlists}}
+                    <div class="card mb-3 ">
+                        <div class="row g-0">
+                            <div class="col-3 col-md-3 col-lg-2">
+                                <img src="{{images.image1}}" class="img-fluid rounded-start">
+                            </div>
+                            <div class="col-8 col-md-8 col-lg-9">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{Pname}}</h5>
+                                    <p class="card-text">{{price}}&#8377 </p>
+                                    <p class="card-text"><small class="text-muted">added on : {{addedDate}}</small></p>
+                                </div>
+                            </div>
+                            <div class=" row col-1 col-md-1 col-lg-1 d-flex justify-content-end">
+                                <div class="col-12 d-flex align-items-center ">
+                                    <a style="height:45px ; width: 45px;" class="btn"  onclick="deleteConfirm('{{productId}}')">
+                                    <i style="color:rgb(246, 60, 60) ;" class="fa fa-trash " ></i>
+                                </a>
+                                </div>
+                                <div class="col-12 d-flex align-items-center">
+                                    <a style="height:45px ; width: 45px;" class="btn"  onclick="addToCart('{{productId}}')" >
+                                        <i class="fa fa-shopping-cart" style="font-size:24px; color:black;"></i>
+                                    </a>                                
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+<script>
+     function deleteConfirm(id) {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this data!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then(async(willDelete) => {
+                if (willDelete) {
+                    await swal("Selected wishlist has been deleted!", {
+                        icon: "success",                     
+                    });
+                    deleteWish(id)
+                } else {
+                    swal("Deletion has been canceled!");
+                }
+            });
+    }
+    const deleteWish = (id)=>{
+        $.ajax({
+            url:"/delete-wishlist/"+id,
+            type:'get',
+            success:(response)=>{
+                if(response.status){
+                    location.reload()
+                }
+            }
+        })
+    }
+</script>

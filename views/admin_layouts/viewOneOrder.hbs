@@ -1,0 +1,317 @@
+<script>
+    $('#customDays').datepicker({
+        inline: true
+    });
+</script>
+
+{{!-- admin side pages --}}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/adminCss/style.css">
+
+
+
+
+<div class=" d-flex align-items-stretch  ">
+     <nav style="background-color: rgb(255, 255, 255);" id="sidebar" class="sidebar">
+        <div class="custom-menu">
+            <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+            </button>
+        </div>
+        <div class="p-4 pt-5">
+            <div class="col-12 pe-2 ps-2">
+                <div class="row border border-2 rounded-3 mb-2">
+                    <p style="color: black;"  class="m-0 mt-2">
+                        Hello..
+                    </p>
+                    <h5 class="m-0">
+                        admin
+                    </h5>
+                </div>
+            </div>
+            <ul class="list-unstyled components mb-5">
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a style="color: black;"  href="/admin">
+                        <i class="fa fa-clipboard " style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;"  href="/admin/viewusers">
+                        <i class="fa fa-users " style="color: rgb(0, 0, 0); margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        View Users
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;"  href="/admin/viewproducts">
+                        <i class="fa fa-shopping-bag" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        View Products
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;"  href="/admin/category">
+                        <i class="fa fa-list-alt" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Category Management
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;"  href="/admin/orders">
+                        <i class="fas fa-shipping-fast" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Order Management
+                    </a>
+                </li>
+                 <li>
+                    <a style="color: black;" href="/admin/order-return-requests">
+                        <i class="fa fa-undo" style="color: rgb(0, 0, 0);  margin-right: 5px;" aria-hidden="true"></i>
+                        Order Return Requests
+                    </a>
+                </li>
+                 <li  style="background-color: rgb(247, 240, 230);" class="rounded-1 ps-1">
+                    <a style="color: black;" href="/admin/refund-requests">
+                        <i class=" fas fa-hand-holding-usd" style="color: rgb(0, 0, 0);  margin-right: 5px;" aria-hidden="true"></i>
+                        Refund Requests
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;"  href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fa fa-gift" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Offer Management</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a style="color: black;"  href="/admin/coupons">
+                                Coupon Management
+                            </a>
+                        </li>
+                        <li>
+                            <a style="color: black;"  href="/admin/add-product-offer">
+                                Product Offer Management
+                            </a>
+                        </li>
+                        <li >
+                            <a style="color: black;"  href="/admin/category-offers">
+                                Category Offer Management
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a style="color: black;" >
+                        <i class="fa fa-gear" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Profile Setting
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;" href="#">
+                        <i class="fa fa-sign-out" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Logout</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5 pt-5">
+        <div class="container mt-3">
+            <a style="color: black;" class="" href="/admin/orders">
+                <i style="color: black;"  class="fa fa-arrow-left" aria-hidden="true"></i> go back
+            </a>
+            <div class="">
+                <!-- Title -->
+                <div class="d-flex justify-content-between align-items-center py-3">
+                    <h2 class="h5 mb-0"><a href="#" class="text-muted"></a>Order ID : {{order.[0].orderId}}</h2>
+                </div>
+
+                <!-- Main content -->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <!-- Details -->
+                        <div class="card mb-4 border border-0 rounded-4">
+                            <div class="card-body">
+                                <div class="mb-3 d-flex justify-content-between">
+                                    <div>
+                                        <span class="me-3">Ordered on : {{order.[0].orderedDate}}</span>
+                                        <span class="badge rounded-pill bg-info">{{order.[0].deliveryStatus}}</span><br>
+                                        {{#if order.[0].delivered}}
+                                        <span style="color:green ;" class="me-3">Delivered on :
+                                            {{order.[0].deliveryDate}}</span>
+                                        {{/if}}
+                                    </div>
+                                    <div class="d-flex">
+                                        <button class="btn btn-link p-0 me-3 d-none d-lg-block btn-icon-text"><i
+                                                class="bi bi-download"></i> <span class="text">Invoice</span></button>
+                                        <div class="dropdown">
+                                            <button class="btn btn-link p-0 text-muted" type="button"
+                                                data-bs-toggle="dropdown">
+                                                <i class="bi bi-three-dots-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item" href="#"><i class="bi bi-pencil"></i>
+                                                        Edit</a></li>
+                                                <li><a class="dropdown-item" href="#"><i class="bi bi-printer"></i>
+                                                        Print</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        {{#each order.[0].products}}
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex mb-2">
+                                                    <div class="flex-shrink-0">
+                                                        <img src="/images/prodimg/{{cartProduct._id}}.jpg" alt=""
+                                                            width="35" class="img-fluid">
+                                                    </div>
+                                                    <div class="flex-lg-grow-1 ms-3">
+                                                        <h6 class="small mb-0"><a href="#"
+                                                                class="text-reset">{{cartProduct.Pname}}</a></h6>
+                                                        <span class="small">Category :
+                                                            {{cartProduct.Category}}</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{{cartProduct.Price}}</td>
+                                            <td>{{quantity}}</td>
+                                            <td class="text-end"> {{multiply cartProduct.Price quantity}}&#8377</td>
+
+
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2">Subtotal</td>
+                                            <td></td>
+                                            <td class="text-end">{{order.[0].itemsTotal}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Tax</td>
+                                            <td></td>
+                                            <td class="text-end">{{order.[0].tax}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Shipping</td>
+                                            <td></td>
+                                            <td class="text-end">40</td>
+                                        </tr>
+                                        <tr class="fw-bold">
+                                            <td colspan="2">TOTAL</td>
+                                            <td></td>
+                                            <td class="text-end">{{order.[0].total}}&#8377</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Payment -->
+                        <div class="card mb-4 border border-0 rounded-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h3 class="h6">Payment Method</h3>
+                                        <p>{{order.[0].paymentMethod}}<br>
+                                            Total: {{order.[0].total}}&#8377 <br> Order status : <span
+                                                class="badge bg-success rounded-pill">{{order.[0].orderStatus}}</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <h3 class="h6">Shipping address</h3>
+                                        <address>
+                                            <strong>{{order.[0].deliveryAddress.[0].Fname}}
+                                                {{order.[0].deliveryAddress.[0].Lname}}</strong><br>
+                                            {{order.[0].deliveryAddress.[0].address1}}<br>
+                                            {{order.[0].deliveryAddress.[0].address2}}<br>
+                                            {{order.[0].deliveryAddress.[0].state}},
+                                            {{order.[0].deliveryAddress.[0].country}}<br>
+                                            {{order.[0].deliveryAddress.[0].Pcode}}<br>
+                                            <abbr title="Phone">P:</abbr> {{order.[0].deliveryAddress.[0].Mnumber}}
+                                        </address>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <!-- Update the changes-->
+                        <div class="card mb-4 border border-0 rounded-4">
+                            <div class="card-body">
+                                <form action="/admin/view-order-details" method="post" >
+                                    <h3 class="h6">Update Changes</h3>
+                                    <div class="form-floating mb-2">
+                                        <select name="deliveryStatus" class="form-select" id="deliveryStatusSelect"
+                                            aria-label="Floating label select example">
+                                            <option value="ready for shipping">ready for shipping</option>
+                                            <option value="shipped">shipped</option>
+                                            <option value="reached nearest hub">reached nearest hub</option>
+                                            <option value="delivered">delivered</option>
+                                        </select>
+                                        <label for="floatingSelect">change delivery status</label>
+                                    </div>
+                                    <div id="otherDiv" class="col mb-2"
+                                        style="margin-left:7px ; margin-right:7px ; display:none;">
+                                        <label class="text-start">select delivery date</label>
+                                        <input class="w-100" type="date" name="date" id="date">
+                                    </div>
+                                    <input class="w-100" name="orderId" value="{{order.[0]._id}}" hidden>
+                                    <div class="col" style="margin-left:7px ; margin-right:7px ; ">
+                                        <button type="submit"
+                                            class="btn btn-outline-secondary btn-sm rounded-pill w-100">
+                                            Save Changes
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script src="/adminJs/popper.js"></script>
+<script src="/adminJs/bootstrap.min.js"></script>
+<script src="/adminJs/main.js"></script>
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#deliveryStatusSelect').change(function () {
+            if ($(this).val() === 'delivered') {
+                $('#otherDiv').show();
+            } else {
+                $('#otherDiv').hide();
+            }
+        });
+    });
+</script>

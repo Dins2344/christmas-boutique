@@ -1,0 +1,235 @@
+{{#if cartItems}}
+<div class="px-4 px-lg-0">
+
+  <div class="pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+
+          <!-- Shopping cart table -->
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">Product</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Price</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Quantity</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Subtotal</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Remove</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each cartItems}}
+                <tr>
+
+                  <th scope="row" class="border-0">
+                    <div class="p-2">
+                      <img src="{{cartProduct.images.image1}}" alt="" width="70" class="img-fluid rounded shadow-sm" />
+                      <div class="ml-3 d-inline-block align-middle">
+                        <h5 class="mb-0">
+                          <a href="/quickview/{{cartProduct._id}}"
+                            class="text-dark d-inline-block align-middle">{{cartProduct.Pname}}</a>
+                        </h5><span class="text-muted font-weight-normal font-italic d-block">Category:
+                          {{cartProduct.Category}}</span>
+                      </div>
+                    </div>
+                  </th>
+                  {{#if cartProduct.Discount}}
+                  <td class="border-0 align-middle">
+                    <p>
+                      Offer price
+                    </p><strong>{{cartProduct.Price}}&#8377</strong>
+                  </td>
+                  {{else}}
+                  <td class="border-0 align-middle"><strong>{{cartProduct.Price}}&#8377</strong>
+                  </td>
+                  {{/if}}
+
+
+                  <td class="border-0 align-middle">
+
+                    <button onclick="updateQuantity('{{_id}}','{{cartProduct._id}}',-1)" class="a-tag"
+                      href="#">-</button>
+                    <span id="{{cartProduct._id}}">
+                      {{quantity}}
+                    </span>
+                    <button onclick="updateQuantity('{{_id}}','{{cartProduct._id}}',1)" class="a-tag"
+                      href="#">+</button>
+
+                  </td>
+                  <td class="border-0 align-middle"><strong>{{multiply cartProduct.Price quantity}}&#8377</strong></td>
+                  <td class="border-0 align-middle">
+                    <a class="btn" onclick="delConfirm('{{cartProduct._id}}')">
+                      <i style="color:rgb(246, 60, 60) ;" class="fa fa-trash "></i>
+                    </a>
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+          <!-- End -->
+        </div>
+      </div>
+
+      <div class="row py-5 p-4 bg-white rounded shadow-sm">
+
+        <div class="col-lg-6">
+
+          <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
+
+          {{#if cartDetails.coupon.discount}}
+          <p class="font-italic ms-4 mt-2 mb-2">You have already applied a coupon
+            
+          </p>
+          {{else}}
+          <p class="font-italic ms-4 mt-2 mb-2">If you have a coupon code, please enter
+            it in the box below</p>
+          {{/if}}
+
+          <div class="p-4">
+            {{#if cartDetails.coupon.discount}}
+            <div class="input-group mb-4 border rounded-pill p-2">
+              <input type="text" placeholder="Coupon applied" aria-describedby="button-addon3"
+                class="form-control border-0" name="couponCode" readonly />
+              <div class="input-group-append border-0">
+                <button onclick="removeCoupon('{{cartDetails.couponDiscount.couponId}}')" id="button-addon3" type="submit" class="btn btn-dark px-4 rounded-pill"><i
+                    class="fa fa-gift mr-2"></i>Remove coupon</button>
+              </div>
+            </div>
+            {{else}}
+            <form id="couponApply">
+              <input type="text" hidden name="couponId" value="{{userCoupons.couponId}}">
+              <div class="input-group mb-4 border rounded-pill p-2">
+
+                <select aria-describedby="button-addon3" class="form-control border-0" name="couponCode" id="">
+                  {{#each userCoupons}}
+                  <option value="{{couponCode}}">{{couponCode}}</option>
+                  {{/each}}
+                </select>
+                <div class="input-group-append border-0">
+                  <button id="button-addon3" class="btn btn-dark px-4 rounded-pill"><i class="fa fa-gift mr-2"></i>Apply
+                    coupon</button>
+                </div>
+              </div>
+              {{/if}}
+
+
+          </div>
+          </form>
+        </div>
+
+
+        <div class="col-lg-6">
+          <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+          <div class="p-4">
+            <p class="font-italic mb-4">Shipping and additional costs are
+              calculated based on values you have entered.</p>
+            <ul class="list-unstyled mb-4">
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal
+                </strong><strong>{{subTotal}}</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and
+                  handling</strong><strong>40</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong
+                  class="text-muted">Tax</strong><strong>{{tax}}</strong></li>
+
+              {{#if cartDetails.coupon.discount}}
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Offer
+                  applied</strong>
+                <strong>-{{cartDetails.discount}}&#37</strong>
+              </li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                <h5 class="font-weight-bold">
+                  <span class="text-muted text-decoration-line-through">
+                    {{total}}
+                  </span>
+                  {{cartDetails.discountedPrice}}&#8377
+                </h5>
+              </li>
+              {{else}}
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                <h5 class="font-weight-bold">
+
+                  {{total}}&#8377</h5>
+              </li>
+              {{/if}}
+
+
+            </ul><a href="/proceed-to-checkout" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to
+              checkout</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{{else}}
+<h3>
+  please add some products to the cart
+</h3>
+{{/if }}
+
+
+<script>
+  $("#couponApply").submit((e) => {
+    e.preventDefault();
+    $.ajax({
+      type: 'post',
+      url: ('/coupon-applied'),
+      data: $('#couponApply').serialize(),
+      success: async (response) => {
+        if (response) {
+          await swal("Coupon applied...!");
+          location.reload()
+        }
+
+      },
+      error: (response, stat, err) => {
+        console.log(response);
+      }
+
+    })
+  })
+  function delConfirm(id) {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this data!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then(async (willDelete) => {
+        if (willDelete) {
+          await swal("Selected cart item has been deleted!", {
+            icon: "success",
+          });
+          cartDelete(id)
+        } else {
+          swal("Deletion has been canceled!");
+        }
+      });
+  }
+
+  function cartDelete(id) {
+    $.ajax({
+      url: "/delete-cart-item/" + id,
+      type: 'get',
+      success: (response) => {
+        if (response.status) {
+          location.reload()
+        }
+      }
+    })
+  }
+</script>

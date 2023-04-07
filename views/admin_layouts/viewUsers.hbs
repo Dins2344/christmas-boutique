@@ -1,0 +1,250 @@
+ <script src="/tableSetter/js/jquery.js"></script>
+    <script src="/tableSetter/media/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#userTable').dataTable()
+    })
+</script>
+
+{{!-- admin side pages --}}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/adminCss/style.css">
+
+
+
+
+<div class=" d-flex align-items-stretch  ">
+     <nav style="background-color: rgb(255, 255, 255);" id="sidebar" class="sidebar">
+        <div class="custom-menu">
+            <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+            </button>
+        </div>
+        <div class="p-4 pt-5">
+            <div class="col-12 pe-2 ps-2">
+                <div class="row border border-2 rounded-3 mb-2">
+                    <p style="color: black;"  class="m-0 mt-2">
+                        Hello..
+                    </p>
+                    <h5 class="m-0">
+                        admin
+                    </h5>
+                </div>
+            </div>
+            <ul class="list-unstyled components mb-5">
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a style="color: black;"  href="/admin">
+                        <i class="fa fa-clipboard " style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li style="background-color: rgb(247, 240, 230);" class="rounded-1 ps-1">
+                    <a style="color: black;"  href="/admin/viewusers">
+                        <i class="fa fa-users " style="color: rgb(0, 0, 0); margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        View Users
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;"  href="/admin/viewproducts">
+                        <i class="fa fa-shopping-bag" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        View Products
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;"  href="/admin/category">
+                        <i class="fa fa-list-alt" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Category Management
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;"  href="/admin/orders">
+                        <i class="fas fa-shipping-fast" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Order Management
+                    </a>
+                </li>
+                 <li>
+                    <a style="color: black;" href="/admin/order-return-requests">
+                        <i class="fa fa-undo" style="color: rgb(0, 0, 0);  margin-right: 5px;" aria-hidden="true"></i>
+                        Order Return Requests
+                    </a>
+                </li>
+                 <li >
+                    <a style="color: black;" href="/admin/refund-requests">
+                        <i class=" fas fa-hand-holding-usd" style="color: rgb(0, 0, 0);  margin-right: 5px;" aria-hidden="true"></i>
+                        Refund Requests
+                    </a>
+                </li>
+                <li>
+                    <a style="color: black;"  href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fa fa-gift" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Offer Management</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a style="color: black;"  href="/admin/coupons">
+                                Coupon Management
+                            </a>
+                        </li>
+                         <li>
+                            <a style="color: black;"  href="/admin/add-product-offer">
+                                Product Offer Management
+                            </a>
+                        </li>
+                        <li>
+                            <a style="color: black;"  href="/admin/category-offers">
+                                Category Offer Management
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a style="color: black;" >
+                        <i class="fa fa-gear" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Profile Setting
+                    </a>
+                </li>
+                <li>
+                    <a onclick="logoutConfirm()" style="color: black; cursor: pointer;" >
+                        <i class="fa fa-sign-out" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
+                        Logout</a>
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5 pt-5">
+         <div  class="container mb-3">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <div class="breadcrumb__links">
+                        <a style="color: black;" href="/admin/viewusers">/View users</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="d-flex justify-content-center mt-3">
+            <h3 style="font-family:Times New Roman, Times, serif; font-style: italic;">
+                All Users
+            </h3>
+        </div>
+        
+            <div class="container mt-4 m-1 p-3 bg-white rounded-4">
+                <table id="userTable" class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">First name</th>
+                            <th scope="col">Last name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Phone number</th>
+                            <th scope="col">Status</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each users}}
+                        <tr>
+                            <td>{{Fname}}</td>
+                            <td>{{Lname}}</td>
+                            <td>{{email}}</td>
+                            <td>{{address}}</td>
+                            <td>{{Pnumber}} </td>
+
+                            {{#if status}}
+                            <td>Active</td>
+                            <td>
+                                <a class="btn btn-danger" onclick="sAlertConfirm('{{_id}}')">Block</a>
+                            </td>
+                            {{else}}
+                            <td>Blocked</td>
+                            <td>
+                                <a class="btn btn-success" onclick="unblockConfirm('{{_id}}')">Unblock</a>
+                            </td>
+
+                            {{/if}}
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+    
+    </div>
+</div>
+
+{{!--
+<script src="/adminJs/jquery.min.js"></script> --}}
+<script src="/adminJs/popper.js"></script>
+<script src="/adminJs/bootstrap.min.js"></script>
+<script src="/adminJs/main.js"></script>
+
+
+
+
+<script>
+    const sAlertConfirm = (id) => {
+        swal({
+            title: "Are you sure?",
+            text: "Once blocked, user will not be able to be active on website",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then(async (willDelete) => {
+                if (willDelete) {
+                    await swal("Selected user has been blocked!", {
+                        icon: "success",
+                    });
+                    blocking(id)
+                } else {
+                    swal("Blocking has been canceled!");
+                }
+            });
+    }
+
+
+    const unblockConfirm = (id) => {
+        swal({
+            title: "Are you sure?",
+            text: "Once unblocked,a blocked user can be active on website",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then(async (willDelete) => {
+                if (willDelete) {
+                    await swal("Selected user has been unblocked!", {
+                        icon: "success",
+                    });
+                    unblocking(id)
+                } else {
+                    swal("unblocking has been canceled!");
+                }
+            });
+    }
+
+</script>
