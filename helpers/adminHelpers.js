@@ -2,18 +2,19 @@ const db = require('../configure/mongoconnectioin')
 const collection = require('../configure/collectionNames')
 const generateUniqueId = require('generate-unique-id')
 const objectid = require('mongodb').ObjectId
+require('dotenv').config()
 module.exports = {
-  adminlogin: (admindata) => {
-    // eslint-disable-next-line no-async-promise-executor
+  adminlogin: (adminData) => {
+    const adminUsername = process.env.ADMIN_USER_NAME
+    const adminPassword = process.env.ADMIN_PASSWORD
+    console.log(adminUsername, adminPassword)
+    console.log('called') // eslint-disable-next-line no-async-promise-executor
+    console.log(adminData)
     return new Promise(async (resolve, reject) => {
-      const Admin = await db
-        .get()
-        .collection(collection.AdminCollection)
-        .findOne({ userName: admindata.Uname })
-      if (Admin) {
-        if (Admin.password === admindata.password) {
-          console.log('admin loggedin')
-          resolve(Admin)
+      if (adminUsername === adminData.Uname) {
+        if (adminPassword === adminData.password) {
+          console.log('admin logged in')
+          resolve(adminUsername)
         } else {
           console.log('admin login failed')
           reject({ logErr: false })

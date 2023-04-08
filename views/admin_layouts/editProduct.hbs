@@ -1,55 +1,40 @@
-
-
 <section>
-  <div class="container d-flex justify-content-center mt-5">
+  <div class="container d-flex justify-content-center mt-5 mb-4">
 
-    <div class="col-7 col-md-5">
+    <div style="background-color: rgb(243, 243, 241);" class="col-7 col-md-5 mb-3 p-3 rounded-4">
       <div class="d-flex justify-content-center mb-3">
         <h5>
           Edit Product
         </h5>
       </div>
-
+      <div class="mb-4">
+        <a style="color: black;" href="/admin/viewproducts">
+          <i style="color: black;" class="fa fa-arrow-left" aria-hidden="true"></i> go back
+        </a>
+      </div>
       <form action="/admin/editpro/{{product._id}}" method="post" enctype="multipart/form-data" novalidate>
-        
+
         <!-- Name input -->
         <div class="form-outline mb-4">
-          <input
-            name="Pname"
-            type="text"
-            id="proName"
-            class="form-control"
-            value="{{product.Pname}}"
-            onkeyup="checkProName()"
-          />
+          <input name="Pname" type="text" id="proName" class="form-control" value="{{product.Pname}}"
+            onkeyup="checkProName()" />
           <label class="form-label" for="proName">Product name</label>
-           <span id="proNameErr" class="text-danger"></span>
+          <span id="proNameErr" class="text-danger"></span>
         </div>
 
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input
-          onkeyup="checkDescription()"
-            name="Description"
-            type="text"
-            id="description"
-            class="form-control"
-            value="{{product.Description}} "
-          />
+          <input onkeyup="checkDescription()" name="Description" type="text" id="description" class="form-control"
+            value="{{product.Description}} " />
           <label class="form-label" for="description">Description</label>
           <span id="descErr" class="text-danger"></span>
         </div>
 
         <div class="mb-4">
           <div class="form-floating">
-            <select
-              name="Category"
-              class="form-select"
-              id="floatingSelect"
-              aria-label="Floating label select example"
-            >
-             {{#each categories}}
-                <option value="{{Cname}}">{{Cname}}</option>
+            <select name="Category" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+              {{#each categories}}
+              <option value="{{Cname}}">{{Cname}}</option>
               {{/each}}
             </select>
             <label for="floatingSelect">click here to change category</label>
@@ -57,42 +42,27 @@
           </div>
           <label class="form-label">Category</label>
         </div>
-       
+
         <div class="row">
           <div class="form-outline mb-4 col-4">
-            <input
-            onkeyup="checkPrice()"
-              name="Price"
-              type="text"
-              id="price"
-              class="form-control"
-              value="{{product.Price}} "
-            />
+            <input onkeyup="checkPrice()" name="Price" type="text" id="price" class="form-control"
+              value="{{product.Price}} " />
             <label class="form-label" for="price">Price</label>
             <span id="priceErr" class="text-danger"></span>
           </div>
 
           <div class="form-outline mb-4 col-4">
-            <input
-              name="Discount"
-              type="text"
-              id="discount"
-              class="form-control"
-              value="{{product.Discount}} "
-              onkeyup="checkDiscount()"
-            />
+            <input name="Discount" type="text" id="discount" class="form-control" value="{{product.Discount}} "
+              onkeyup="checkDiscount()" />
             <label class="form-label" for="discount">Discount</label>
             <span id="discountErr" class="text-danger"></span>
           </div>
           <div class="form-outline mb-4 col-4">
-            <select
-              name="SaleStatus"
-              class="form-select"
-              id="floatingSelect1"
+            <select name="SaleStatus" class="form-select" id="floatingSelect1"
               aria-label="Floating label select example">
-                <option value="Hot Sale">Hot Sale</option>
-                <option value="Best Seller">Best Seller</option>
-                <option value="Latest Arrival">Latest Arrival</option>
+              <option value="Hot Sale">Hot Sale</option>
+              <option value="Best Seller">Best Seller</option>
+              <option value="Latest Arrival">Latest Arrival</option>
             </select>
             <label class="form-label" for="floatingSelect1">Sale status</label>
             <span id="discountErr" class="text-danger"></span>
@@ -101,11 +71,7 @@
 
 
         <div class="form-outline mb-4">
-          <input id="image" name="img" type="file" class="form-control"  />
-          <img
-            src="/images/prodimg/{{product._id}}.jpg"
-            style="width: 80px; ; "
-          />
+          <input id="image" name="img" type="file" class="form-control" />
           <label class="form-label" for="form5Example2">select image</label>
           <span id="imageErr" class="text-danger"></span>
         </div>
@@ -113,7 +79,7 @@
         <!-- Submit button -->
         <div class="d-flex justify-content-center">
           <p id="submitErr" class="d-block text-center text-danger"></p>
-          <button onclick="return submitCheck()" type="submit" class="btn btn-primary d-block mb-4">Save edit</button>
+          <button onclick="return submitCheck()" type="submit" class="btn btn-primary d-block mb-4 w-100">Save edit</button>
         </div>
 
       </form>

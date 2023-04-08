@@ -14,7 +14,7 @@
 
 
 <div class=" d-flex align-items-stretch  ">
-     <nav style="background-color: rgb(255, 255, 255);" id="sidebar" class="sidebar">
+    <nav style="background-color: rgb(255, 255, 255);" id="sidebar" class="sidebar">
         <div class="custom-menu">
             <button type="button" id="sidebarCollapse" class="btn btn-dark">
                 <i class="fa fa-bars"></i>
@@ -24,7 +24,7 @@
         <div class="p-4 pt-5">
             <div class="col-12 pe-2 ps-2">
                 <div class="row border border-2 rounded-3 mb-2">
-                    <p style="color: black;"  class="m-0 mt-2">
+                    <p style="color: black;" class="m-0 mt-2">
                         Hello..
                     </p>
                     <h5 class="m-0">
@@ -48,84 +48,83 @@
                     </ul>
                 </li>
                 <li>
-                    <a style="color: black;"  href="/admin">
+                    <a style="color: black;" href="/admin">
                         <i class="fa fa-clipboard " style="color: rgb(0, 0, 0);  margin-right: 5px;"
                             aria-hidden="true"></i>
                         Dashboard
                     </a>
                 </li>
                 <li>
-                    <a style="color: black;"  href="/admin/viewusers">
-                        <i class="fa fa-users " style="color: rgb(0, 0, 0); margin-right: 5px;"
-                            aria-hidden="true"></i>
+                    <a style="color: black;" href="/admin/viewusers">
+                        <i class="fa fa-users " style="color: rgb(0, 0, 0); margin-right: 5px;" aria-hidden="true"></i>
                         View Users
                     </a>
                 </li>
                 <li>
-                    <a style="color: black;"  href="/admin/viewproducts">
+                    <a style="color: black;" href="/admin/viewproducts">
                         <i class="fa fa-shopping-bag" style="color: rgb(0, 0, 0);  margin-right: 5px;"
                             aria-hidden="true"></i>
                         View Products
                     </a>
                 </li>
                 <li>
-                    <a style="color: black;"  href="/admin/category">
+                    <a style="color: black;" href="/admin/category">
                         <i class="fa fa-list-alt" style="color: rgb(0, 0, 0);  margin-right: 5px;"
                             aria-hidden="true"></i>
                         Category Management
                     </a>
                 </li>
                 <li>
-                    <a style="color: black;"  href="/admin/orders">
+                    <a style="color: black;" href="/admin/orders">
                         <i class="fas fa-shipping-fast" style="color: rgb(0, 0, 0);  margin-right: 5px;"
                             aria-hidden="true"></i>
                         Order Management
                     </a>
                 </li>
-                 <li>
+                <li style="background-color: rgb(247, 240, 230);" class="rounded-1 ps-1">
                     <a style="color: black;" href="/admin/order-return-requests">
                         <i class="fa fa-undo" style="color: rgb(0, 0, 0);  margin-right: 5px;" aria-hidden="true"></i>
                         Order Return Requests
                     </a>
                 </li>
-                 <li  style="background-color: rgb(247, 240, 230);" class="rounded-1 ps-1">
+                <li>
                     <a style="color: black;" href="/admin/refund-requests">
-                        <i class=" fas fa-hand-holding-usd" style="color: rgb(0, 0, 0);  margin-right: 5px;" aria-hidden="true"></i>
+                        <i class=" fas fa-hand-holding-usd" style="color: rgb(0, 0, 0);  margin-right: 5px;"
+                            aria-hidden="true"></i>
                         Refund Requests
                     </a>
                 </li>
                 <li>
-                    <a style="color: black;"  href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fa fa-gift" style="color: rgb(0, 0, 0);  margin-right: 5px;"
-                            aria-hidden="true"></i>
+                    <a style="color: black;" href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">
+                        <i class="fa fa-gift" style="color: rgb(0, 0, 0);  margin-right: 5px;" aria-hidden="true"></i>
                         Offer Management</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a style="color: black;"  href="/admin/coupons">
+                            <a style="color: black;" href="/admin/coupons">
                                 Coupon Management
                             </a>
                         </li>
-                         <li>
-                            <a style="color: black;"  href="/admin/add-product-offer">
+                        <li>
+                            <a style="color: black;" href="/admin/add-product-offer">
                                 Product Offer Management
                             </a>
                         </li>
-                        <li  style="background-color: rgb(247, 240, 230);" class="rounded-2 ps-1">
-                            <a style="color: black;"  href="/admin/category-offers">
+                        <li>
+                            <a style="color: black;" href="/admin/category-offers">
                                 Category Offer Management
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a style="color: black;" >
-                        <i class="fa fa-gear" style="color: rgb(0, 0, 0);  margin-right: 5px;"
-                            aria-hidden="true"></i>
+                    <a style="color: black;">
+                        <i class="fa fa-gear" style="color: rgb(0, 0, 0);  margin-right: 5px;" aria-hidden="true"></i>
                         Profile Setting
                     </a>
                 </li>
                 <li>
-                    <a style="color: black;" href="#">
+                    <a onclick="logoutConfirm()" style="color: black; cursor: pointer;">
                         <i class="fa fa-sign-out" style="color: rgb(0, 0, 0);  margin-right: 5px;"
                             aria-hidden="true"></i>
                         Logout</a>
@@ -137,6 +136,17 @@
 
     <!-- Page Content  -->
     <div id="content" class="p-4 p-md-5 pt-5">
+        <div class="container mb-3">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <div class="breadcrumb__links">
+                            <a style="color: black;" href="/admin/order-return-requests">/Order return requests</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="d-flex justify-content-center mt-3">
             <h3 style="font-family:Times New Roman, Times, serif; font-style: italic;">
                 Order Return Requests
@@ -144,52 +154,52 @@
         </div>
         <div class="mt-4 ">
             <h3 class="m-0 ps-1">
-                Return Requests 
+                Return Requests
             </h3>
             <p class="m-0 ps-1">don't forget to give refund after approve return request</p>
             <div class="container m-1 p-3 bg-white rounded-4">
-            <table id="returnTable" class="table  table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Order ID</th>
-                        <th scope="col">User name</th>
-                        <th scope="col">Ordered date</th>
-                        <th scope="col">Total amount</th>
-                        <th scope="col">Payment method</th>
-                        <th scope="col">Delivered date</th>
-                        <th scope="col">Return approval</th>
-                        <th scope="col">Approve/Reject</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each orders}}
-                    <tr>
-                        <td>{{orderId}}</td>
-                        <td>{{userFirstName}} {{userLastName}}</td>
-                        <td>{{orderedDate}}</td>
-                        <td>{{total}}&#8377</td>
-                        <td>{{paymentMethod}}</td>
-                        <td>{{deliveryDate}}</td>
-                        <td>{{returnStatus}}</td>
-                        <td>
-                            <button onclick="approveConfirm('{{orderId}}','{{returnStatus}}')"
-                                class="btn text-success btn-smj border border-0">
-                                Approve
-                            </button>
-                            <button onclick="rejectConfirm('{{orderId}}','{{returnStatus}}')"
-                                class="btn text-danger btn-smj border border-0">
-                                Reject
-                            </button>
-                        </td>
+                <table id="returnTable" class="table  table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">User name</th>
+                            <th scope="col">Ordered date</th>
+                            <th scope="col">Total amount</th>
+                            <th scope="col">Payment method</th>
+                            <th scope="col">Delivered date</th>
+                            <th scope="col">Return approval</th>
+                            <th scope="col">Approve/Reject</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each orders}}
+                        <tr>
+                            <td>{{orderId}}</td>
+                            <td>{{userFirstName}} {{userLastName}}</td>
+                            <td>{{orderedDate}}</td>
+                            <td>{{total}}&#8377</td>
+                            <td>{{paymentMethod}}</td>
+                            <td>{{deliveryDate}}</td>
+                            <td>{{returnStatus}}</td>
+                            <td>
+                                <button onclick="approveConfirm('{{orderId}}','{{returnStatus}}')"
+                                    class="btn text-success btn-smj border border-0">
+                                    Approve
+                                </button>
+                                <button onclick="rejectConfirm('{{orderId}}','{{returnStatus}}')"
+                                    class="btn text-danger btn-smj border border-0">
+                                    Reject
+                                </button>
+                            </td>
 
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        
+
 
     </div>
 </div>
@@ -212,7 +222,7 @@
             })
         } else if (status == 'approved') {
             swal("You already approved");
-        }else if (status == 'rejected') {
+        } else if (status == 'rejected') {
             swal("rejected request can not approve");
         }
 
@@ -243,16 +253,16 @@
             })
         } else if (status == 'rejected') {
             swal("You already rejected");
-        }else if (status == 'approved') {
+        } else if (status == 'approved') {
             swal("approved request can not reject");
         }
     }
-    function returnReject(id){
+    function returnReject(id) {
         $.ajax({
-            url:'/admin/reject-return/'+id,
+            url: '/admin/reject-return/' + id,
             type: 'get',
-            success:(response)=>{
-                if(response){
+            success: (response) => {
+                if (response) {
                     location.reload()
                 }
             }

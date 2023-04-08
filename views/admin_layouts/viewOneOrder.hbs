@@ -73,7 +73,7 @@
                         Category Management
                     </a>
                 </li>
-                <li>
+                <li  style="background-color: rgb(247, 240, 230);" class="rounded-1 ps-1">
                     <a style="color: black;"  href="/admin/orders">
                         <i class="fas fa-shipping-fast" style="color: rgb(0, 0, 0);  margin-right: 5px;"
                             aria-hidden="true"></i>
@@ -86,7 +86,7 @@
                         Order Return Requests
                     </a>
                 </li>
-                 <li  style="background-color: rgb(247, 240, 230);" class="rounded-1 ps-1">
+                 <li >
                     <a style="color: black;" href="/admin/refund-requests">
                         <i class=" fas fa-hand-holding-usd" style="color: rgb(0, 0, 0);  margin-right: 5px;" aria-hidden="true"></i>
                         Refund Requests
@@ -123,7 +123,7 @@
                     </a>
                 </li>
                 <li>
-                    <a style="color: black;" href="#">
+                   <a onclick="logoutConfirm()" style="color: black; cursor: pointer;" >
                         <i class="fa fa-sign-out" style="color: rgb(0, 0, 0);  margin-right: 5px;"
                             aria-hidden="true"></i>
                         Logout</a>
@@ -135,6 +135,18 @@
 
     <!-- Page Content  -->
     <div id="content" class="p-4 p-md-5 pt-5">
+         <div  class="container mb-3">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <div class="breadcrumb__links">
+                        <a style="color: black;" href="/admin/orders">/Order management</a>
+                        <a style="color: black;" >/Order details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
         <div class="container mt-3">
             <a style="color: black;" class="" href="/admin/orders">
                 <i style="color: black;"  class="fa fa-arrow-left" aria-hidden="true"></i> go back

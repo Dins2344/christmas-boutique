@@ -27,6 +27,9 @@ handlebars.registerHelper('percentage', function (a, b, coupon) {
   console.log(coupon)
   return Math.round(b - ((a / 100) * b))
 })
+handlebars.registerHelper('eq', function (a, b) {
+  if (a === b) return true
+})
 handlebars.registerHelper('or', function (a, b, options) {
   if (a || b) {
     return options.fn(this)
@@ -40,7 +43,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(session({ secret: 'key', cookie: { maxAge: oneday } }))
+app.use(session({ secret: 'key', resave: false, saveUninitialized: false, cookie: { maxAge: oneday } }))
 db.connect((err) => {
   if (err) {
     console.log('connection error : ' + err)

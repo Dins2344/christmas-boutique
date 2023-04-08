@@ -59,7 +59,7 @@
                   <td class="border-0 align-middle">
 
                     <button onclick="updateQuantity('{{_id}}','{{cartProduct._id}}',-1)" class="a-tag"
-                      href="#">-</button>
+                      href="#" {{#if (eq quantity 1)}}hidden{{/if}} >-</button>
                     <span id="{{cartProduct._id}}">
                       {{quantity}}
                     </span>

@@ -36,6 +36,7 @@ module.exports = {
     req.session.logErr = false
   },
   adminLoginPost: (req, res) => {
+    console.log('called')
     adminHelpers
       .adminlogin(req.body)
       .then((response) => {
