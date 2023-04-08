@@ -537,9 +537,12 @@ module.exports = {
 
     const formattedToday = yyyy + '-' + mm + '-' + dd
     const coupons = await userHelpers.getAllCoupons()
-    const randomIndex = Math.floor(Math.random() * coupons.length)
-    const randomCoupon = coupons[randomIndex]
-    await userHelpers.addCoupon(userInfo._id, randomCoupon)
+    if (coupons) {
+      const randomIndex = Math.floor(Math.random() * coupons.length)
+      const randomCoupon = coupons[randomIndex]
+      await userHelpers.addCoupon(userInfo._id, randomCoupon)
+    }
+
     const orderDetails = {
       couponCode,
       discount,
