@@ -32,20 +32,25 @@ function removeCoupon (id) {
     }
   })
 }
-function addToCart (proId) {
+function addToCart (proId, buy) {
+  console.log(proId, buy)
   $.ajax({
     url: '/add-cart/' + proId,
     method: 'get',
     success: async (response) => {
       if (response.status) {
-        let count = $('#cartCount').html()
-        count = parseInt(count) + 1
-        $('#carCount').html(count)
-        await swal({
-          title: 'Added to your cart!',
-          icon: 'success'
-        })
-        location.reload()
+        if (buy !== 1) {
+          let count = $('#cartCount').html()
+          count = parseInt(count) + 1
+          $('#carCount').html(count)
+          await swal({
+            title: 'Added to your cart!',
+            icon: 'success'
+          })
+          location.reload()
+        } else {
+          location.replace('/my-cart')
+        }
       }
     }
 

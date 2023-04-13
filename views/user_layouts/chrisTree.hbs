@@ -7,56 +7,51 @@
 <div class="container">
   <dvi class="row d-flex justify-content-center">
     {{#each products}}
-      <div class="col col-md-4 col-lg-3 col-sm-6 col-7 mt-4">
-        <div class="card text-center border border-primary shadow-0">
-          <div
-            class="bg-image hover-overlay ripple"
-            data-mdb-ripple-color="light"
-          >
-            <a href="/quickview/{{_id}}" class="hover-overlay ripple">
-              <img
-                src="/images/prodimg/{{_id}}.jpg"
-                class="card-img-top img-thumbnail"
-              /></a>
-            <a href="/">
-              <div
-                class="mask"
-                style="background-color: rgba(251, 251, 251, 0.15)"
-              ></div>
-            </a>
-          </div>
+    <div class="col col-md-4 col-lg-3 col-sm-6 col-7 mt-4">
+      <div class="card text-center border border-primary shadow-0">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <a href="/quickview/{{_id}}" class="hover-overlay ripple">
+            <img src="{{images.image1}}" class="card-img-top img-thumbnail" /></a>
+          <a href="/">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+          </a>
+        </div>
 
-          <div class="card-body">
-            <h5 class="card-title">{{Pname}}</h5>
-            <p class="card-text">{{Price}}&#8377</p>
+        <div class="card-body">
+          <h5 class="card-title">{{Pname}}</h5>
+          <p class="card-text">{{Price}}&#8377</p>
 
-            <button
-              type="button"
-              class="btn btn-secondary btn-rounded w-100 mb-3"
-            >Add to cart</button>
-            <button
-              type="button"
-              class="btn btn-secondary btn-rounded w-100 mb-3"
-            >Buy now</button>
-          </div>
+          <button type="button" class="btn btn-secondary btn-rounded w-100 mb-3">Add to cart</button>
+          <button type="button" class="btn btn-secondary btn-rounded w-100 mb-3">Buy now</button>
         </div>
       </div>
+    </div>
     {{/each}}
 
   </dvi>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="product__pagination">
+        {{#each maxPage}}
+        <a href="/christmas%20tree?treePage={{pageNumber}}">{{pageNumber}}</a>
+        {{/each}}
+
+      </div>
+    </div>
+  </div>
 
 </div>
 
 
 
 <!-- Js Plugins -->
-    <script src="userJs/jquery-3.3.1.min.js"></script>
-    <script src="userJs/bootstrap.min.js"></script>
-    <script src="userJs/jquery.nice-select.min.js"></script>
-    <script src="userJs/jquery.nicescroll.min.js"></script>
-    <script src="userJs/jquery.magnific-popup.min.js"></script>
-    <script src="userJs/jquery.countdown.min.js"></script>
-    <script src="userJs/jquery.slicknav.js"></script>
-    <script src="userJs/mixitup.min.js"></script>
-    <script src="userJs/owl.carousel.min.js"></script>
-    <script src="userJs/main.js"></script>
+<script src="userJs/jquery-3.3.1.min.js"></script>
+<script src="userJs/bootstrap.min.js"></script>
+<script src="userJs/jquery.nice-select.min.js"></script>
+<script src="userJs/jquery.nicescroll.min.js"></script>
+<script src="userJs/jquery.magnific-popup.min.js"></script>
+<script src="userJs/jquery.countdown.min.js"></script>
+<script src="userJs/jquery.slicknav.js"></script>
+<script src="userJs/mixitup.min.js"></script>
+<script src="userJs/owl.carousel.min.js"></script>
+<script src="userJs/main.js"></script>

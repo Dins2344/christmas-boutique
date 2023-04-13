@@ -1,4 +1,4 @@
-const db = require('../configure/mongoconnectioin')
+const db = require('../configure/mongoConnections')
 const collection = require('../configure/collectionNames')
 const objectid = require('mongodb').ObjectId
 module.exports = {
@@ -20,170 +20,289 @@ module.exports = {
       .collection(collection.ProCollection)
       .insertOne(product)
   },
-  getProducts: () => {
-    return new Promise(async (resolve, reject) => {
+  getProducts: async () => {
+    try {
       const product = await db
         .get()
         .collection(collection.ProCollection)
         .find()
         .toArray()
-
-      resolve(product)
-    })
+      return product
+    } catch (err) {
+      return err
+    }
   },
 
   deleteProduct: async (proid) => {
-    await db.get()
-      .collection(collection.ProCollection)
-      .deleteOne({ _id: objectid(proid) })
+    try {
+      await db.get()
+        .collection(collection.ProCollection)
+        .deleteOne({ _id: objectid(proid) })
+    } catch (err) {
+      return err
+    }
   },
   getByName: async (name) => {
-    const product = await db.get()
-      .collection(collection.ProCollection)
-      .findOne({ Pname: name })
-    return product
+    try {
+      const product = await db.get()
+        .collection(collection.ProCollection)
+        .findOne({ Pname: name })
+      return product
+    } catch (err) {
+      return err
+    }
   },
   getHotSales: async () => {
-    const hotSales = await db.get().collection(collection.ProCollection).find({ SaleStatus: 'Hot Sale' }).toArray()
-    return hotSales
+    try {
+      const hotSales = await db.get().collection(collection.ProCollection).find({ SaleStatus: 'Hot Sale' }).toArray()
+      return hotSales
+    } catch (err) {
+      return err
+    }
   },
   getLatestPro: async () => {
-    const newProducts = await db.get()
-      .collection(collection.ProCollection)
-      .find({}).sort({ _id: -1 }).limit(4)
-      .toArray()
-    return newProducts
+    try {
+      const newProducts = await db.get()
+        .collection(collection.ProCollection)
+        .find({}).sort({ _id: -1 }).limit(4)
+        .toArray()
+      return newProducts
+    } catch (err) {
+      return err
+    }
   },
-  getProduct: (proid) => {
-    return new Promise((resolve, reject) => {
-      db.get()
+  getProduct: async (proid) => {
+    try {
+      const product = await db.get()
         .collection(collection.ProCollection)
         .findOne({ _id: objectid(proid) })
-        .then((product) => {
-          resolve(product)
-        })
-    })
+      return product
+    } catch (err) {
+      return err
+    }
   },
-  changeProduct: (proid, proDetails) => {
-    return new Promise((resolve, reject) => {
-      db.get()
-        .collection(collection.ProCollection)
-        .updateOne(
-          { _id: objectid(proid) },
-          {
-            $set: {
-              Pname: proDetails.Pname,
-              Description: proDetails.Description,
-              Category: proDetails.Category,
-              Price: parseInt(proDetails.Price),
-              Discount: parseInt(proDetails.Discount),
-              SaleStatus: proDetails.SaleStatus
+  changeProduct: (proid, proDetails, images) => {
+    try {
+      const imageObj = {}
+      for (let i = 0; i < images.length; i++) {
+        const keyName = `image${i + 1}`
+        imageObj[keyName] = images[i]
+      } return new Promise((resolve, reject) => {
+        db.get()
+          .collection(collection.ProCollection)
+          .updateOne(
+            { _id: objectid(proid) },
+            {
+              $set: {
+                Pname: proDetails.Pname,
+                Description: proDetails.Description,
+                Category: proDetails.Category,
+                Price: parseInt(proDetails.Price),
+                Discount: parseInt(proDetails.Discount),
+                SaleStatus: proDetails.SaleStatus,
+                images: imageObj
+              }
             }
-          }
-        )
-        .then((response) => {
-          resolve()
-        })
-    })
+          )
+          .then((response) => {
+            resolve()
+          })
+      })
+    } catch (err) {
+      return err
+    }
   },
+  getSearchedProducts: async (search, page, limit) => {
+    try {
+      const products = await db.get().collection(collection.ProCollection).find(
+        {
+          $or:
+          [{ Pname: { $regex: new RegExp(search, 'i') } }, { Category: { $regex: new RegExp(search, 'i') } }]
+        }).limit(limit).skip((page - 1) * limit).toArray()
 
-  getAllProducts: async () => {
-    const products = await db
-      .get()
-      .collection(collection.ProCollection)
-      .find({})
-      .toArray()
-    return products
+      return products
+    } catch (err) {
+      return err
+    }
   },
-  getTreeProducts: () => {
-    return new Promise(async (resolve, reject) => {
+  getSearchedProductsLength: async (search) => {
+    try {
+      const products = await db.get().collection(collection.ProCollection).find(
+        {
+          $or:
+          [{ Pname: { $regex: new RegExp(search, 'i') } }, { Category: { $regex: new RegExp(search, 'i') } }]
+        }).toArray()
+
+      return products.length
+    } catch (err) {
+      return err
+    }
+  },
+  getAmountBasedProducts: async (min, max) => {
+    try {
+      const minimum = parseInt(min)
+      const maximum = parseInt(max)
+      console.log(minimum, maximum)
+      const products = await db.get().collection(collection.ProCollection).find({
+        Price: {
+          $gte: minimum,
+          $lte: maximum
+        }
+      }).toArray()
+      console.log(products)
+      return products
+    } catch (err) {
+      return err
+    }
+  },
+  getAllProducts: async (page, limit) => {
+    try {
+      const products = await db.get()
+        .collection(collection.ProCollection)
+        .find({})
+        .limit(limit)
+        .skip((page - 1) * limit)
+        .toArray()
+      return products
+    } catch (err) {
+      return err
+    }
+  },
+  getAllProductsCount: async () => {
+    try {
+      const products = await db.get()
+        .collection(collection.ProCollection)
+        .find({})
+        .toArray()
+      return products.length
+    } catch (err) {
+      return err
+    }
+  },
+  getCategoryProducts: async (category, page, limit) => {
+    try {
+      console.log(limit)
       const products = await db
         .get()
         .collection(collection.ProCollection)
-        .find({ Category: 'Christmas tree' })
+        .find({ Category: category })
+        .limit(limit)
+        .skip((page - 1) * limit)
         .toArray()
-      resolve(products)
-    })
+      return products
+    } catch (err) {
+      return err
+    }
   },
-  getOrnamentsProducts: () => {
-    return new Promise(async (resolve, reject) => {
-      const products = await db
-        .get()
-        .collection(collection.ProCollection)
-        .find({ Category: 'Unique ornaments' })
-        .toArray()
-      resolve(products)
-    })
+  getCategoryProductsCount: async (category) => {
+    try {
+      const products = await db.get().collection(collection.ProCollection).find({ Category: category }).toArray()
+      return products.length
+    } catch (err) {
+      return err
+    }
   },
-  getHolidayLightsProducts: () => {
-    return new Promise(async (resolve, reject) => {
-      const products = await db
-        .get()
-        .collection(collection.ProCollection)
-        .find({ Category: 'Holiday lights' })
-        .toArray()
-      resolve(products)
-    })
+  getProductsAscending: async () => {
+    try {
+      const products = await db.get().collection(collection.ProCollection).find({}).sort({ Price: 1, _id: 1 }).toArray()
+      return products
+    } catch (err) {
+      return err
+    }
+  },
+  getProductsDescending: async () => {
+    try {
+      const products = await db.get().collection(collection.ProCollection).find({}).sort({ Price: -1, _id: 1 }).toArray()
+      return products
+    } catch (err) {
+      return err
+    }
   },
 
   addCategory: async (category) => {
-    console.log(category)
-    await db
-      .get()
-      .collection(collection.CategoryCollection)
-      .insertOne(category)
+    try {
+      await db
+        .get()
+        .collection(collection.CategoryCollection)
+        .insertOne(category)
+    } catch (err) {
+      return err
+    }
   },
   getCategories: async () => {
-    const categories = await db
-      .get()
-      .collection(collection.CategoryCollection)
-      .find()
-      .toArray()
-    return categories
+    try {
+      const categories = await db
+        .get()
+        .collection(collection.CategoryCollection)
+        .find()
+        .toArray()
+      return categories
+    } catch (err) {
+      return err
+    }
   },
   getCategory: (proid) => {
-    return new Promise((resolve, reject) => {
-      db.get()
-        .collection(collection.CategoryCollection)
-        .findOne({ _id: objectid(proid) })
-        .then((category) => {
-          resolve(category)
-        })
-    })
+    try {
+      return new Promise((resolve, reject) => {
+        db.get()
+          .collection(collection.CategoryCollection)
+          .findOne({ _id: objectid(proid) })
+          .then((category) => {
+            resolve(category)
+          })
+      })
+    } catch (err) {
+      return err
+    }
   },
   deleteCategory: async (cateId) => {
-    await db.get()
-      .collection(collection.CategoryCollection)
-      .deleteOne({ _id: objectid(cateId) })
+    try {
+      await db.get()
+        .collection(collection.CategoryCollection)
+        .deleteOne({ _id: objectid(cateId) })
+    } catch (err) {
+      return err
+    }
   },
   changeCategory: (cateid, cateDetails) => {
-    return new Promise((resolve, reject) => {
-      db.get()
-        .collection(collection.CategoryCollection)
-        .updateOne(
-          { _id: objectid(cateid) },
-          {
-            $set: {
-              Cname: cateDetails.Cname,
-              SCname: cateDetails.SCname,
-              Discription: cateDetails.Discription
+    try {
+      return new Promise((resolve, reject) => {
+        db.get()
+          .collection(collection.CategoryCollection)
+          .updateOne(
+            { _id: objectid(cateid) },
+            {
+              $set: {
+                Cname: cateDetails.Cname,
+                SCname: cateDetails.SCname,
+                Discription: cateDetails.Discription
+              }
             }
-          }
-        )
-        .then((response) => {
-          resolve()
-        })
-    })
+          )
+          .then((response) => {
+            resolve()
+          })
+      })
+    } catch (err) {
+      return err
+    }
   },
   getOfferedProducts: async () => {
-    const products = await db.get().collection(collection.ProCollection)
-      .find({ discountPrice: { $exists: true } })
-      .toArray()
-    return products
+    try {
+      const products = await db.get().collection(collection.ProCollection)
+        .find({ discountPrice: { $exists: true } })
+        .toArray()
+      return products
+    } catch (err) {
+      return err
+    }
   },
   getOfferedCategories: async () => {
-    const offeredCategories = await db.get().collection(collection.CategoryCollection).find({ categoryOffer: { $exists: true } }).toArray()
-    console.log(offeredCategories)
-    return offeredCategories
+    try {
+      const offeredCategories = await db.get().collection(collection.CategoryCollection).find({ categoryOffer: { $exists: true } }).toArray()
+      return offeredCategories
+    } catch (err) {
+      return err
+    }
   }
 }

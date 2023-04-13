@@ -1,6 +1,9 @@
 
-<div class="container d-flex justify-content-center">
-  <div style="margin-top:100px ;" class="col-10 col-sm-6 col-md-5">
+<div class="container d-flex justify-content-center mt-5 " style="height: 100%;">
+  <div style="background-color: rgb(242, 242, 242); height: max-content;" class="col-10 col-sm-6 col-md-5 col-lg-4 rounded-4 p-3 shadow ">
+    <div class="text-center mb-3">
+    <h3>OTP Login</h3>
+    </div>
     <form method="post" action="/otpverify">
     {{#if OTPerr}}
         <p style="color:red ;">{{OTPerr}}</p>
@@ -20,12 +23,12 @@
       <!-- Submit button -->
       <button
         type="submit"
-        class="btn btn-primary btn-block mb-4"
+        class="rounded-pill btn btn-outline-secondary btn-block mb-4 w-100"
       >Submit</button>
 
       <!-- Resend buttons -->
       <div class="text-center">
-        <p>did'nt get otp? <a href="/signup">Resend</a></p>
+        <p>did'nt get otp? <a href="/otplogin">Resend</a></p>
 
       </div>
     </form>

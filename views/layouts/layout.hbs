@@ -15,9 +15,7 @@
 
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     
-    {{!-- <!-- Custom CSS -->
-    <link href="/plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css"> --}}
+  
     <!-- Custom CSS -->
     <link href="/css/style.min.css" rel="stylesheet">
      {{!-- admin side chart --}}
@@ -38,7 +36,10 @@
     <link rel="icon" href="/images/logo/image.png">
   </head>
   <body>
-    {{#if admin}}
+    {{#if partialsHide }}
+        {{{body}}}
+    {{else}}
+      {{#if admin}}
     {{>adminHeader}}
     {{else}}
     {{>userHeader}}
@@ -46,6 +47,9 @@
     {{{body}}}
     {{>Footer}}
 
+
+    {{/if}}
+  
   </body>
 
 </html>

@@ -335,8 +335,8 @@
                         razorPayment(response.razorOrder)
                         break;
                     case 'wallet':
-                    response.walletNotEnough?walletPayment(response.walletNotEnough):location.href = '/order-placed'
-                        
+                        response.walletNotEnough ? walletPayment(response.walletNotEnough) : location.href = '/order-placed'
+
                         break;
                     case 'blocked':
                         await swal("Your account has been blocked..!");
@@ -380,13 +380,18 @@
         rzp1.open();
     }
     function verifyPayment(payment, order) {
+        console.log(payment, order)
         $.ajax({
             url: ('/verify-payment'),
             type: 'post',
             data: { payment, order },
             success: async (response) => {
                 if (response.status) {
-                    await swal("Your order is placed..!");
+                    await Swal.fire(
+                        'Your Order Is Placed!',
+                        'Check your orders for order details',
+                        'success'
+                    )
                     location.href = '/order-placed'
                 } else {
                     alert("failed")

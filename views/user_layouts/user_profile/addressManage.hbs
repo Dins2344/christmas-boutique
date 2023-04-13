@@ -127,8 +127,8 @@
 
                 <div class="accordion-item border rounded-2  mt-3">
                     <h2 class="accordion-header" id="flush-headingOne">
-                        <h3 class="accordion-button collapsed mt-2 p-1 border border-0 " type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseOneM" aria-expanded="false"
+                        <h3 class="accordion-button collapsed mt-2 p-1 border border-0 " type="button"
+                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOneM" aria-expanded="false"
                             aria-controls="flush-collapseOne">
                             Add Address
                         </h3>
@@ -143,73 +143,86 @@
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-md-6">
-                                            <label class="labels">Name : <span id="firstNameErr" class="text-danger"></span></label>
+                                            <label class="labels">Name : <span id="firstNameErr"
+                                                    class="text-danger"></span></label>
                                             <input name="Fname" type="text" class="form-control" id="firstName"
-                                             onkeyup="checkFirstName()"   placeholder="first name" value="">
+                                                onkeyup="checkFirstName()" placeholder="first name" value="">
                                         </div>
                                         <div class="col-md-6">
-                                            <label class="labels">Surname : <span id="surNameErr" class="text-danger"></span></label>
+                                            <label class="labels">Surname : <span id="surNameErr"
+                                                    class="text-danger"></span></label>
                                             <input name="Lname" type="text" class="form-control" value="" id="surName"
-                                               onkeyup="checkSurName()" placeholder="surname">
+                                                onkeyup="checkSurName()" placeholder="surname">
                                         </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-md-12">
-                                            <label class="labels">Mobile Number : <span id="mobNumberErr" class="text-danger"></span></label>
+                                            <label class="labels">Mobile Number : <span id="mobNumberErr"
+                                                    class="text-danger"></span></label>
                                             <input name="Mnumber" type="text" class="form-control"
-                                               onkeyup="checkMobileNo()" placeholder="enter phone number" value="" id="mobNumber">
+                                                onkeyup="checkMobileNo()" placeholder="enter phone number" value=""
+                                                id="mobNumber">
                                         </div>
                                         <div class="col-md-12">
-                                            <label class="labels">Address Line 1 : <span id="lineOneErr" class="text-danger"></span></label>
+                                            <label class="labels">Address Line 1 : <span id="lineOneErr"
+                                                    class="text-danger"></span></label>
                                             <input name="address1" type="text" class="form-control" id="lineOne"
-                                               onkeyup="checkAddressOne()" placeholder="enter address line 1" value="">
+                                                onkeyup="checkAddressOne()" placeholder="enter address line 1" value="">
                                         </div>
                                         <div class="col-md-12">
-                                            <label class="labels">Address Line 2 : <span id="lineTwoErr" class="text-danger"></span> </label>
+                                            <label class="labels">Address Line 2 : <span id="lineTwoErr"
+                                                    class="text-danger"></span> </label>
                                             <input name="address2" type="text" class="form-control" id="lineTwo"
-                                               onkeyup="checkAddressTwo()" placeholder="enter address line 2" value="">
+                                                onkeyup="checkAddressTwo()" placeholder="enter address line 2" value="">
                                         </div>
                                         <div class="row ">
                                             <div class="col-md-6">
-                                                <label class="labels">Postcode : <span id="pinCodeErr" class="text-danger"></span></label>
-                                                <input name="Pcode" type="text" class="form-control"
-                                                   onkeyup="pinCode()" placeholder="enter pin code" id="pin">
+                                                <label class="labels">Postcode : <span id="pinCodeErr"
+                                                        class="text-danger"></span></label>
+                                                <input name="Pcode" type="text" class="form-control" onkeyup="pinCode()"
+                                                    placeholder="enter pin code" id="pin">
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="labels">Post Office : <span id="postOfficeErr" class="text-danger"></span></label>
+                                                <label class="labels">Post Office : <span id="postOfficeErr"
+                                                        class="text-danger"></span></label>
                                                 <input name="Poffice" type="text" class="form-control" id="postOffice"
-                                                   onkeyup="checkPostOffice()" placeholder="enter post office" value="">
+                                                    onkeyup="checkPostOffice()" placeholder="enter post office"
+                                                    value="">
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
-                                            <label class="labels">Area :<span id="areaErr" class="text-danger"></span></label>
+                                            <label class="labels">Area :<span id="areaErr"
+                                                    class="text-danger"></span></label>
                                             <input name="area" type="text" class="form-control" placeholder="enter area"
-                                              onkeyup="checkAreaName()"  value="" id="area">
+                                                onkeyup="checkAreaName()" value="" id="area">
                                         </div>
                                         <div class="col-md-12">
-                                            <label class="labels">Email ID :<span id="emailErr" class="text-danger"></span></label>
+                                            <label class="labels">Email ID :<span id="emailErr"
+                                                    class="text-danger"></span></label>
                                             <input name="email" type="text" class="form-control"
-                                               onkeyup="addressCheckEmail()" placeholder="enter email id"  id="emailId">
+                                                onkeyup="addressCheckEmail()" placeholder="enter email id" id="emailId">
                                         </div>
 
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-md-6">
-                                            <label class="labels">Country : <span id="countryErr" class="text-danger"></span></label>
-                                            <input name="country" type="text" class="form-control" placeholder="country" id="country"
-                                                onkeyup="checkCountry()" value="">
+                                            <label class="labels">Country : <span id="countryErr"
+                                                    class="text-danger"></span></label>
+                                            <input name="country" type="text" class="form-control" placeholder="country"
+                                                id="country" onkeyup="checkCountry()" value="">
                                         </div>
                                         <div class="col-md-6">
-                                            <label class="labels">State/Region :<span id="stateErr" class="text-danger"></span></label>
+                                            <label class="labels">State/Region :<span id="stateErr"
+                                                    class="text-danger"></span></label>
                                             <input name="state" type="text" class="form-control" id="stateName"
-                                               onkeyup="checkState()" placeholder="state">
+                                                onkeyup="checkState()" placeholder="state">
                                         </div>
                                         <div class="row mt-3">
                                             <label class="labels">Address Type</label>
                                             <div class="form-check form-check-inline col-2">
-                                                <input checked class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                    id="inlineRadio1" value="Home" required>
+                                                <input checked class="form-check-input" type="radio"
+                                                    name="inlineRadioOptions" id="inlineRadio1" value="Home" required>
                                                 <label class="form-check-label" for="inlineRadio1">Home</label>
                                             </div>
                                             <div class="form-check form-check-inline col-2">
@@ -224,7 +237,8 @@
                                     </div>
                                     <div class="mt-5 text-center">
                                         <span id="addressSubmitErr" class="text-danger"></span>
-                                        <button  onclick="return addressSubmitCheck()" class="btn btn-secondary profile-button w-100" type="submit">
+                                        <button onclick="return addressSubmitCheck()"
+                                            class="btn btn-secondary profile-button w-100" type="submit">
                                             Save Address</button>
                                     </div>
                                 </div>
@@ -247,7 +261,7 @@
                             <p class="">{{Pcode}}</p>
                         </div>
                         <div class="col d-flex justify-content-end">
-                            <a style="height:45px ;" class="btn " href="/delete-address/{{_id}}">
+                            <a style="height:45px ;" class="btn " onclick="deleteConfirm('{{_id}}')">
                                 <img style="width: 25px;" src="/images/icons/delete.png">
                             </a>
                         </div>
@@ -262,3 +276,38 @@
 </div>
 </div>
 </div>
+
+
+<script>
+    function deleteConfirm(id) {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this data!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then(async (willDelete) => {
+                if (willDelete) {
+                    await swal("Requested address details has been deleted!", {
+                        icon: "success",
+                    });
+                    deleteAddress(id)
+                } else {
+                    swal("Deletion aborted!");
+                }
+            });
+    }
+
+    function deleteAddress(id) {
+        $.ajax({
+            url: '/delete-address/' + id,
+            type: 'get',
+            success: (response) => {
+                if (response.status) {
+                    location.reload()
+                }
+            }
+        })
+    }
+</script>

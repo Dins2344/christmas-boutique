@@ -36,7 +36,7 @@ router.get('/allproduct', controller.getAllProducts)
 router.get('/quickView/:id', controller.quickviewGet)
 
 router.get('/christmas%20tree', controller.getTreeProducts)
-router.get('/Christmas%20Ornaments', controller.getOrnamentsProducts)
+router.get('/Unique%20ornaments', controller.getOrnamentsProducts)
 router.get('/Holiday%20lights', controller.getHolidayLightProducts)
 
 // userinfo loading page rendering

@@ -24,7 +24,7 @@ const generateOpt = (mobileNo) => {
     client.verify.v2.services(serviceSid)
       .verifications
       .create({ to: `+91${mobileNo}`, channel: 'sms' })
-      .then(verification => console.log(verification.sid))
+      .then(verification => resolve(verification.sid))
   })
 }
 // api for verifying the otp recived by the user

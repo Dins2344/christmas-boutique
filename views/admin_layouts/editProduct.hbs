@@ -13,7 +13,7 @@
         </a>
       </div>
       <form action="/admin/editpro/{{product._id}}" method="post" enctype="multipart/form-data" novalidate>
-
+        <input value="{{product._id}}" name = "proId" hidden>
         <!-- Name input -->
         <div class="form-outline mb-4">
           <input name="Pname" type="text" id="proName" class="form-control" value="{{product.Pname}}"
@@ -71,7 +71,7 @@
 
 
         <div class="form-outline mb-4">
-          <input id="image" name="img" type="file" class="form-control" />
+          <input id="image" name="images" multiple type="file" class="form-control" />
           <label class="form-label" for="form5Example2">select image</label>
           <span id="imageErr" class="text-danger"></span>
         </div>
@@ -79,7 +79,9 @@
         <!-- Submit button -->
         <div class="d-flex justify-content-center">
           <p id="submitErr" class="d-block text-center text-danger"></p>
-          <button onclick="return submitCheck()" type="submit" class="btn btn-primary d-block mb-4 w-100">Save edit</button>
+          <button onclick="return submitCheck()" type="submit" class="btn btn-primary d-block mb-4 w-100">
+            Save edit
+          </button>
         </div>
 
       </form>

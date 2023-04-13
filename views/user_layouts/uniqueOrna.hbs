@@ -15,7 +15,7 @@
           data-mdb-ripple-color="light"
         > 
             <a href="/quickview/{{_id}}" class="hover-overlay ripple"> <img
-            src="/images/prodimg/{{_id}}.jpg"
+            src="{{images.image1}}"
             class="card-img-top img-thumbnail"
           /></a>
           <a href="/">
@@ -40,5 +40,15 @@
     {{/each}}
 
   </dvi>
+   <div class="row">
+    <div class="col-lg-12">
+      <div class="product__pagination">
+        {{#each maxPage}}
+        <a href="/Unique%20ornaments?treePage={{pageNumber}}">{{pageNumber}}</a>
+        {{/each}}
+
+      </div>
+    </div>
+  </div>
 
 </div>

@@ -37,7 +37,7 @@ router.get('/deletepro/:id', controller.deleteProducts)
 router
   .route('/editpro/:id')
   .get(sessionCheck.adminSessionCheckingHome, controller.editProductGet)
-  .post(controller.editProductPost)
+  .post(upload, controller.editProductPost)
 
 /* users viewing page rendering */
 router
