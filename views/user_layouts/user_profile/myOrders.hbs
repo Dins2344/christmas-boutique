@@ -32,11 +32,6 @@
                                             Manage Address
                                         </a>
                                     </div>
-                                    <div class="w-100 mt-1">
-                                        <a id="usermenuitems" class="btn" href="/PAN-card-information">
-                                            PAN Card Information
-                                        </a>
-                                    </div>
 
                                 </div>
                             </div>
@@ -68,11 +63,6 @@
                                         </a>
                                     </div>
                                     <div class="w-100 mt-1">
-                                        <a id="usermenuitems" class="btn" href="/all-notifications">
-                                            All Notifications
-                                        </a>
-                                    </div>
-                                    <div class="w-100 mt-1">
                                         <a id="usermenuitems" class="btn" href="/my-wishlist">
                                             My Wishlist
                                         </a>
@@ -80,36 +70,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                    aria-controls="flush-collapseThree">
-                                    Payments
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <div class="w-100">
-                                        <a id="usermenuitems" class="btn" href="/saved-cards">
-                                            Saved Cards
-                                        </a>
-                                    </div>
-                                    <div class="w-100 mt-1">
-                                        <a id="usermenuitems" class="btn" href="/saved-UPI">
-                                            Saved UPI
-                                        </a>
-                                    </div>
-                                    <div class="w-100 mt-1">
-                                        <a id="usermenuitems" class="btn" href="/gift-cards">
-                                            Gift Cards
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="btn mt-2" href="/logout">
+                        <a class="btn mt-2" onclick="logOutConfirm('{{userInfo._id}}')">
                             Logout
                         </a>
                     </div>
@@ -126,6 +87,7 @@
                             </div>
                         </div>
                     </div>
+                    {{#if orders}}
                     {{#each orders}}
                     <div class="card mb-3 border">
                         <div class="row g-0">
@@ -427,6 +389,13 @@
                         </div>
                     </div>
                 </div>
+                {{else}}
+                <div class="text-center mt-5">
+                    <h3>
+                        Your orders list is empty please place an order....!
+                    </h3>
+                </div>
+                {{/if}}
             </div>
 
         </div>

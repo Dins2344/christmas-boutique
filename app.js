@@ -1,4 +1,4 @@
-const createError = require('http-errors')
+
 const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
@@ -19,12 +19,12 @@ require('dotenv').config()
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
+// eslint-disable-next-line n/no-path-concat
 app.engine('hbs', hbs.engine({ extname: 'hbs', defaultLayout: 'layout', layoutDir: __dirname + '/views/layouts', partialDir: __dirname + '/views/partials/' }))
 handlebars.registerHelper('multiply', function (a, b) {
   return a * b
 })
 handlebars.registerHelper('percentage', function (a, b, coupon) {
-  console.log(coupon)
   return Math.round(b - ((a / 100) * b))
 })
 handlebars.registerHelper('eq', function (a, b) {

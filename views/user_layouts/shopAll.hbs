@@ -148,8 +148,8 @@
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__right">
                                 <p>Sort by Price:</p>
-                                <button class="btn dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
                                     Select
                                 </button>
                                 <ul class="dropdown-menu">
@@ -184,12 +184,12 @@
                                     Cart</a>
                                 {{/if}}
 
-                                <a href="#" style="margin-left: 65%;" data-bs-toggle="modal" data-bs-target="#{{_id}}"
+                                <a href="#" style="margin-left: 65%;" data-bs-toggle="modal" data-bs-target="#12{{_id}}"
                                     class="add-cart btn p-0 border border-0">Quick
                                     view</a>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                <div class="modal fade" id="12{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
                                     <div class=" modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content">
@@ -271,9 +271,25 @@
                                                                         <p>{{Description}}</p>
                                                                         <div
                                                                             class="product__details__cart__option mt-1">
-                                                                            <div class="quantity">
-                                                                                <div class="pro-qty  ">
-                                                                                    <input type="text" value="1">
+                                                                            <div>
+                                                                                <div style="display: flex; flex-direction: column; align-items: center;">
+                                                                                    <div class="input-group w-75">
+                                                                                        <button
+                                                                                            class="btn btn-outline-secondary"
+                                                                                            type="button"
+                                                                                            onclick="decrementValue('{{_id}}')">-</button>
+                                                                                        <input type="number"
+                                                                                            id="{{_id}}"
+                                                                                            class="form-control"
+                                                                                            value="1" min="1" max="10">
+                                                                                        <button
+                                                                                            class="btn btn-outline-secondary"
+                                                                                            type="button"
+                                                                                            onclick="incrementValue('{{_id}}')">+</button>
+                                                                                    </div>
+
+
+
                                                                                     <button
                                                                                         onclick="addToCart('{{_id}}')"
                                                                                         class="btn btn-secondary mt-2 w-100 btn-sm p-0 ">
@@ -290,9 +306,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                {{!-- <div>
-                                                                    <a class="btn btn-secondary ">Add to cart</a>
-                                                                </div> --}}
+
                                                             </div>
 
                                                         </div>
@@ -339,6 +353,23 @@
 </section>
 <!-- Shop Section End -->
 
+<script>
+    function incrementValue(id) {
+        var inputField = document.getElementById(id);
+        var value = parseInt(inputField.value, 10);
+        value = isNaN(value) ? 1 : value;
+        value++;
+        inputField.value = value.toString();
+    }
+
+    function decrementValue(id) {
+        var inputField = document.getElementById(id);
+        var value = parseInt(inputField.value, 10);
+        value = isNaN(value) ? 1 : value;
+        value < 2 ? value = 1 : value--;
+        inputField.value = value.toString();
+    }
+</script>
 
 <!-- Js Plugins -->
 

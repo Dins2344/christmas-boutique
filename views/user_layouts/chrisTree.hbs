@@ -21,8 +21,8 @@
           <h5 class="card-title">{{Pname}}</h5>
           <p class="card-text">{{Price}}&#8377</p>
 
-          <button type="button" class="btn btn-secondary btn-rounded w-100 mb-3">Add to cart</button>
-          <button type="button" class="btn btn-secondary btn-rounded w-100 mb-3">Buy now</button>
+          <button type="button" onclick="addToCart('{{_id}}')" class="btn btn-secondary btn-rounded w-100 mb-3">Add to cart</button>
+          <button type="button" onclick="addToCart('{{_id}}',1)" class="btn btn-secondary btn-rounded w-100 mb-3">Buy now</button>
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@
             </div>
             <div class="row">
                 <p>
-                    Your order #{{lastOrder.orderId}} is in the works . we sent an email to {{userInfo.email}} with
+                    Your order <span class="text-bold">#{{lastOrder.orderId}}</span> is in the works . we sent an email to {{userInfo.email}} with
                     order receipt.
                     <a href="/my-orders">
                         View orders
@@ -102,6 +102,7 @@
         })
     }
      const generateSalesReport = (orderId, format) => {
+        console.log(orderId)
         $.ajax({
             url: '/admin/create-report',
             data: { orderId, format },

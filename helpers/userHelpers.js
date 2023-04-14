@@ -30,7 +30,6 @@ module.exports = {
     }
   },
   doSignup: (userdata, status) => {
-    console.log(userdata)
     return new Promise(async (resolve, reject) => {
       const userEmail = await db
         .get()
@@ -332,6 +331,7 @@ module.exports = {
           }
         }
       ]).toArray()
+      console.log(cartItems)
       return (cartItems)
     } catch (err) {
       return err
@@ -469,16 +469,14 @@ module.exports = {
       return err
     }
   },
-  addToOrders: (orderDetails) => {
+  addToOrders: async (orderDetails) => {
     try {
-      return new Promise((resolve, reject) => {
-        db.get()
-          .collection(collection.OrderCollection)
-          .insertOne(orderDetails)
-          .then((response) => {
-            resolve(response)
-          })
-      })
+      await db.get()
+        .collection(collection.OrderCollection)
+        .insertOne(orderDetails)
+        .then((response) => {
+          resolve(response)
+        })
     } catch (err) {
       return err
     }
@@ -492,6 +490,20 @@ module.exports = {
         .limit(limit)
         .skip((page - 1) * limit)
         .toArray()
+
+      return orders
+    } catch (err) {
+      return err
+    }
+  },
+  getAllOrders: async (id) => {
+    try {
+      const orders = await db.get()
+        .collection(collection.OrderCollection)
+        .find({ userId: id })
+        .sort({ _id: -1 })
+        .toArray()
+
       return orders
     } catch (err) {
       return err
@@ -534,6 +546,7 @@ module.exports = {
   },
   walletPay: async (orderDetails) => {
     try {
+      this.addToOrders(orderDetails)
       const userId = orderDetails.userId
       const userWallet = await db.get().collection(collection.WalletCollection).findOne({ userId: objectid(userId) })
       if (orderDetails.total <= userWallet.total) {
@@ -594,7 +607,6 @@ module.exports = {
     try {
       const refundDate = new Date().toDateString()
       const order = await db.get().collection(collection.OrderCollection).find({ orderId }).toArray()
-      console.log(order)
       if (order[0].paymentMethod === 'COD') {
         await db.get().collection(collection.OrderCollection).updateOne({ orderId },
           {
@@ -625,7 +637,7 @@ module.exports = {
   orderReturn: async (id) => {
     try {
       const refundDate = new Date().toDateString()
-      console.log(refundDate)
+
       await db.get().collection(collection.OrderCollection).updateOne({ orderId: id },
         {
           $set: {
@@ -669,7 +681,7 @@ module.exports = {
   getACoupon: async (code, userId) => {
     try {
       const coupon = await db.get().collection(collection.UserCouponCollection).findOne({ userId, couponCode: code })
-      console.log(coupon)
+
       if (coupon) {
         return coupon
       } else {

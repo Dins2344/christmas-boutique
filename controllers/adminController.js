@@ -272,7 +272,8 @@ module.exports = {
   },
   addCategoryPost: async (req, res) => {
     try {
-      const category = await adminHelpers.getCategoryByName(req.body.Cname)
+      const categoryFromBody = req.body.Cname.toLowerCase()
+      const category = await adminHelpers.getCategoryByName(categoryFromBody)
       if (category) {
         req.session.addCateErr = 'This name is already assigned to a category...!'
         res.redirect('/admin/addcategory')

@@ -160,28 +160,7 @@ function showSubmitErr () {
   const submitErr = document.getElementById('submitErr')
   submitErr.innerHTML = ''
 }
-// ADMIN SIDE COUPON MANAGEMENT AJAX
-// $(document).ready(function () {
-//   $('#dataTable').dataTable()
-// })
 
-// $('#editCoupon').submit((e) => {
-//   e.preventDefault()
-//   $.ajax({
-//     type: 'get',
-//     url: ('/admin/edit-coupon'),
-//     data: $('#editCoupon').serialize(),
-//     success:
-// (response) => {
-//   if (response.status) {
-//     location.replace('/admin/coupons')
-//   }
-// },
-//     error: (response, stat, err) => {
-//       if (err) console.log(response)
-//     }
-//   })
-// })
 function deleteConfirm (id) {
   swal({
     title: 'Are you sure?',
@@ -204,5 +183,25 @@ function deleteConfirm (id) {
     url: '/admin/delete-coupon/' + id,
     type: 'get',
     success: (response) => { if (response.status) { location.reload() } }
+  })
+}
+function logOutConfirm (id) {
+  swal({
+    title: 'Are you sure?',
+    icon: 'warning',
+    buttons: true,
+    dangerMode: true
+  }).then((value) => {
+    if (value) {
+      $.ajax({
+        url: '/logout',
+        type: 'get',
+        success: (response) => {
+          if (response.status) {
+            location.replace('/')
+          }
+        }
+      })
+    }
   })
 }

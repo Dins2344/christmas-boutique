@@ -59,7 +59,7 @@
                   <td class="border-0 align-middle">
 
                     <button onclick="updateQuantity('{{_id}}','{{cartProduct._id}}',-1)" class="a-tag" href="#" {{#if
-                      (eq quantity 1)}}hidden{{/if}}>-</button>
+                      (eq quantity 1)}}disabled{{/if}}>-</button>
                     <span id="{{cartProduct._id}}">
                       {{quantity}}
                     </span>
@@ -196,7 +196,6 @@
           await swal("Coupon applied...!");
           location.reload()
         }
-
       },
       error: (response, stat, err) => {
         console.log(response);

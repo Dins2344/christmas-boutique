@@ -33,7 +33,12 @@ function removeCoupon (id) {
   })
 }
 function addToCart (proId, buy) {
-  console.log(proId, buy)
+  // let quantity = document.getElementById(proId).value
+  // console.log(quantity)
+  // if (!quantity) {
+  //   quantity = 1
+  // }
+
   $.ajax({
     url: '/add-cart/' + proId,
     method: 'get',

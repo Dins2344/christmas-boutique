@@ -244,12 +244,11 @@ module.exports = {
         wishlistCount = wishlist.length
         itemsCount = await userHelpers.getCartItemsCount(userInfo._id)
         cartProducts = await userHelpers.getCartProducts(userInfo._id)
-
         if (cartProducts) {
           await cartCompare()
           function cartCompare () {
             for (const item of cartProducts) {
-              console.log(item) // Compare the productId field of the item to the _id field of each product in the products array
+              // Compare the productId field of the item to the _id field of each product in the products array
               for (const product of products) {
                 if (item.cartProduct._id.toString() === product._id.toString()) {
                   product.addedToCart = true
@@ -592,6 +591,7 @@ module.exports = {
     try {
       const userId = req.session.user._id
       const proId = req.params.id
+      console.log(proId)
       userHelpers.addToCart(userId, proId).then(() => {
         res.json({ status: true })
       })
@@ -607,6 +607,7 @@ module.exports = {
       const categories = await productHelpers.getCategories()
       const cartDetails = await userHelpers.getCartDetails(userInfo._id)
       const cartItems = await userHelpers.getCartProducts(userInfo._id)
+      console.log(cartItems)
       let total = 0
       for (let i = 0; i < cartItems.length; i++) {
         if (cartItems[i].cartProduct.discountPrice) {
@@ -721,7 +722,12 @@ module.exports = {
   proceedToCheckOutPost: async (req, res) => {
     try {
       const data = req.body
-      const status = data.flexRadioDefault === 'COD' ? 'placed' : 'pending'
+      let status
+      if (data.flexRadioDefault === 'COD' || data.flexRadioDefault === 'wallet') {
+        status = 'placed'
+      } else {
+        status = 'pending'
+      }
       const userInfo = req.session.user
       const cartItems = await userHelpers.getCartProducts(userInfo._id)
       req.session.addressId = data.addressId
@@ -780,23 +786,21 @@ module.exports = {
       if (cart.coupon) {
         await userHelpers.redeemCoupon(cart.coupon.couponId, userInfo._id)
       }
-      userHelpers.addToOrders(orderDetails).then(async () => {
+      if (data.flexRadioDefault !== 'wallet') { await userHelpers.addToOrders(orderDetails) }
+      // eslint-disable-next-line eqeqeq
+      if (data.flexRadioDefault == 'online payment') {
+        userHelpers.razorPay(orderDetails.orderId, orderDetails.total).then((razorOrder) => {
+          res.json({ razorOrder, status: 'online' })
+        })
         // eslint-disable-next-line eqeqeq
-        if (data.flexRadioDefault == 'online payment') {
-          userHelpers.razorPay(orderDetails.orderId, orderDetails.total).then((razorOrder) => {
-            res.json({ razorOrder, status: 'online' })
-          })
+      } else if (data.flexRadioDefault == 'COD') {
+        res.json({ status: 'COD' })
         // eslint-disable-next-line eqeqeq
-        } else if (data.flexRadioDefault == 'COD') {
-          res.json({ status: 'COD' })
-        // eslint-disable-next-line eqeqeq
-        } else if (data.flexRadioDefault == 'wallet') {
-          userHelpers.walletPay(orderDetails).then((walletNotEnough) => {
-            console.log(walletNotEnough)
-            res.json({ walletNotEnough, status: 'wallet' })
-          })
-        }
-      })
+      } else if (data.flexRadioDefault == 'wallet') {
+        userHelpers.walletPay(orderDetails).then((walletNotEnough) => {
+          res.json({ walletNotEnough, status: 'wallet' })
+        })
+      }
     } catch (err) {
       console.log(err + 'proceed to post err')
       res.status(500).render('404')
@@ -833,8 +837,9 @@ module.exports = {
         itemsCount = await userHelpers.getCartItemsCount(userInfo._id)
       }
       await userHelpers.deleteCartItems(userInfo._id)
-      const orders = await userHelpers.getOrders(userInfo._id)
+      const orders = await userHelpers.getAllOrders(userInfo._id)
       const lastOrder = orders[0]
+      console.log(orders)
       res.render('user_layouts/user_profile/orderPlaced', {
         title: 'christmas boutique',
         userInfo,
@@ -895,7 +900,7 @@ module.exports = {
   cancelOrder: async (req, res) => {
     try {
       const orderId = req.params.id
-      console.log(orderId)
+
       await userHelpers.orderCancellation(orderId)
       res.json({ status: true })
     } catch (err) {
@@ -906,7 +911,7 @@ module.exports = {
   returnOrder: async (req, res) => {
     try {
       const orderId = req.params.id
-      console.log(orderId)
+
       await userHelpers.orderReturn(orderId)
       res.json({ status: true })
     } catch (err) {
@@ -998,7 +1003,7 @@ module.exports = {
   userLogout: (req, res) => {
     try {
       req.session.user = null
-      res.redirect('/')
+      res.json({ status: true })
     } catch (err) {
       console.log(err + 'logOut err')
       res.status(500).render('404')
@@ -1040,7 +1045,7 @@ module.exports = {
     try {
       const user = req.session.user
       const couponData = req.body
-      console.log(couponData)
+
       const coupon = await userHelpers.getACoupon(couponData.couponCode, user._id)
       const totalAmount = await userHelpers.getNewTotal(user._id)
       const discountedPrice = Math.round(totalAmount - ((parseInt(coupon.discount) / 100) * totalAmount))

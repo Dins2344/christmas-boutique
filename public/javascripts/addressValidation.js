@@ -11,7 +11,7 @@ function isPinNumber (value) {
   }
 }
 function isAddress (value) {
-  if (value.match(/^[a-zA-Z0-9,]*$/)) {
+  if (value.match(/^[a-zA-Z0-9\s.,/]+$/)) {
     return true
   } else {
     return false
@@ -175,7 +175,7 @@ function addressCheckEmail () {
   const emailErr = document.getElementById('emailErr')
   let valid = false
   const min = 3
-  const max = 20
+  const max = 30
   const email = emailEl
   if (!isBlank(email)) {
     emailErr.innerHTML = 'can not be blank'

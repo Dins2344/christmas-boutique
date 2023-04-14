@@ -142,14 +142,14 @@ module.exports = {
     try {
       const minimum = parseInt(min)
       const maximum = parseInt(max)
-      console.log(minimum, maximum)
+
       const products = await db.get().collection(collection.ProCollection).find({
         Price: {
           $gte: minimum,
           $lte: maximum
         }
       }).toArray()
-      console.log(products)
+
       return products
     } catch (err) {
       return err

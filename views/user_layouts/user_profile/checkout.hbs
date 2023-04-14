@@ -328,7 +328,13 @@
                 console.log(response)
                 switch (response.status) {
                     case 'COD':
-                        await swal("Your order is placed..!");
+                        await Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Your order has been placed',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
                         location.href = '/order-placed'
                         break;
                     case 'online':
@@ -336,10 +342,14 @@
                         break;
                     case 'wallet':
                         response.walletNotEnough ? walletPayment(response.walletNotEnough) : location.href = '/order-placed'
-
                         break;
                     case 'blocked':
-                        await swal("Your account has been blocked..!");
+                        await Swal.fire({
+                            position: 'top-end',
+                            title: 'Your account has been blocked',
+                            showConfirmButton: true,
+                            
+                        })
                         location.href = '/logout'
                         break;
                 }
@@ -351,7 +361,6 @@
         })
     })
     function razorPayment(order) {
-        console.log(order.amount)
         var options = {
             "key": "rzp_test_2Nt8hWDvPKHDDI", // Enter the Key ID generated from the Dashboard
             "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
