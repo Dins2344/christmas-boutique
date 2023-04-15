@@ -1,5 +1,5 @@
 <section>
- 
+
   <div class="container d-flex justify-content-center mt-5">
 
     <div style="background-color: rgb(243, 243, 241);" class="col-7 col-md-5 mb-3 p-3 rounded-4">
@@ -8,11 +8,20 @@
           Add A Product
         </h5>
       </div>
-      <div class="mb-4"> 
-      <a style="color: black;"  href="/admin/viewproducts">
-        <i style="color: black;" class="fa fa-arrow-left" aria-hidden="true"></i> go back
-      </a>
+      <div class="mb-4">
+        <a style="color: black;" href="/admin/viewproducts">
+          <i style="color: black;" class="fa fa-arrow-left" aria-hidden="true"></i> go back
+        </a>
       </div>
+      {{#if productAdd}}
+      <script>
+        window.onload = function () {
+          addedSwal();
+        }
+      </script>
+
+
+      {{/if}}
       <form action="/admin/addproduct" method="post" enctype="multipart/form-data" novalidate>
 
         {{#if ProErr}}
@@ -65,9 +74,16 @@
         <!-- Submit button -->
         <div style="flex-direction: column;" class="d-flex justify-content-center ">
           <p id="submitErr" class="d-block text-center text-danger"></p>
-          <button onclick="return submitCheck()" type="submit" class="btn btn-primary d-block mb-4 w-100">Add product</button>
+          <button onclick="return submitCheck()" type="submit" class="btn btn-primary d-block mb-4 w-100">Add
+            product</button>
         </div>
       </form>
     </div>
   </div>
 </section>
+
+<script>
+  function addedSwal() {
+    swal("product added..!");
+  }
+</script>

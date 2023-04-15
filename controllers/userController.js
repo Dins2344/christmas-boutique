@@ -1043,7 +1043,10 @@ module.exports = {
     try {
       const user = req.session.user
       const couponData = req.body
-
+      console.log(couponData)
+      if (couponData.couponId === '') {
+        res.json({ status: false })
+      }
       const coupon = await userHelpers.getACoupon(couponData.couponCode, user._id)
       const totalAmount = await userHelpers.getNewTotal(user._id)
       const discountedPrice = Math.round(totalAmount - ((parseInt(coupon.discount) / 100) * totalAmount))

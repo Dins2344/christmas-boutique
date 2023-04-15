@@ -107,9 +107,10 @@ module.exports = {
         title: 'christmas boutique admin panel',
         adminInfo,
         categories,
-        ProErr: req.session.addProErr
+        ProErr: req.session.addProErr,
+        productAdd: req.session.addProductStatus
       })
-
+      req.session.addProductStatus = false
       req.session.addProErr = false
     } catch (err) {
       console.log(err + 'product adding err')
@@ -261,9 +262,11 @@ module.exports = {
         admin,
         title: 'christmas boutique admin panel',
         adminInfo,
-        cateErr: req.session.addCateErr
+        cateErr: req.session.addCateErr,
+        categoryAdded: req.session.categoryAdded
       })
       req.session.addCateErr = false
+      req.session.categoryAdded = false
     } catch (err) {
       console.log(err + 'admin category add err')
       res.status(500).render('404')
@@ -278,6 +281,7 @@ module.exports = {
         res.redirect('/admin/addcategory')
       } else {
         await productHelpers.addCategory(req.body)
+        req.session.categoryAdded = true
         res.redirect('/admin/addcategory')
       }
     } catch (err) {

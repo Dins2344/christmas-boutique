@@ -196,9 +196,11 @@
       url: ('/coupon-applied'),
       data: $('#couponApply').serialize(),
       success: async (response) => {
-        if (response) {
+        if (response.status) {
           await swal("Coupon applied...!");
           location.reload()
+        }else{
+          await swal("enter valid coupon code...!")
         }
       },
       error: (response, stat, err) => {

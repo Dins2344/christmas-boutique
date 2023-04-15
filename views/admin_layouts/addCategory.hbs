@@ -12,7 +12,13 @@
           <i style="color: black;" class="fa fa-arrow-left" aria-hidden="true"></i> go back
         </a>
       </div>
-
+      {{#if categoryAdded}}
+      <script>
+        window.onload = function () {
+          addedSwal();
+        }
+      </script>
+      {{/if}}
 
       <form action="/admin/addcategory" method="post">
         {{#if cateErr}}
@@ -51,3 +57,10 @@
     </div>
   </div>
 </section>
+
+
+<script>
+  function addedSwal() {
+    swal("category added..!");
+  }
+</script>
