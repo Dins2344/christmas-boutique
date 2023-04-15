@@ -1044,7 +1044,7 @@ module.exports = {
       const user = req.session.user
       const couponData = req.body
       console.log(couponData)
-      if (couponData.couponId === '') {
+      if (!couponData.couponCode) {
         res.json({ status: false })
       }
       const coupon = await userHelpers.getACoupon(couponData.couponCode, user._id)
