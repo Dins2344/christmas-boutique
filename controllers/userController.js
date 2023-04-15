@@ -102,7 +102,7 @@ module.exports = {
     try {
       const status = true
       const signUp = req.body
-      console.log(signUp)
+
       if (signUp.password === signUp.cpassword) {
         userHelpers.doSignup(req.body, status).then((userEmail) => {
           const email = userEmail
@@ -144,7 +144,6 @@ module.exports = {
           })
         })
         .catch((response) => {
-          console.log(response)
           if (response.status) {
             console.log('blocked')
             req.session.logErr = 'Your account has been blocked'
@@ -176,7 +175,6 @@ module.exports = {
       twilio.verifyOtp(number, otp).then((status) => {
         if (status.status === 'approved') {
           userHelpers.userGetting(number).then((user) => {
-            console.log(user)
             req.session.user = user
             req.session.user.loggedIn = true
             userHelpers.getWallet(req.session.user._id).then((wallet) => {
@@ -449,7 +447,7 @@ module.exports = {
       const categories = await productHelpers.getCategories()
       const userInfo = req.session.user
       let userDetails
-      console.log(userDetails)
+
       let wishlistCount
       let itemsCount
       if (userInfo) {
@@ -525,7 +523,7 @@ module.exports = {
   addNewAddress: (req, res) => {
     try {
       const address = req.query
-      console.log(address)
+
       const user = req.session.user
       userHelpers.addressAdding(user._id, address)
       res.redirect('/proceed-to-checkout')
@@ -590,9 +588,9 @@ module.exports = {
   addToCart: (req, res) => {
     try {
       const userId = req.session.user._id
-      const proId = req.params.id
-      console.log(proId)
-      userHelpers.addToCart(userId, proId).then(() => {
+      const cartData = req.body
+
+      userHelpers.addToCart(userId, cartData.proId, cartData.quantity).then(() => {
         res.json({ status: true })
       })
     } catch (err) {
@@ -607,7 +605,6 @@ module.exports = {
       const categories = await productHelpers.getCategories()
       const cartDetails = await userHelpers.getCartDetails(userInfo._id)
       const cartItems = await userHelpers.getCartProducts(userInfo._id)
-      console.log(cartItems)
       let total = 0
       for (let i = 0; i < cartItems.length; i++) {
         if (cartItems[i].cartProduct.discountPrice) {
@@ -663,7 +660,7 @@ module.exports = {
     try {
       const proId = req.params.id
       const userInfo = req.session.user
-      console.log(proId)
+
       await userHelpers.deleteOneCartItem(userInfo._id, proId)
       res.json({ status: true })
     } catch (err) {
@@ -685,7 +682,6 @@ module.exports = {
         discount = cart.discount
       } else {
         total = await userHelpers.getNewTotal(userInfo._id)
-        console.log(total)
       }
       const tax = Math.round((total / 100) * 18)
       const subTotal = total - tax
@@ -797,7 +793,10 @@ module.exports = {
         res.json({ status: 'COD' })
         // eslint-disable-next-line eqeqeq
       } else if (data.flexRadioDefault == 'wallet') {
-        userHelpers.walletPay(orderDetails).then((walletNotEnough) => {
+        userHelpers.walletPay(orderDetails).then(async (walletNotEnough) => {
+          if (!walletNotEnough) {
+            await userHelpers.addToOrders(orderDetails)
+          }
           res.json({ walletNotEnough, status: 'wallet' })
         })
       }
@@ -839,7 +838,6 @@ module.exports = {
       await userHelpers.deleteCartItems(userInfo._id)
       const orders = await userHelpers.getAllOrders(userInfo._id)
       const lastOrder = orders[0]
-      console.log(orders)
       res.render('user_layouts/user_profile/orderPlaced', {
         title: 'christmas boutique',
         userInfo,

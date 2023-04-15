@@ -1,30 +1,10 @@
-// $('#newAddress').submit((e) => {
-//   console.log('called')
-//     .e.preventDefault()
-//   $.ajax({
-//     type: 'get',
-//     url: ('/addNewAddress'),
-//     data: $('#newAddress').serialize(),
-//     success: (response) => {
-//       console.log(response)
-//       if (response.status) {
-//         location.replace('/proceed-to-checkout')
-//       }
-//     },
-//     error: (response, stat, err) => {
-//       console.log(response)
-//     }
 
-//   })
-// })
 function removeCoupon (id) {
-  console.log(id)
   $.ajax({
     url: '/remove-coupon',
     method: 'get',
     data: { id },
     success: async (response) => {
-      console.log(response)
       if (response.status) {
         await swal('Coupon removed...!')
       }
@@ -33,15 +13,16 @@ function removeCoupon (id) {
   })
 }
 function addToCart (proId, buy) {
-  // let quantity = document.getElementById(proId).value
-  // console.log(quantity)
-  // if (!quantity) {
-  //   quantity = 1
-  // }
+  let quantity = document.getElementById(proId).value
 
+  if (!quantity) {
+    quantity = 1
+  }
+  const cartData = { proId, quantity }
   $.ajax({
-    url: '/add-cart/' + proId,
-    method: 'get',
+    url: '/add-cart',
+    method: 'post',
+    data: cartData,
     success: async (response) => {
       if (response.status) {
         if (buy !== 1) {

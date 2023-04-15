@@ -59,7 +59,7 @@ router.get('/my-wishlist', sessionCheck.userSessionCheckingHome, controller.show
 router.get('/delete-wishlist/:id', controller.deleteWishlist)
 
 // add to cart methods
-router.get('/add-cart/:id', sessionCheck.userSessionCheckingHome, controller.addToCart)
+router.post('/add-cart', sessionCheck.userSessionCheckingHome, controller.addToCart)
 /* my cart get method */
 router.get('/my-cart', sessionCheck.userSessionCheckingHome, controller.showingMyCart)
 /* cart product quantity update post method */

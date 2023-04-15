@@ -103,7 +103,7 @@
                 <div class="input-group-append border-0">
                   <button onclick="removeCoupon('{{cartDetails.couponDiscount.couponId}}')" id="button-addon3"
                     type="submit" class="btn btn-dark px-4 rounded-pill"><i class="fa fa-gift mr-2"></i>Remove
-                    </button>
+                  </button>
                 </div>
               </div>
               {{else}}
@@ -119,7 +119,7 @@
                   <div class="input-group-append border-0">
                     <button id="button-addon3" class="btn btn-dark px-4 rounded-pill"><i
                         class="fa fa-gift mr-2"></i>Apply
-                      </button>
+                    </button>
                   </div>
                 </div>
                 {{/if}}
@@ -171,16 +171,20 @@
           </div>
         </div>
       </div>
-
-
-
     </div>
   </div>
 </div>
 {{else}}
-<h3>
-  please add some products to the cart
-</h3>
+<section class="h-100 w-100">
+  <div class="col-12 text-center">
+    <h3 class="mt-5">
+     Your cart is empty . Please add some products to the cart....!
+    </h3> <br>
+    <p>
+      <a href="/allproduct">Go for shopping...</a>
+    </p>
+  </div>
+</section>
 {{/if }}
 
 

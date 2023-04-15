@@ -1,64 +1,4 @@
-{{!-- <div class="d-flex justify-content-center mt-3">
-    <h3 style="font-family:Times New Roman, Times, serif; font-style: italic;">
-        Shop All
-    </h3>
-</div>
 
-
-<div class="container">
-    <dvi class="row d-flex justify-content-center">
-        {{#each products}}
-        <div class="col col-md-4 col-lg-3 col-sm-6 col-7 mt-4">
-            <div class="card text-center border border-primary shadow-0">
-                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                    {{#if wished}}
-                    <a style="position: absolute; z-index:10 ;" class="btn " onclick="delWish('{{_id}}')">
-                        <div class="">
-
-                            <img style="width:25px ;" src="/images/icons/red_heart.png">
-
-                        </div>
-                    </a>
-                    {{else}}
-                    <a style="position: absolute; z-index:10 ;" class="btn " onclick="addWish('{{_id}}')">
-                        <div class="">
-                            <img style="width:25px ;" src="/images/icons/love_heart.png">
-                        </div>
-                    </a>
-                    {{/if}}
-                    <a href="/quickview/{{_id}}" class="hover-overlay ripple"> <img src="/images/prodimg/{{_id}}.jpg"
-                            class="card-img-top img-thumbnail" /></a>
-                    <a href="/">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                    </a>
-                </div>
-
-                <div class="card-body">
-                    <h5 class="card-title">{{Pname}}</h5>
-                    {{#if discountPrice}}
-                    <p class="card-text text-muted text-decoration-line-through ">
-                        {{Price}}
-                    <p class="card-text">
-                        {{discountPrice}}&#8377
-                    </p>
-                    {{else}}
-                    <p class="card-text">
-                        {{Price}}&#8377
-                    </p>
-                    {{/if}}
-
-
-                    <button onclick="addToCart('{{_id}}')" type="button"
-                        class="btn btn-secondary btn-rounded w-100 mb-3">Add to cart</button>
-                    <button type="button" class="btn btn-secondary btn-rounded w-100 mb-3">Buy now</button>
-                </div>
-            </div>
-        </div>
-        {{/each}}
-
-    </dvi>
-
-</div> --}}
 
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-option">
@@ -259,18 +199,10 @@
                                                                 <div class="col-lg-8">
                                                                     <div class="product__details__text">
                                                                         <h4>{{Pname}}</h4>
-                                                                        {{!-- <div class="rating">
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star-o"></i>
-                                                                            <span> - 5 Reviews</span>
-                                                                        </div> --}}
+                                                                       
                                                                         <h3>{{Price}}&#8377</h3>
                                                                         <p>{{Description}}</p>
-                                                                        <div
-                                                                            class="product__details__cart__option mt-1">
+                                                                        <div class="product__details__cart__option mt-1">
                                                                             <div>
                                                                                 <div style="display: flex; flex-direction: column; align-items: center;">
                                                                                     <div class="input-group w-75">
@@ -354,21 +286,22 @@
 <!-- Shop Section End -->
 
 <script>
-    function incrementValue(id) {
-        var inputField = document.getElementById(id);
-        var value = parseInt(inputField.value, 10);
-        value = isNaN(value) ? 1 : value;
-        value++;
-        inputField.value = value.toString();
-    }
+ function incrementValue (id) {
+  const inputField = document.getElementById(id)
+  let value = parseInt(inputField.value, 10)
+  console.log(value)
+  value = isNaN(value) ? 1 : value
+  value++
+  inputField.value = value.toString()
+}
 
-    function decrementValue(id) {
-        var inputField = document.getElementById(id);
-        var value = parseInt(inputField.value, 10);
-        value = isNaN(value) ? 1 : value;
-        value < 2 ? value = 1 : value--;
-        inputField.value = value.toString();
-    }
+function decrementValue (id) {
+  const inputField = document.getElementById(id)
+  let value = parseInt(inputField.value, 10)
+  value = isNaN(value) ? 1 : value
+  value < 2 ? value = 1 : value--
+  inputField.value = value.toString()
+}
 </script>
 
 <!-- Js Plugins -->

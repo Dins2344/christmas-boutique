@@ -341,14 +341,14 @@
                         razorPayment(response.razorOrder)
                         break;
                     case 'wallet':
-                        response.walletNotEnough ? walletPayment(response.walletNotEnough) : location.href = '/order-placed'
+                        response.walletNotEnough ? walletPayment(response.walletNotEnough) : walletPaymentSuccessful()
                         break;
                     case 'blocked':
                         await Swal.fire({
                             position: 'top-end',
                             title: 'Your account has been blocked',
                             showConfirmButton: true,
-                            
+
                         })
                         location.href = '/logout'
                         break;
@@ -417,6 +417,17 @@
                 footer: '<a href="/my-wallet">Check your wallet.?</a>'
             })
         }
+    }
+
+    const walletPaymentSuccessful = async()=> {
+        await Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your order has been placed',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        location.href = '/order-placed'
     }
 
 </script>

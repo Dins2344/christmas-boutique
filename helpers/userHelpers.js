@@ -268,9 +268,10 @@ module.exports = {
     }
   },
 
-  addToCart: async (userId, ProId) => {
+  addToCart: async (userId, ProId, quantity) => {
+    quantity = parseInt(quantity)
     try {
-      const proCollection = { item: objectid(ProId), quantity: 1 }
+      const proCollection = { item: objectid(ProId), quantity }
       const userCart = await db.get()
         .collection(collection.CartCollection)
         .findOne({ userId: objectid(userId) })
@@ -280,7 +281,7 @@ module.exports = {
         if (proExists !== -1) {
           db.get().collection(collection.CartCollection).updateOne({ 'products.item': objectid(ProId) },
             {
-              $inc: { 'products.$.quantity': 1 }
+              $inc: { 'products.$.quantity': quantity }
             })
         } else {
           db.get().collection(collection.CartCollection).updateOne({ userId: objectid(userId) }, {
@@ -331,7 +332,6 @@ module.exports = {
           }
         }
       ]).toArray()
-      console.log(cartItems)
       return (cartItems)
     } catch (err) {
       return err
@@ -546,7 +546,6 @@ module.exports = {
   },
   walletPay: async (orderDetails) => {
     try {
-      this.addToOrders(orderDetails)
       const userId = orderDetails.userId
       const userWallet = await db.get().collection(collection.WalletCollection).findOne({ userId: objectid(userId) })
       if (orderDetails.total <= userWallet.total) {
@@ -561,8 +560,8 @@ module.exports = {
           }),
           date: new Date().toDateString()
         }
-        await db.get().collection(collection.WalletCollection).updateOne({ userId }, { $set: { total: newTotal } })
-        await db.get().collection(collection.WalletCollection).updateOne({ userId }, { $push: { transactions: newTransaction } })
+        await db.get().collection(collection.WalletCollection).updateOne({ userId: objectid(userId) }, { $set: { total: newTotal } })
+        await db.get().collection(collection.WalletCollection).updateOne({ userId: objectid(userId) }, { $push: { transactions: newTransaction } })
       } else {
         const insufficient = true
         return insufficient

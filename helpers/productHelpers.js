@@ -181,7 +181,6 @@ module.exports = {
   },
   getCategoryProducts: async (category, page, limit) => {
     try {
-      console.log(limit)
       const products = await db
         .get()
         .collection(collection.ProCollection)

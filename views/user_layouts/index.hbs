@@ -116,7 +116,7 @@
                     <div class="product__item__text">
                         <h6>{{Pname}}</h6>
                         <a class="add-cart">
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#{{_id}}">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#123{{_id}}">
                                 Quick View
                             </button>
                         </a>
@@ -124,7 +124,7 @@
 
 
                         <!-- Modal -->
-                        <div class="modal fade" id="{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        <div class="modal fade" id="123{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -135,104 +135,104 @@
                                     </div>
                                     <div class="modal-body">
                                         <!-- Shop Details Section Begin -->
-                                                <section class="shop-details row">
-                                                    <div class="product__details__pic col-6 mb-1">
-                                                        
-                                                            
-                                                            <div class="detail-gallery">
-                                                                
-                                                                <!-- MAIN SLIDES -->
-                                                                <div class="d-flex justify-content-center">
-                                                                    <div class="product-image-slider w-50">
-                                                                    <figure class="border-radius-10 m-0 p-0">
-                                                                        <img class=" border rounded object-fit-cover" src="{{images.image1}}" alt="product image">
-                                                                    </figure>
-                                                                    <figure class="border-radius-10 m-0 p-0">
-                                                                        <img src="{{images.image2}}" alt="product image">
-                                                                    </figure>
-                                                                    <figure class="border-radius-10 m-0 p-0">
-                                                                        <img src="{{images.image3}}" alt="product image">
-                                                                    </figure>
-                                                                    <figure class="border-radius-10 m-0 p-0">
-                                                                        <img src="{{images.image4}}" alt="product image">
-                                                                    </figure>
-                                                                    <figure class="border-radius-10 m-0 p-0">
-                                                                        <img src="{{images.image5}}" alt="product image">
-                                                                    </figure>
-                                                                </div>
-                                                                </div>
-                                                                
-                                                                <!-- THUMBNAILS -->
-                                                                <div class="slider-nav-thumbnails pl-15 pr-15">
-                                                                    <div><img src="{{images.image1}}" alt="product image"></div>
-                                                                    <div><img src="{{images.image2}}" alt="product image"></div>
-                                                                    <div><img src="{{images.image3}}" alt="product image"></div>
-                                                                    <div><img src="{{images.image4}}" alt="product image"></div>
-                                                                    <div><img src="{{images.image5}}" alt="product image"></div>
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                            <!-- End Gallery -->
-                           
-                                                       
+                                        <section class="shop-details row">
+                                            <div class="product__details__pic col-6 mb-1">
+
+
+                                                <div class="detail-gallery">
+
+                                                    <!-- MAIN SLIDES -->
+                                                    <div class="d-flex justify-content-center">
+                                                        <div class="product-image-slider w-50">
+                                                            <figure class="border-radius-10 m-0 p-0">
+                                                                <img class=" border rounded object-fit-cover"
+                                                                    src="{{images.image1}}" alt="product image">
+                                                            </figure>
+                                                            <figure class="border-radius-10 m-0 p-0">
+                                                                <img src="{{images.image2}}" alt="product image">
+                                                            </figure>
+                                                            <figure class="border-radius-10 m-0 p-0">
+                                                                <img src="{{images.image3}}" alt="product image">
+                                                            </figure>
+                                                            <figure class="border-radius-10 m-0 p-0">
+                                                                <img src="{{images.image4}}" alt="product image">
+                                                            </figure>
+                                                            <figure class="border-radius-10 m-0 p-0">
+                                                                <img src="{{images.image5}}" alt="product image">
+                                                            </figure>
+                                                        </div>
                                                     </div>
-                                                    <div class="product__details__content mt-2 col-6">
-                                                        <div class="container">
-                                                            <div class="row d-flex justify-content-center">
-                                                                <div class="col-lg-8">
-                                                                    <div class="product__details__text">
-                                                                        <h4>{{Pname}}</h4>
-                                                                        {{!-- <div class="rating">
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star-o"></i>
-                                                                            <span> - 5 Reviews</span>
-                                                                        </div> --}}
-                                                                        <h3>{{Price}}&#8377</h3>
-                                                                        <p>{{Description}}</p>
+
+                                                    <!-- THUMBNAILS -->
+                                                    <div class="slider-nav-thumbnails pl-15 pr-15">
+                                                        <div><img src="{{images.image1}}" alt="product image"></div>
+                                                        <div><img src="{{images.image2}}" alt="product image"></div>
+                                                        <div><img src="{{images.image3}}" alt="product image"></div>
+                                                        <div><img src="{{images.image4}}" alt="product image"></div>
+                                                        <div><img src="{{images.image5}}" alt="product image"></div>
+
+                                                    </div>
+                                                </div>
+                                                <!-- End Gallery -->
+
+
+                                            </div>
+                                            <div class="product__details__content mt-2 col-6">
+                                                <div class="container">
+                                                    <div class="row d-flex justify-content-center">
+                                                        <div class="col-lg-8">
+                                                            <div class="product__details__text">
+                                                                <h4>{{Pname}}</h4>
+
+                                                                <h3>{{Price}}&#8377</h3>
+                                                                <p>{{Description}}</p>
+                                                                <div class="product__details__cart__option mt-1">
+                                                                    <div>
                                                                         <div
-                                                                            class="product__details__cart__option mt-1">
-                                                                            <div class="quantity">
-                                                                                <div class="pro-qty">
-                                                                                    <input type="text" value="1">
-                                                                                    <button
-                                                                                        onclick="addToCart('{{_id}}')"
-                                                                                        class="btn btn-secondary mt-2 w-100 btn-sm p-0 ">
-                                                                                        Add to cart
-                                                                                    </button>
-                                                                                    <button
-                                                                                        onclick="addToCart('{{_id}}',1)"
-                                                                                        class="btn btn-secondary mt-2 w-100 btn-sm p-0 ">
-                                                                                        Buy Now
-                                                                                    </button>
-                                                                                </div>
+                                                                            style="display: flex; flex-direction: column; align-items: center;">
+                                                                            <div class="input-group w-75">
+                                                                                <button
+                                                                                    class="btn btn-outline-secondary"
+                                                                                    type="button"
+                                                                                    onclick="decrementValue('{{_id}}')">-</button>
+                                                                                <input type="number" id="{{_id}}"
+                                                                                    class="form-control" value="1"
+                                                                                    min="1" max="10">
+                                                                                <button
+                                                                                    class="btn btn-outline-secondary"
+                                                                                    type="button"
+                                                                                    onclick="incrementValue('{{_id}}')">+</button>
                                                                             </div>
+
+
+
+                                                                            <button onclick="addToCart('{{_id}}')"
+                                                                                class="btn btn-secondary mt-2 w-100 btn-sm p-0 ">
+                                                                                Add to cart
+                                                                            </button>
+
+                                                                            <button onclick="addToCart('{{_id}}',1)"
+                                                                                class="btn btn-secondary mt-2 w-100 btn-sm p-0 ">
+                                                                                Buy Now
+                                                                            </button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                {{!-- <div>
-                                                                    <a class="btn btn-secondary ">Add to cart</a>
-                                                                </div> --}}
                                                             </div>
-
                                                         </div>
+
                                                     </div>
-                                                </section>
-                                                <!-- Shop Details Section End -->
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <!-- Shop Details Section End -->
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
+                       
                         <h5>{{Price}}&#8377</h5>
                     </div>
                 </div>
@@ -244,17 +244,17 @@
                     <div class="product__item__pic set-bg" data-setbg="{{images.image1}}">
                         <span class="label">Hot</span>
                         <ul class="product__hover">
-                           
+
                         </ul>
                     </div>
                     <div class="product__item__text">
                         <h6>{{Pname}}</h6>
-                        <a  class="add-cart">
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#{{_id}}">
+                        <a class="add-cart">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#123{{_id}}">
                                 Quick View
                             </button>
                         </a>
-                         <div class="modal fade" id="{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        <div class="modal fade" id="123{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -265,98 +265,104 @@
                                     </div>
                                     <div class="modal-body">
                                         <!-- Shop Details Section Begin -->
-                                                <section class="shop-details row">
-                                                    <div class="product__details__pic col-6 mb-1">
-                                                        
-                                                            
-                                                            <div class="detail-gallery">
-                                                                
-                                                                <!-- MAIN SLIDES -->
-                                                                <div class="d-flex justify-content-center">
-                                                                    <div class="product-image-slider w-50">
-                                                                    <figure class="border-radius-10 m-0 p-0">
-                                                                        <img class=" border rounded object-fit-cover" src="{{images.image1}}" alt="product image">
-                                                                    </figure>
-                                                                    <figure class="border-radius-10 m-0 p-0">
-                                                                        <img src="{{images.image2}}" alt="product image">
-                                                                    </figure>
-                                                                    <figure class="border-radius-10 m-0 p-0">
-                                                                        <img src="{{images.image3}}" alt="product image">
-                                                                    </figure>
-                                                                    <figure class="border-radius-10 m-0 p-0">
-                                                                        <img src="{{images.image4}}" alt="product image">
-                                                                    </figure>
-                                                                    <figure class="border-radius-10 m-0 p-0">
-                                                                        <img src="{{images.image5}}" alt="product image">
-                                                                    </figure>
-                                                                </div>
-                                                                </div>
-                                                                
-                                                                <!-- THUMBNAILS -->
-                                                                <div class="slider-nav-thumbnails pl-15 pr-15">
-                                                                    <div><img src="{{images.image1}}" alt="product image"></div>
-                                                                    <div><img src="{{images.image2}}" alt="product image"></div>
-                                                                    <div><img src="{{images.image3}}" alt="product image"></div>
-                                                                    <div><img src="{{images.image4}}" alt="product image"></div>
-                                                                    <div><img src="{{images.image5}}" alt="product image"></div>
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                            <!-- End Gallery -->
-                           
-                                                       
+                                        <section class="shop-details row">
+                                            <div class="product__details__pic col-6 mb-1">
+
+
+                                                <div class="detail-gallery">
+
+                                                    <!-- MAIN SLIDES -->
+                                                    <div class="d-flex justify-content-center">
+                                                        <div class="product-image-slider w-50">
+                                                            <figure class="border-radius-10 m-0 p-0">
+                                                                <img class=" border rounded object-fit-cover"
+                                                                    src="{{images.image1}}" alt="product image">
+                                                            </figure>
+                                                            <figure class="border-radius-10 m-0 p-0">
+                                                                <img src="{{images.image2}}" alt="product image">
+                                                            </figure>
+                                                            <figure class="border-radius-10 m-0 p-0">
+                                                                <img src="{{images.image3}}" alt="product image">
+                                                            </figure>
+                                                            <figure class="border-radius-10 m-0 p-0">
+                                                                <img src="{{images.image4}}" alt="product image">
+                                                            </figure>
+                                                            <figure class="border-radius-10 m-0 p-0">
+                                                                <img src="{{images.image5}}" alt="product image">
+                                                            </figure>
+                                                        </div>
                                                     </div>
-                                                    <div class="product__details__content mt-2 col-6">
-                                                        <div class="container">
-                                                            <div class="row d-flex justify-content-center">
-                                                                <div class="col-lg-8">
-                                                                    <div class="product__details__text">
-                                                                        <h4>{{Pname}}</h4>
-                                                                        {{!-- <div class="rating">
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star-o"></i>
-                                                                            <span> - 5 Reviews</span>
-                                                                        </div> --}}
-                                                                        <h3>{{Price}}&#8377</h3>
-                                                                        <p>{{Description}}</p>
+
+                                                    <!-- THUMBNAILS -->
+                                                    <div class="slider-nav-thumbnails pl-15 pr-15">
+                                                        <div><img src="{{images.image1}}" alt="product image"></div>
+                                                        <div><img src="{{images.image2}}" alt="product image"></div>
+                                                        <div><img src="{{images.image3}}" alt="product image"></div>
+                                                        <div><img src="{{images.image4}}" alt="product image"></div>
+                                                        <div><img src="{{images.image5}}" alt="product image"></div>
+
+                                                    </div>
+                                                </div>
+                                                <!-- End Gallery -->
+
+
+                                            </div>
+                                            <div class="product__details__content mt-2 col-6">
+                                                <div class="container">
+                                                    <div class="row d-flex justify-content-center">
+                                                        <div class="col-lg-8">
+                                                            <div class="product__details__text">
+                                                                <h4>{{Pname}}</h4>
+
+                                                                <h3>{{Price}}&#8377</h3>
+                                                                <p>{{Description}}</p>
+                                                                <div class="product__details__cart__option mt-1">
+                                                                    <div>
                                                                         <div
-                                                                            class="product__details__cart__option mt-1">
-                                                                            <div class="quantity">
-                                                                                <div class="pro-qty  ">
-                                                                                    <input type="text" value="1">
-                                                                                    <button
-                                                                                        onclick="addToCart('{{_id}}')"
-                                                                                        class="btn btn-secondary mt-2 w-100 btn-sm p-0 ">
-                                                                                        Add to cart
-                                                                                    </button>
-                                                                                    <button
-                                                                                        onclick="addToCart('{{_id}}',1)"
-                                                                                        class="btn btn-secondary mt-2 w-100 btn-sm p-0 ">
-                                                                                        Buy Now
-                                                                                    </button>
-                                                                                </div>
+                                                                            style="display: flex; flex-direction: column; align-items: center;">
+                                                                            <div class="input-group w-75">
+                                                                                <button
+                                                                                    class="btn btn-outline-secondary"
+                                                                                    type="button"
+                                                                                    onclick="decrementValue('{{_id}}')">-</button>
+                                                                                <input type="number" id="{{_id}}"
+                                                                                    class="form-control" value="1"
+                                                                                    min="1" max="10">
+                                                                                <button
+                                                                                    class="btn btn-outline-secondary"
+                                                                                    type="button"
+                                                                                    onclick="incrementValue('{{_id}}')">+</button>
                                                                             </div>
+
+
+
+                                                                            <button onclick="addToCart('{{_id}}')"
+                                                                                class="btn btn-secondary mt-2 w-100 btn-sm p-0 ">
+                                                                                Add to cart
+                                                                            </button>
+
+                                                                            <button onclick="addToCart('{{_id}}',1)"
+                                                                                class="btn btn-secondary mt-2 w-100 btn-sm p-0 ">
+                                                                                Buy Now
+                                                                            </button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                {{!-- <div>
-                                                                    <a class="btn btn-secondary ">Add to cart</a>
-                                                                </div> --}}
                                                             </div>
-
                                                         </div>
+                                                       
                                                     </div>
-                                                </section>
-                                                <!-- Shop Details Section End -->
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                       
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
-                       
+
                         <h5>{{Price}}&#8377</h5>
 
                     </div>
@@ -419,6 +425,22 @@
 
 
 <script>
+    function incrementValue (id) {
+  const inputField = document.getElementById(id)
+  let value = parseInt(inputField.value, 10)
+  value = isNaN(value) ? 1 : value
+  console.log(value)
+  value++
+  inputField.value = value.toString()
+}
+
+function decrementValue (id) {
+  const inputField = document.getElementById(id)
+  let value = parseInt(inputField.value, 10)
+  value = isNaN(value) ? 1 : value
+  value < 2 ? value = 1 : value--
+  inputField.value = value.toString()
+}
     const quickView = (id) => {
         console.log(id)
         $.ajax({
@@ -446,14 +468,14 @@
 <script src="userJs/owl.carousel.min.js"></script>
 <script src="userJs/main.js"></script>
 
-{{!-- eva js plugins  --}}
- <script src="evaraJs/plugins/wow.js"></script>
-    <script src="evaraJs/plugins/select2.min.js"></script>
-    <script src="evaraJs/plugins/counterup.js"></script>
-    <script src="evaraJs/plugins/images-loaded.js"></script>
-    <script src="evaraJs/plugins/scrollup.js"></script>
-    <script src="evaraJs/plugins/slick.js"></script>
-    <script src="evaraJs/plugins/jquery.elevatezoom.js"></script>
-    <!-- Template  JS -->
-    <script src="evaraJs/main.js"></script>
-    <script src="evaraJs/shop.js"></script>
+{{!-- eva js plugins --}}
+<script src="evaraJs/plugins/wow.js"></script>
+<script src="evaraJs/plugins/select2.min.js"></script>
+<script src="evaraJs/plugins/counterup.js"></script>
+<script src="evaraJs/plugins/images-loaded.js"></script>
+<script src="evaraJs/plugins/scrollup.js"></script>
+<script src="evaraJs/plugins/slick.js"></script>
+<script src="evaraJs/plugins/jquery.elevatezoom.js"></script>
+<!-- Template  JS -->
+<script src="evaraJs/main.js"></script>
+<script src="evaraJs/shop.js"></script>

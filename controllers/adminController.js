@@ -90,7 +90,7 @@ module.exports = {
         OnlinePayment: await adminHelpers.getOPOrdersCount(),
         wallet: await adminHelpers.getWalletOrdersCount()
       }
-      console.log(orderDetails, paymentDetails)
+
       const data = { monthlySales, visitorsCount, productSold, orderDetails, paymentDetails }
       res.status(200).json(data)
     } catch (err) {
@@ -190,7 +190,6 @@ module.exports = {
     try {
       const images = req.files.map(file => file.path)
       const id = req.params.id
-      console.log(id)
 
       productHelpers.changeProduct(req.params.id, req.body, images).then(() => {
         res.redirect('/admin/viewproducts')
@@ -478,7 +477,7 @@ module.exports = {
   offerPageShow: async (req, res) => {
     try {
       const categories = await productHelpers.getCategories()
-      const products = await productHelpers.getAllProducts()
+      const products = await productHelpers.getProducts()
       const adminInfo = req.session.admin
       const offeredProducts = await productHelpers.getOfferedProducts()
       res.render('admin_layouts/viewOfferPage', {
@@ -515,9 +514,9 @@ module.exports = {
   },
   addProductOffer: async (req, res) => {
     try {
-      const data = req.query
+      const data = req.body
       await adminHelpers.addProductOffer(data.product, parseInt(data.discount))
-      res.redirect('/admin/add-product-offer')
+      res.json({ status: true })
     } catch (err) {
       console.log(err + 'product offer adding err')
       res.status(500).render('404')

@@ -20,7 +20,7 @@
         <div class="card-body">
           <h5 class="card-title">{{Pname}}</h5>
           <p class="card-text">{{Price}}&#8377</p>
-
+          <input type="number" id="{{_id}}" class="form-control" value="1" hidden>
           <button type="button" onclick="addToCart('{{_id}}')" class="btn btn-secondary btn-rounded w-100 mb-3">Add to cart</button>
           <button type="button" onclick="addToCart('{{_id}}',1)" class="btn btn-secondary btn-rounded w-100 mb-3">Buy now</button>
         </div>

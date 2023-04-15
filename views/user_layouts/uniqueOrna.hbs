@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center mt-3">
-<h3 style="font-family:Times New Roman, Times, serif; font-style: italic;">
-  Unique ornaments
-</h3>
+  <h3 style="font-family:Times New Roman, Times, serif; font-style: italic;">
+    Unique ornaments
+  </h3>
 </div>
 
 
@@ -10,19 +10,11 @@
     {{#each products}}
     <div class="col col-md-4 col-lg-3 col-sm-6 col-7 mt-4">
       <div class="card text-center border border-primary shadow-0">
-        <div
-          class="bg-image hover-overlay ripple"
-          data-mdb-ripple-color="light"
-        > 
-            <a href="/quickview/{{_id}}" class="hover-overlay ripple"> <img
-            src="{{images.image1}}"
-            class="card-img-top img-thumbnail"
-          /></a>
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <a href="/quickview/{{_id}}" class="hover-overlay ripple"> <img src="{{images.image1}}"
+              class="card-img-top img-thumbnail" /></a>
           <a href="/">
-            <div
-              class="mask"
-              style="background-color: rgba(251, 251, 251, 0.15)"
-            ></div>
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
           </a>
         </div>
 
@@ -31,16 +23,18 @@
           <p class="card-text">
             {{Price}}&#8377
           </p>
-
-          <button type="button" onclick="addToCart('{{_id}}')" class="btn btn-secondary btn-rounded w-100 mb-3">Add to cart</button>
-          <button type="button" onclick="addToCart('{{_id}}',1)" class="btn btn-secondary btn-rounded w-100 mb-3">Buy now</button>
+          <input type="number" id="{{_id}}" class="form-control" value="1" hidden>
+          <button type="button" onclick="addToCart('{{_id}}')" class="btn btn-secondary btn-rounded w-100 mb-3">Add to
+            cart</button>
+          <button type="button" onclick="addToCart('{{_id}}',1)" class="btn btn-secondary btn-rounded w-100 mb-3">Buy
+            now</button>
         </div>
       </div>
     </div>
     {{/each}}
 
   </dvi>
-   <div class="row">
+  <div class="row">
     <div class="col-lg-12">
       <div class="product__pagination">
         {{#each maxPage}}

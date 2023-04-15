@@ -155,8 +155,7 @@
       <h4>
         Product offer
       </h4>
-      <form action="/admin/product-offer-create" id="editCoupon" class="bg-white p-4 rounded-4">
-
+      <form  id="productOffer" class="bg-white p-4 rounded-4">
         <div class="form-group px-3">
           <div class="d-flex justify-content-between row">
             <label for="selectedPro">Select Product:</label>
@@ -234,6 +233,27 @@
 <script src="/adminJs/main.js"></script>
 
 <script>
+   $('#productOffer').submit((e) => {
+    e.preventDefault()
+    $.ajax({
+      type: 'POST',
+      url: ('/admin/product-offer-create'),
+      data: $('#productOffer').serialize(),
+      success:
+        (response) => {
+          if (response.status) {
+           swal("Successfully Added Product Offer", "you can see the details below", "success").then(()=>{
+
+            location.reload()
+           })
+          }
+        },
+      error:
+        (response, stat, err) => {
+          if (err) console.log(response)
+        }
+    })
+  })
   function confirmRemove(id) {
     swal("Are you sure you want to remove this?", {
       buttons: ["NO", "YES"],

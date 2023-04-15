@@ -9,9 +9,7 @@ module.exports = {
     try {
       const adminUsername = process.env.ADMIN_USER_NAME
       const adminPassword = process.env.ADMIN_PASSWORD
-      console.log(adminUsername, adminPassword)
-      console.log('called') // eslint-disable-next-line no-async-promise-executor
-      console.log(adminData)
+
       // eslint-disable-next-line no-async-promise-executor
       return new Promise(async (resolve, reject) => {
         if (adminUsername === adminData.Uname) {
@@ -494,7 +492,7 @@ module.exports = {
         }
       })
       const total = await db.get().collection(collection.OrderCollection).findOne({ orderId: id }, { projection: { total: 1, userId: 1, _id: 0 } })
-      const userId = total.userId
+      const userId = objectid(total.userId)
       const wallet = {
         userId,
         total: total.total,

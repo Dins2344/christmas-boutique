@@ -162,7 +162,7 @@
             </li>
             </div> --}}
             
-            <li><a href="./contact.html">Contact Us</a></li>
+            
             
               <li><a class="dropdown-toggle" type="buton" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
               <ul class="dropdown-menu">
@@ -189,7 +189,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/userinfo">Profile Settings</a></li>
             <li><a class="dropdown-item" href="/my-orders">My Orders</a></li>
-            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            <li><a class="dropdown-item btn" onclick="logOutConfirm('{{userInfo._id}}')">Logout</a></li>
           </ul>
 
           <a href="/my-wishlist" class="btn m-0">
